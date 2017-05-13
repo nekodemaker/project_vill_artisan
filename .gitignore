@@ -5,3 +5,4 @@
 /composer.phar
 /cache
 !/cache/twig/.gitkeep
+/node_modules
