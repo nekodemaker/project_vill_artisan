@@ -15,7 +15,7 @@ routes:
     deleteComment: 'Comment:deleteComment'
 defaut_route: 'home'
 db_config:
-    name: 'blog_project'
+    name: 'vill_artisan'
     host: 'localhost'
     user: 'root'
     pass: ''
