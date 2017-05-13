@@ -1,0 +1,36 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<h1>Hello {{ name }} !</h1>
+ <div id="main">
+ {% for article in articles %}
+    <article>
+        <header>
+            <h1><a href="" title="">{{ article.title_article }}</a></h1>
+            <form name="show-profile-form" class="show-profile-form" method="POST" action="?action=showProfile">
+                <input type="hidden" name="author-name" value={{ article.author_article }}>
+                <div class="showProfileLink">Publié par <cite>{{article.author_article}}</cite></div>
+            </form> le <time datetime="2012-03-30T13:37:00Z" pubdate="pubdate">{{ article.date_article }}</time>
+            {% if name is defined and name is not empty %}
+               <a href="?action=editArticle&idarticle={{article.id}}">Editer l'article</a>
+            {% endif %}
+            </header>
+            <figure>
+                {% if article.picture_article == "nothing" %}
+                <img src="web/img/fairytailteam.png" alt="" />
+                {% else %}
+                <img src={{article.picture_article}} alt="" />
+                {% endif %}
+                <figcaption></figcaption>
+            </figure>
+            <div class="content">
+               <p>{{ article.text_article }}</p>
+            </div>
+            <footer>
+            <a href="?action=showArticle&id_article={{article.id}}" class="show-article">Voir l'article</a>
+            </footer>
+        </article>
+{% endfor %}
+    </div>
+    {% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+        <div id="article">
+            {% if article is defined and article is not empty %}
+            <div>
+                <span class="text">titre de l'article :</span> {{article.title_article}}<br/>
+                <span class="text">Texte de l'article :</span> {{article.text_article}}<br/>
+                <span class="text">Date de l'article :</span> {{article.date_article}}<br/><br/>
+            </div>
+            {% endif %}
+        </div>
+    <div id="form">
+        <div id="blockForm">
+            <h3>Edit Article</h3>
+            <form name="edit-article-form" id="edit-article-form" method="POST">
+                <input type="hidden" name="id-article" value={{article.id}}>
+                <input type="text" name="title-article" placeholder="Title"><br>
+                <input type="text" name="text-article" placeholder="Article text"><br>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+ <div id="form">
+        <div id="blockForm">
+            <h3>Create Article</h3>
+            <form name="create-article-form" method="POST" enctype="multipart/form-data">
+                <input type="text" name="title-article" placeholder="Title"><br>
+                <input type="text" name="text-article" placeholder="Article text"><br>
+                <label for="article-pic">Image de l'article (tous formats | max. 1 Mo) :</label><br />
+                <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                <input type="file" name="article-pic" id="article-pic" /><br />
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}

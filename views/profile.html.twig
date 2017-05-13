@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div id="profile">
+        <span id="title">PROFILE DE {{profileToShow[0]}}</span><br/>
+        <span class="text">Son adresse mail :</span> {{profileToShow[1]}}<br/>
+        <span class="text">Sa photo de profil :</span><br/>
+        <img src={{profilepic}} alt="">
+        <br/>
+    </div>
+{% endblock %}
