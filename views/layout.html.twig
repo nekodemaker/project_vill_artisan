@@ -16,29 +16,43 @@
     <script src="web/script.js"></script>
 </head>
 <body>
-
     <header class="navbar navbar-light navbar-toggleable-md bd-navbar">
         <nav class="container">
-
-
-            <div class="d-flex justify-content-between hidden-lg-up">
+            <div class="hidden-lg-up">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <img src="web/assets/img/fa-navicon.png" alt="">
                 </button>
-                <a class="navbar-brand" href="?action=home">
-                    Vill'Artisan
+                <a class="brand" href="?action=home">
+                    VILL' ARTISAN
+                </a>
+                <a class="login_button">
+                    <img src="web/assets/img/login.png" alt="login_button">
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="bd-main-nav">
                 <ul class="nav navbar-nav">
-                    <li class="icon-location">Home</li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link active" href="?action=home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link " href="#">Actualités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link " href="#">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="#">Connection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="#">À propos</a>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
-        <div id="main_container">
-            {% block content %}{% endblock %}
-        </div>
+    <div id="main_container">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
