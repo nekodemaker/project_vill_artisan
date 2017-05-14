@@ -87,19 +87,16 @@ html {
           display: flex;
           flex-direction: column;
           margin: auto;
-          width: 70%;
-          height: 100%; }
+          width: 70%; }
           html body #main_container #map_container .content_container p {
             margin-top: 30px; }
           html body #main_container #map_container .content_container #select_container {
             margin: 10px 0 10px 0; }
-            html body #main_container #map_container .content_container #select_container div {
-              display: flex;
-              justify-content: space-between;
+            html body #main_container #map_container .content_container #select_container .dropdown {
               margin-bottom: 10px; }
-              html body #main_container #map_container .content_container #select_container div select {
-                border: 0;
-                border-radius: 3px;
-                background-color: #ebebeb; }
+        html body #main_container #map_container #map {
+          width: 100%;
+          height: 90%;
+          margin: 30px 0 30px 0; }
 
 /*# sourceMappingURL=style.css.map */

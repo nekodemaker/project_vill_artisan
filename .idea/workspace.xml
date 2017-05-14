@@ -2,30 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10e68775-a811-4138-bfa0-82629a7c1b3e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-Black.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-BlackItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-Bold.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-BoldItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-Light.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-LightItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-Medium.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-MediumItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-Regular.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-RegularItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-Thin.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/Brandon text/HVD Fonts - BrandonText-ThinItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-Black.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-BlackItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-Bold.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-BoldItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-Light.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-LightItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-Medium.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-MediumItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-Regular.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-RegularItalic.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-Thin.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/assets/fonts/Brandon_text/__MACOSX/Brandon text/._HVD Fonts - BrandonText-ThinItalic.otf" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/img/marker.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/img/marker2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/assets/arrondissement.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/coord.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/map_script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/markers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.html.twig" afterPath="$PROJECT_DIR$/views/home.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.html.twig" afterPath="$PROJECT_DIR$/views/layout.html.twig" />
@@ -49,8 +31,8 @@
       <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state relative-caret-position="253">
+              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -59,8 +41,8 @@
       <file leaf-file-name="home.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/home.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="18" column="37" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="37" />
+            <state relative-caret-position="159">
+              <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -69,8 +51,8 @@
       <file leaf-file-name="style.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/style.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="146" column="30" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
+            <state relative-caret-position="587">
+              <caret line="148" column="48" lean-forward="false" selection-start-line="148" selection-start-column="48" selection-end-line="148" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -97,6 +79,7 @@
         <option value="$PROJECT_DIR$/web/style.sass" />
         <option value="$USER_HOME$/Desktop/SidebarTransitions/SidebarTransitions/index.html" />
         <option value="$PROJECT_DIR$/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/web/map_script.js" />
         <option value="$PROJECT_DIR$/views/home.html.twig" />
         <option value="$PROJECT_DIR$/web/style.scss" />
       </list>
@@ -195,33 +178,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project_vill_artisan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="project_vill_artisan" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Proxima nova" />
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -279,7 +236,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../project_village_n_you" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../map" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -287,6 +244,8 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\GitHub\project_vill_artisan\web\assets" />
+      <recent name="C:\wamp64\www\GitHub\project_vill_artisan\web\assets\img" />
+      <recent name="C:\wamp64\www\GitHub\project_vill_artisan\web" />
       <recent name="C:\wamp64\www\GitHub\project_vill_artisan\web\assets\fonts" />
     </key>
   </component>
@@ -383,12 +342,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494681677789</updated>
-      <workItem from="1494681678969" duration="19003000" />
+      <workItem from="1494681678969" duration="21602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19003000" />
+    <option name="totallyTimeSpent" value="21602000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -686,26 +645,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/coord.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="18" column="37" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="37" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/assets/arrondissement.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/markers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1494068170852" expanded="true" signature="192:240" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/map_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="47" lean-forward="false" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+          <folding>
+            <marker date="1494782133798" expanded="true" signature="4202:4229" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        <state relative-caret-position="253">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="30" column="36" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="146" column="30" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
+        <state relative-caret-position="587">
+          <caret line="148" column="48" lean-forward="false" selection-start-line="148" selection-start-column="48" selection-end-line="148" selection-end-column="48" />
           <folding />
         </state>
       </provider>

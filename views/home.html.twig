@@ -17,46 +17,69 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Earum maiores, voluptatem. Cupiditate, non, tempore.</p>
             <div id="select_container">
-                <div>
-                    <label for="mode">MODE</label>
-                    <select id="mode">
-                        <option value="costumier">Costumier</option>
-                        <option value="joillier">Joillier</option>
-                        <option value="maroquinier">Maroquinier</option>
-                        <option value="cordonnier">Cordonnier</option>
-                    </select>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        MODE
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Costumier</a>
+                        <a class="dropdown-item" href="#">Joillier</a>
+                        <a class="dropdown-item" href="#">Maroquinier</a>
+                        <a class="dropdown-item" href="#">Cordonnier</a>
+                    </div>
                 </div>
-                <div>
-                    <label for="fabrication">FABRICATION</label>
-                    <select id="fabrication">
-                        <option value="potier">Potier</option>
-                        <option value="ébéniste">Ébéniste</option>
-                        <option value="luthier">Luthier</option>
-                        <option value="sculpteur">Sculpteur</option>
-                        <option value="tapissier">Tapissier</option>
-                        <option value="forgeron">Forgeron</option>
-                        <option value="charpentier">Charpentier</option>
-                    </select>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        FABRICATION
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Potier</a>
+                        <a class="dropdown-item" href="#">Ébéniste</a>
+                        <a class="dropdown-item" href="#">Luthier</a>
+                        <a class="dropdown-item" href="#">Sculpteur</a>
+                        <a class="dropdown-item" href="#">Tapissier</a>
+                        <a class="dropdown-item" href="#">Forgeron</a>
+                        <a class="dropdown-item" href="#">Charpentier</a>
+                    </div>
                 </div>
-                <div>
-                    <label for="alimentaire">ALIMENTAIRE</label>
-                    <select id="alimentaire">
-                        <option value="boucher">Boucher</option>
-                        <option value="boulanger">Boulanger</option>
-                        <option value="chocolatier">Chocolatier</option>
-                        <option value="glacier">Glacier</option>
-                    </select>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ALIMENTAIRE
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Boucher</a>
+                        <a class="dropdown-item" href="#">Boulanger</a>
+                        <a class="dropdown-item" href="#">Chocolatier</a>
+                        <a class="dropdown-item" href="#">Glacier</a>
+                    </div>
                 </div>
-                <div>
-                    <label for="art">ART</label>
-                    <select id="art">
-                        <option value="peintre">Peintre</option>
-                        <option value="fleuriste">Fleuriste</option>
-                        <option value="photographe">Photographe</option>
-                    </select>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ART
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Peintre</a>
+                        <a class="dropdown-item" href="#">Fleuriste</a>
+                        <a class="dropdown-item" href="#">Photographe</a>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="map"></div>
+        <div class="content_container">
+            <h5>BLog</h5>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Earum maiores, voluptatem. Cupiditate, non, tempore. Deleniti doloribus ex harum
+                iusto praesentium quasi qui vero vitae. Adipisci corporis eius error molestiae quo.</p>
+            <img src="web/assets/img/fa-angle-down.png" alt="arrow_scroll_action">
+        </div>
     </div>
 </div>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCeiRXtmq_b1VExUhW4eInm5yFGw5a0tXg&libraries=drawing&callback=initMap">
+</script>
+<script src="web/markers.js" type="text/javascript"></script>
+<script src="web/map_script.js" type="text/javascript"></script>
 {% endblock %}
