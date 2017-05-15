@@ -2,17 +2,19 @@
 
 {% block content %}
 <div id="home_container">
-    <div id="project_presentation_container">
+    <div id="welcome_container">
         <div class="content_container">
             <h4>Bienvenue sur<br> Vill'artisan</h4>
             <hr>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Earum maiores, voluptatem. Cupiditate, non, tempore. Deleniti doloribus ex harum
                 iusto praesentium quasi qui vero vitae. Adipisci corporis eius error molestiae quo.</p>
-            <img src="web/assets/img/fa-angle-down.png" alt="arrow_scroll_action">
+            <a href="#project_container">
+                <img class="arrow_slide_down" src="web/assets/img/fa-angle-down.png" alt="arrow_scroll_action">
+            </a>
         </div>
     </div>
-    <div id="map_container">
+    <div id="project_container">
         <div class="content_container">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Earum maiores, voluptatem. Cupiditate, non, tempore.</p>
@@ -149,18 +151,24 @@
         <div class="content_container">
             <h4>Adhésion</h4>
             <hr>
-            <h3>Villageois</h3>
-            <img src="web/assets/img/villageois.png" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae eligendi,
-                enim esse fugiat incidunt, iure laboriosam,laborum necessitatibus nisi nobis
-                pariatur perferendis saepe sunt temporibus. Cum laborum quibusdam repellat.</p>
-            <a href="#"><span>INSCRIVEZ-VOUS</span></a>
-            <h3>Villageois</h3>
-            <img src="web/assets/img/boucher.png" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae eligendi,
-                enim esse fugiat incidunt, iure laboriosam,laborum necessitatibus nisi nobis
-                pariatur perferendis saepe sunt temporibus. Cum laborum quibusdam repellat.</p>
-            <a href="#"><span>INSCRIVEZ-VOUS</span></a>
+            <div class="row">
+                <div class="col-12 col-sm-5 ">
+                    <h3>Villageois</h3>
+                    <img src="web/assets/img/villageois.png" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae eligendi,
+                        enim esse fugiat incidunt, iure laboriosam,laborum necessitatibus nisi nobis
+                        pariatur perferendis saepe sunt temporibus. Cum laborum quibusdam repellat.</p>
+                    <a href="#"><span>INSCRIVEZ-VOUS</span></a>
+                </div>
+                <div class="col-12 col-sm-5 offset-sm-2">
+                    <h3>Artisan</h3>
+                    <img src="web/assets/img/boucher.png" alt="">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A beatae eligendi,
+                        enim esse fugiat incidunt, iure laboriosam,laborum necessitatibus nisi nobis
+                        pariatur perferendis saepe sunt temporibus. Cum laborum quibusdam repellat.</p>
+                    <a href="#"><span>INSCRIVEZ-VOUS</span></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
