@@ -1,4 +1,5 @@
 $brown: #422c1f;
+$brownlight: #b27d61;
 $red: #8e3e3d;
 $gold: #d3ae68;
 $grey: #343539;
@@ -91,6 +92,16 @@ html{
                         }
                     }
                 }
+                .navbar-collapse{
+                    .navbar-nav{
+                        padding: 15px 0 15px 0;
+
+                        li{
+                            text-align: center;
+                            font-family: 'Brandon_text-Bold';
+                        }
+                    }
+                }
             }
         }
         #main_container{
@@ -112,7 +123,7 @@ html{
                         align-items: center;
                         height: 95%;
 
-                        h5{
+                        h4{
                             margin-top: 30px;
                             font-family: 'Brandon_text-Medium';
                             text-align: center;
@@ -160,7 +171,7 @@ html{
                     @include content_container;
                     align-items: center;
 
-                    h5{
+                    h4{
                         margin-top: 30px;
                         font-family: 'Brandon_text-Medium';
                         text-align: center;
@@ -216,7 +227,7 @@ html{
                                 h4{
                                     color: $red;
                                 }
-                                p, h5, a{
+                                p, h4, a{
                                     color: $grey;
                                 }
                             }
@@ -234,16 +245,38 @@ html{
                     }
                 }
                 .content_container{
-                    @include content_container;
-                    align-items: center;
-
                     .row{
-                        .col{
-                            width: 40%;
-                            height: 100px;
-                            background-color: $white;
-                            border-radius: 3px;
+                        width: 100%;
+
+                        div{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 0;
+
+                            img{
+                                width: 95%;
+                                height: 95%;
+                            }
                         }
+                    }
+                }
+                .content_container{
+                    h3{
+                        color: $brownlight;
+                        font-family: 'filsonProBold';
+                    }
+                    a{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 50px;
+                        margin-bottom: 30px;
+                        color: $white;
+                        font-family: 'Brandon_text-Medium';
+                        font-size: 18px;
+                        background-color: $red;
                     }
                 }
             }
