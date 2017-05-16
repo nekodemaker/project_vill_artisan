@@ -1,5 +1,87 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<div id="register_container">
+    <div class="col_preview">
+        <h4>Inscription</h4>
+        <hr>
 
+        <div class="row">
+            <div class="col-12 col-lg-6 offset-lg-3">
+                <form name="form-register-visitor" id="form-register-visitor" method='post' action='index.php?action=register'>
+                    <input type="hidden" id="user-type" name="user-type" value="villager">
+                    <label for id="lastname">Votre nom:</label>
+                    <input type="text" id="lastname" name="lastname">
+                    <label for id="firstname">Votre prénom:</label>
+                    <input type="text" id="firstname" name="firstname">
+                    <label for id="passw">Votre mot de passe:</label>
+                    <input type="password" id="passw" name="passw"><br/>
+                    <label for id="mail">Votre email:</label>
+                    <input type="email" id="mail" name="mail">
+                    <label for id="adress">Votre Adresse:</label>
+                    <input type="text" id="adress" name="adress">
+                    <label for id="postcode">Code postal:</label>
+                    <input type="text" id="postcode" name="postcode">
+
+                    <p>Veuillez selectionner un village :</p>
+
+                    <!-- TODO responsive select on dropdown -->
+
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Vos villages
+                        </button>
+                        <div id='village-user' name="village-user" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Louvre / CHâtelet-les-halles</a>
+                            <a class="dropdown-item" href="#">Opéra / Vendôme</a>
+                            <a class="dropdown-item" href="#">Grands-Boulevards</a>
+                            <a class="dropdown-item" href="#">Arts et métiers</a>
+                            <a class="dropdown-item" href="#">Saint Victor / Jardins des Plantes</a>
+                            <a class="dropdown-item" href="#">Sorbonne / Val de Grâce</a>
+                            <a class="dropdown-item" href="#">Odéon / Notre-Dames des champs</a>
+                            <a class="dropdown-item" href="#">Saint-Germain-des-prés / Monnaie</a>
+                            <a class="dropdown-item" href="#">Invalides / Saint Thomas D'Aquin</a>
+                            <a class="dropdown-item" href="#">Gros Caillou / École militaire</a>
+                            <a class="dropdown-item" href="#">Champs-Elysées</a>
+                            <a class="dropdown-item" href="#">Europe / Madeleine</a>
+                            <a class="dropdown-item" href="#">Saint Georges / Rochechouart</a>
+                            <a class="dropdown-item" href="#">Saint Vincent de Paul</a>
+                            <a class="dropdown-item" href="#">Hôpital saint Louis</a>
+                            <a class="dropdown-item" href="#">Folie-Méricourt / Sainte Ambroise</a>
+                            <a class="dropdown-item" href="#">Roquette</a>
+                            <a class="dropdown-item" href="#">Quinze-vingts</a>
+                            <a class="dropdown-item" href="#">Picpus / Bel-air</a>
+                            <a class="dropdown-item" href="#">Bercy</a>
+                            <a class="dropdown-item" href="#">Quartier de la Gare</a>
+                            <a class="dropdown-item" href="#">Maison Blanche</a>
+                            <a class="dropdown-item" href="#">Salpêtrière / Croulebarbe</a>
+                            <a class="dropdown-item" href="#">Montparnasse</a>
+                            <a class="dropdown-item" href="#">Petit-Montrouge</a>
+                            <a class="dropdown-item" href="#">Plaisance</a>
+                            <a class="dropdown-item" href="#">Saint Lambert</a>
+                            <a class="dropdown-item" href="#">Grenade / Javel</a>
+                            <a class="dropdown-item" href="#">Auteil</a>
+                            <a class="dropdown-item" href="#">La Muette</a>
+                            <a class="dropdown-item" href="#">Ternes / Plaine Monceau</a>
+                            <a class="dropdown-item" href="#">Batignoles</a>
+                            <a class="dropdown-item" href="#">Clignancourt</a>
+                            <a class="dropdown-item" href="#">Montmartre</a>
+                            <a class="dropdown-item" href="#">Goutte d'Or / La Chapelle</a>
+                            <a class="dropdown-item" href="#">La Vilette</a>
+                            <a class="dropdown-item" href="#">Combat / Amérique</a>
+                            <a class="dropdown-item" href="#">Belleville / Père Lachaise</a>
+                            <a class="dropdown-item" href="#">Saint Fargeau</a>
+                            <a class="dropdown-item" href="#">Charonne / Maraichers</a>
+                        </div>
+                    </div>
+
+                    <input class="submit_button" type="submit" value="Envoyer">
+                </form>
+            </div>
+            <div class="col-12 col-lg-6 offset-lg-3">
+
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
