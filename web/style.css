@@ -76,6 +76,7 @@ html body header .container .navbar-collapse .navbar-nav li {
   text-align: center;
   font-family: 'Brandon_text-Bold';
   font-size: 18px;
+  margin: 0 15px 0 15px;
 }
 html body #main_container {
   display: flex;
@@ -100,7 +101,7 @@ html body #main_container #home_container #welcome_container .content_container 
   height: 95%;
 }
 html body #main_container #home_container #welcome_container .content_container h4 {
-  margin-top: 30px;
+  margin-top: 40px;
   font-family: 'Brandon_text-Medium';
   text-align: center;
   color: #f8f8f8;
@@ -110,6 +111,7 @@ html body #main_container #home_container #welcome_container .content_container 
   background-color: #f8f8f8;
 }
 html body #main_container #home_container #welcome_container .content_container p {
+  margin: 20px 0 20px 0;
   color: #f8f8f8;
 }
 html body #main_container #home_container #welcome_container .content_container a {
@@ -125,7 +127,7 @@ html body #main_container #project_container .content_container {
   width: 70%;
 }
 html body #main_container #project_container .content_container p {
-  margin-top: 30px;
+  margin: 40px 0 20px 0;
 }
 html body #main_container #project_container .content_container #select_container {
   display: flex;
@@ -159,6 +161,7 @@ html body #main_container #project_container .blog_preview hr {
   background-color: #343539;
 }
 html body #main_container #project_container .blog_preview p {
+  margin: 20px 0 20px 0;
   color: #343539;
 }
 html body #main_container #project_container .blog_preview .row {
@@ -309,7 +312,7 @@ html body #main_container #project_container .content_container .row .col-12 .su
   -webkit-transform-origin: center top;
   -moz-transform-origin: center top;
   -ms-transform-origin: center top;
-  transition: all .1s ease-out;
+  transition: all .15s ease-out;
   -webkit-transition: all .15s ease-out;
   -moz-transition: all .15s ease-out;
 }
@@ -318,6 +321,52 @@ html body #main_container #project_container .content_container .row .col-12 .su
   -webkit-transform: scale(1, 1);
   -moz-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
+}
+html body #main_container #blog_container {
+  height: auto;
+}
+html body #main_container #blog_container .blog_preview {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+  align-items: center;
+}
+html body #main_container #blog_container .blog_preview h4 {
+  margin-top: 30px;
+  font-family: 'Brandon_text-Medium';
+  text-align: center;
+  color: #d3ae68;
+}
+html body #main_container #blog_container .blog_preview hr {
+  width: 30%;
+  background-color: #343539;
+}
+html body #main_container #blog_container .blog_preview p {
+  margin: 20px 0 20px 0;
+  color: #343539;
+}
+html body #main_container #blog_container .blog_preview .row {
+  margin: 0 0 40px 0;
+}
+html body #main_container #blog_container .blog_preview .row .col-12 {
+  height: 530px;
+  border: 10px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+html body #main_container #blog_container .blog_preview .row .col-12 .carousel-caption {
+  text-align: left;
+}
+html body #main_container #blog_container .blog_preview .row .col-12 .carousel-caption h4 {
+  text-align: left;
+  color: #8e3e3d;
+}
+html body #main_container #blog_container .blog_preview .row .col-12 .carousel-caption p, html body #main_container #blog_container .blog_preview .row .col-12 .carousel-caption h5, html body #main_container #blog_container .blog_preview .row .col-12 .carousel-caption a {
+  color: #343539;
 }
 html body footer {
   width: 100%;
@@ -373,7 +422,7 @@ html body footer #footer_content #copyright p {
   }
 
   html body header .container {
-    padding-left: 22%;
+    padding-left: 21%;
   }
   html body #main_container #home_container #welcome_container {
     height: 90vh;

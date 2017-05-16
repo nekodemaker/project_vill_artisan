@@ -100,6 +100,7 @@ html{
                             text-align: center;
                             font-family: 'Brandon_text-Bold';
                             font-size: 18px;
+                            margin: 0 15px 0 15px;
                         }
                     }
                 }
@@ -125,7 +126,7 @@ html{
                         height: 95%;
 
                         h4{
-                            margin-top: 30px;
+                            margin-top: 40px;
                             font-family: 'Brandon_text-Medium';
                             text-align: center;
                             color: $white;
@@ -137,6 +138,7 @@ html{
                         }
 
                         p{
+                            margin: 20px 0 20px 0;
                             color: $white;
                         }
 
@@ -153,7 +155,7 @@ html{
                     @include content_container;
 
                     p{
-                        margin-top: 30px;
+                        margin: 40px 0 20px 0;
                     }
                     #select_container{
                         display: flex;
@@ -188,6 +190,7 @@ html{
                     }
 
                     p{
+                        margin: 20px 0 20px 0;
                         color: $grey;
                     }
                     .row{
@@ -379,6 +382,56 @@ html{
                     }
                 }
             }
+            #blog_container{
+                height: auto;
+
+                .blog_preview{
+                    @include content_container;
+                    align-items: center;
+
+                    h4{
+                        margin-top: 30px;
+                        font-family: 'Brandon_text-Medium';
+                        text-align: center;
+                        color: $gold;
+                    }
+
+                    hr{
+                        width: 30%;
+                        background-color: $grey;
+                    }
+
+                    p{
+                        margin: 20px 0 20px 0;
+                        color: $grey;
+                    }
+                    .row{
+                        margin: 0 0 40px 0;
+
+                        .col-12{
+                            height: 530px;
+                            border: 10px solid #fff;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            padding: 10px;
+                            background-color: $white;
+
+                            .carousel-caption{
+                                text-align: left;
+
+                                h4{
+                                    text-align: left;
+                                    color: $red;
+                                }
+                                p, h5, a{
+                                    color: $grey;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         footer{
             width: 100%;
@@ -444,7 +497,7 @@ html{
         body{
             header{
                 .container{
-                    padding-left: 22%;
+                    padding-left: 21%;
                 }
             }
             #main_container{

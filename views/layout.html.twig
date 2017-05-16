@@ -32,20 +32,30 @@
 
             <div class="collapse navbar-collapse" id="bd-main-nav">
                 <ul class="nav navbar-nav">
+                    <!--TODO add active class in JS on redirection-->
                     <li class="nav-item">
-                        <a class="nav-item nav-link active" href="?action=home">Accueil</a>
+                        <a class="nav-item nav-link" href="?action=home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link " href="#">Actualités</a>
+                        <a class="nav-item nav-link " href="?action=blog">BLog</a>
+                    </li>
+                    {% if name is defined and name is not empty %}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link " href="?action=register">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link " href="#">Inscription</a>
+                        <a class="nav-item nav-link" href="?action=login">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link " href="?action=register">Inscription</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="#">Connection</a>
+                        <a class="nav-item nav-link" href="?action=login">Connection</a>
                     </li>
+                    {% endif %}
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="#">À propos</a>
+                        <a class="nav-item nav-link" href="?action=about">À propos</a>
                     </li>
                 </ul>
             </div>
