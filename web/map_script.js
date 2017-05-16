@@ -69,7 +69,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: paris,
         zoom: 13,
-        minzoom: 12,
+        scrollwheel: false,
         styles: /*#here copy your style*/ [
             {
                 "featureType": "all",

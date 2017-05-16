@@ -146,5 +146,13 @@ window.onload = function () {
         submitOnDeleteComment();
     if (formEditArticle != undefined)
         submitOnEditArticle();
+
 };
 
+$(document).on('click', '.arrow_slide_down_button', function(event){
+    event.preventDefault();
+
+    $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+});

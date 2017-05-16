@@ -71,8 +71,8 @@ html{
                         border: 0;
 
                         img{
-                            width: 26px;
-                            height: 20px;
+                            width: 28px;
+                            height: 25px;
                         }
                     }
 
@@ -99,22 +99,23 @@ html{
                         li{
                             text-align: center;
                             font-family: 'Brandon_text-Bold';
+                            font-size: 18px;
                         }
                     }
                 }
             }
         }
         #main_container{
+            display: flex;
+            flex-direction: column;
             width: 100%;
-            height: 100vh;
 
             #home_container{
                 width: inherit;
-                height: inherit;
 
-                #project_presentation_container{
+                #welcome_container{
                     width: inherit;
-                    height: 92%;
+                    height: 92vh;
                     background-image: url("assets/img/Rectangle.png");
                     background-size: 100% 100%;
 
@@ -139,14 +140,14 @@ html{
                             color: $white;
                         }
 
-                        img{
+                        a{
                             margin-top: auto;
                         }
                     }
                 }
             }
-            #map_container{
-                height: inherit;
+            #project_container{
+                height: 100%;
 
                 .content_container{
                     @include content_container;
@@ -155,20 +156,23 @@ html{
                         margin-top: 30px;
                     }
                     #select_container{
+                        display: flex;
+                        flex-wrap: wrap;
                         margin: 10px 0 10px 0;
 
                         .dropdown{
-                            margin-bottom: 10px;
+                            margin: 10px 10px 10px 10px;
                         }
                     }
                 }
                 #map{
                     width: 100%;
-                    height: 80%;
+                    height: 80vh;
                     margin: 30px 0 30px 0;
                 }
-                .content_container{
+                .blog_preview{
                     @include content_container;
+                    width: 55%;
                     align-items: center;
 
                     h4{
@@ -186,10 +190,35 @@ html{
                     p{
                         color: $grey;
                     }
+                    .row{
+                        height: 490px;
+
+                        .col-4{
+                            border: 10px solid #fff;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+
+                            padding: 10px;
+                            background-color: $white;
+
+                            .carousel-caption{
+                                text-align: left;
+
+                                h4{
+                                    text-align: left;
+                                    color: $red;
+                                }
+                                p, h5, a{
+                                    color: $grey;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .carousel{
-                    margin-bottom: 20px;
+                    margin: 0 auto 20px auto;
                     max-width: 500px;
                     max-height: 450px;
                     background-color: $white;
@@ -202,11 +231,11 @@ html{
                             border-radius: 50%;
                             max-width: 10px;
                             height: 10px;
-                            border: 1px solid $brown;
+                            border: 1px solid $grey;
                         }
 
                         li.active{
-                            background-color: $brown;
+                            background-color: $grey;
                         }
                     }
 
@@ -227,7 +256,7 @@ html{
                                 h4{
                                     color: $red;
                                 }
-                                p, h4, a{
+                                p, h5, a{
                                     color: $grey;
                                 }
                             }
@@ -245,6 +274,18 @@ html{
                     }
                 }
                 .content_container{
+                    h4{
+                        margin-top: 30px;
+                        font-family: 'Brandon_text-Medium';
+                        text-align: center;
+                        color: $gold;
+                    }
+
+                    hr{
+                        width: 30%;
+                        background-color: $grey;
+                    }
+
                     .row{
                         width: 100%;
 
@@ -262,21 +303,155 @@ html{
                     }
                 }
                 .content_container{
-                    h3{
-                        color: $brownlight;
-                        font-family: 'filsonProBold';
+
+                    .row{
+                        margin: 20px 0 60px 0;
+
+                        .col-12{
+                            display: flex;
+                            flex-direction: column;
+
+                            h3{
+                                color: $brownlight;
+                                font-family: 'filsonProBold';
+                            }
+                            img{
+                                width: 30%;
+                                height: auto;
+                            }
+                            .submit_button {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                width: 100%;
+                                height: 50px;
+                                margin: 0 auto 30px 0;
+                                color: $white;
+                                font-family: 'Brandon_text-Medium';
+                                font-size: 18px;
+                                background-color: $red;
+                                border: 2px solid $red;
+                                text-align:center;
+                                text-decoration: none;
+                                overflow:hidden;
+                                position:relative;
+                                line-height:40px;
+                            }
+                            .submit_button span {
+                                position:relative;
+                                transition:color .1s ease-out;
+                                -webkit-transition:color .2s ease-out;
+                                -moz-transition:color .2s ease-out;
+                            }
+                            .submit_button:hover span {
+                                color:$red;
+                            }
+                            .submit_button .hover {
+                                position:absolute;
+                                top:0;
+                                left:0;
+                                display:flex;
+                                justify-content: center;
+                                align-items: center;
+                                width:100%;
+                                height:100%;
+                                background:$white;
+                                border:1px solid transparent;
+                                transform:scale(1,0);
+                                -webkit-transform:scale(1,0);
+                                -moz-transform:scale(1,0);
+                                -ms-transform:scale(1,0);
+                                transform-origin:center top;
+                                -webkit-transform-origin:center top;
+                                -moz-transform-origin:center top;
+                                -ms-transform-origin:center top;
+                                transition:all .15s ease-out;
+                                -webkit-transition:all .15s ease-out;
+                                -moz-transition:all .15s ease-out;
+                            }
+                            .submit_button:hover .hover {
+                                transform:scale(1,1);
+                                -webkit-transform:scale(1,1);
+                                -moz-transform:scale(1,1);
+                                -ms-transform:scale(1,1);
+                            }
+                        }
                     }
-                    a{
+                }
+            }
+        }
+        footer{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: $grey;
+
+            #footer_content{
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .row{
+                    width: 100%;
+                    margin: 20px 0 20px 0;
+
+                    div{
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        width: 100%;
-                        height: 50px;
-                        margin-bottom: 30px;
+                        padding: 0;
+
+                        a{
+                            width: 50%;
+                            color: $white;
+                            text-align: center;
+                            padding: 5px 0 5px 0;
+                        }
+                    }
+                }
+                .brand{
+                    font-family: 'Brandon_text-Bold';
+                    color: $white;
+                    font-size: 22px;
+                    margin: 30px 0 30px 0;
+                    padding: 10px;
+                    border: 2px solid $white;
+                }
+                #copyright{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 15px;
+
+                    p{
                         color: $white;
-                        font-family: 'Brandon_text-Medium';
-                        font-size: 18px;
-                        background-color: $red;
+                        font-size: 12px;
+                        font-family: 'montserrat';
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .content_container{
+        width: 55% !important;
+    }
+
+    html{
+        body{
+            header{
+                .container{
+                    padding-left: 22%;
+                }
+            }
+            #main_container{
+
+                #home_container{
+                    #welcome_container{
+                        height: 90vh;
                     }
                 }
             }
