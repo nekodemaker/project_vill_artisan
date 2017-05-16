@@ -29,4 +29,11 @@ class DefaultController extends BaseController
         echo $this->renderView('blog.html.twig',
         []);
     }
+
+        public function aboutAction()
+    {
+        
+        echo $this->renderView('about.html.twig',
+        []);
+    }
 }
