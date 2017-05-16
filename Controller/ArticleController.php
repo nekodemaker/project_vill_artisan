@@ -34,28 +34,8 @@ class ArticleController extends BaseController
     {
         
         $error = '';
-        if ($_SERVER['REQUEST_METHOD'] === 'GET')
-        {
-            $manager = ArticleManager::getInstance();
-            if ($manager->articleCheck($_GET['id_article']))
-            {
-                $managerComment=CommentManager::getInstance();
-                $commentsToShow = $managerComment->getComments($_GET['id_article']);
-                $articleToShow=$manager->getArticle($_GET['id_article']);
-                
-                if(!empty($_SESSION['username'])){
-                    echo $this->renderView('article.html.twig', ['articleToShow' => $articleToShow,'name' => $_SESSION['username'],'commentsToShow' => $commentsToShow]);
-                }else{
-                    echo $this->renderView('article.html.twig', ['articleToShow' => $articleToShow,'commentsToShow' => $commentsToShow]);
-                }
-            }
-            else {
-                $error = "That article doesn't exist";
-                echo $this->renderView('article.html.twig', ['error' => $error]);
-            }
-        }else{
-            $error = "Not POST";
-        }
+        echo $this->renderView('article.html.twig', []);
+
     }
     
     public function editArticleAction()

@@ -1,6 +1,7 @@
 routes:
     home: 'Default:home'
     about: 'Default:about'
+    blog : 'Default:blog'
     login: 'Security:login'
     logout: 'Security:logout'
     register: 'Security:register'

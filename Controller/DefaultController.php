@@ -16,11 +16,17 @@ class DefaultController extends BaseController
             $manager = UserManager::getInstance();
             $user = $manager->getUserById($_SESSION['user_id']);
             echo $this->renderView('home.html.twig',
-                                   ['name' => $user['username'],'articles' => $articles]);
+            ['name' => $user['username'],'articles' => $articles]);
         }
         else
             echo $this->renderView('home.html.twig',
-                                   ['articles' => $articles]);
+        ['articles' => $articles]);
     }
-
+    
+    public function blogAction()
+    {
+        
+        echo $this->renderView('blog.html.twig',
+        []);
+    }
 }
