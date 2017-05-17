@@ -548,6 +548,7 @@ html{
 
                 .col_preview{
                     @include content_container;
+                    width: 95%;
                     align-items: center;
                     .row{
                         margin: 40px 0 40px 0;
@@ -674,6 +675,12 @@ html{
                 #home_container{
                     #welcome_container{
                         height: 90vh;
+                    }
+                }
+                #article_container{
+
+                    .col_preview{
+                        @include content_container;
                     }
                 }
             }

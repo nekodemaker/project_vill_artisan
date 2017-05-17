@@ -575,6 +575,7 @@ html body #main_container #article_container .col_preview {
   flex-direction: column;
   margin: auto;
   width: 70%;
+  width: 95%;
   align-items: center;
 }
 html body #main_container #article_container .col_preview .row {
@@ -678,6 +679,12 @@ html body footer #footer_content #copyright p {
   }
   html body #main_container #home_container #welcome_container {
     height: 90vh;
+  }
+  html body #main_container #article_container .col_preview {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70%;
   }
 }
 
