@@ -14,7 +14,7 @@ class SecurityController extends BaseController
             $manager = UserManager::getInstance();
             if ($manager->userCheckLogin($_POST))
             {
-                $manager->userLogin($_POST['username']);
+                $manager->userLogin($_POST['mail']);
                 $this->redirect('home');
             }
             else {
