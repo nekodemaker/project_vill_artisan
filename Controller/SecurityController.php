@@ -48,14 +48,13 @@ class SecurityController extends BaseController
         echo $this->renderView('register.html.twig', ['error' => $error]);
     }
     
-    public function editProfileAction()
+    public function profileAction()
     {
         $error = '';
         if(!empty($_SESSION['user_id'])){
             $manager = UserManager::getInstance();
-            $user=$manager->userGetProfile($_SESSION['username']);
-            $profile_pic=$manager->getUserProfilePic($_SESSION['username']);
-            echo $this->renderView('profile_edit.html.twig', ['name' => $_SESSION['username'],'user' => $user,'profilepic' => $profile_pic]);
+            $user=$manager->userGetProfile($_SESSION['user_id']);
+            echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user]);
         }else{
             $this->redirect('home');
         }
@@ -100,30 +99,6 @@ class SecurityController extends BaseController
     
     public function showProfileAction()
     {
-        
-        $error = '';
-        if ($_SERVER['REQUEST_METHOD'] === 'POST')
-        {
-            $manager = UserManager::getInstance();
-            if ($manager->userProfileCheck($_POST['author-name']))
-            {
-                $user=$manager->userGetProfile($_POST['author-name']);
-                $profileToShow=[$user['username'],$user['email']];
-                $profile_pic=$manager->getUserProfilePic($user['username']);
-
-                if(!empty($_SESSION['username'])){
-                    echo $this->renderView('profile.html.twig', ['profileToShow' => $profileToShow,'name' => $_SESSION['username'],'profilepic' => $profile_pic]);
-                }else{
-                    echo $this->renderView('profile.html.twig', ['profileToShow' => $profileToShow,'profilepic' => $profile_pic]);
-                }
-            }
-            else {
-                $error = "That profile doesn't exist";
-                echo $this->renderView('profile.html.twig', ['error' => $error]);
-            }
-        }else{
-            $error = "Not POST";
-        }
     }
 
         public function artisanProfileAction()

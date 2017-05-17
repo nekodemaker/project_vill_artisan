@@ -192,8 +192,8 @@ class UserManager
         return true;
     }
     
-    public function userGetProfile($username)
+    public function userGetProfile($id)
     {
-        return $this->getUserByUsername($username);
+        return $this->getUserById($id);
     }
 }
