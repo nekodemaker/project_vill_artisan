@@ -1,102 +1,202 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="container">
-<br>
-<br>
-	<div class="row" id="main">
-        <div class="col-md-4 well" id="leftPanel">
-            <div class="row">
-                <div class="col-md-12">
-                	<div>
-        				<img src="{{user.pic}}" alt="no picture" class="img-circle img-thumbnail">
-        				<h2>{{user.lastname}} {{user.firstname}}</h2>
-        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        				tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-warning">
-                                Social</button>
-                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                <span class="caret"></span><span class="sr-only">Social</span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
-                                <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Github</a></li>
-                            </ul>
+<div id="profile_container">
+    <div class="container">
+        <div class="row" id="main">
+            <div class="col-xl-4 well" id="leftPanel">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile_infos">
+                            <!--<img src="{{user.pic}}" alt="no picture" class="img-circle img-thumbnail">-->
+                            <img src="web/assets/img/villageois2.png" alt="no picture" class="img-circle img-thumbnail"><br> <!-- faut garder cette images par défaut -->
+                            <label class="btn btn-primary">
+                                Changer&hellip;
+                                <input type="file" style="display: none;">
+                            </label>
+                            <h2>{{user.lastname}} {{user.firstname}}</h2>
+                            <h4>Villageois</h4> <!-- status -->
                         </div>
-        			</div>
-        		</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-8 well" id="rightPanel">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form role="form">
+                            <h3>Editer votre profil :</h3>
+                            <hr class="colorgraph">
+                            <h5>Changer d'adresse email :</h5>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <!--<div class="form-group">
+                                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="{{user.firstname}}" tabindex="1">
+                                    </div>-->
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="{{user.mail}}" tabindex="4">
+                                    </div>
+                                </div>
+                                <!--<div class="col-xs-12 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="{{user.lastname}}" tabindex="2">
+                                    </div>
+                                </div>-->
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <h5>Changer d'adresse :</h5>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <input type="text" name="adress" id="adress" class="form-control input-lg" placeholder="adresse" tabindex="4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <h5>Changer de code postal :</h5>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <input type="text" name="postal_code" id="postal_code" class="form-control input-lg" placeholder="code postal" tabindex="4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <h5>Changer de village(s) :</h5>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <select id='village-user' name="village-user" >
+                                                    <option>Louvre / CHâtelet-les-halles</option>
+                                                    <option>Opéra / Vendôme</option>
+                                                    <option>Grands-Boulevards</option>
+                                                    <option>Arts et métiers</option>
+                                                    <option>Saint Victor / Jardins des Plantes</option>
+                                                    <option>Sorbonne / Val de Grâce</option>
+                                                    <option>Odéon / Notre-Dames des champs</option>
+                                                    <option>Saint-Germain-des-prés / Monnaie</option>
+                                                    <option>Invalides / Saint Thomas D'Aquin</option>
+                                                    <option>Gros Caillou / École militaire</option>
+                                                    <option>Champs-Elysées</option>
+                                                    <option>Europe / Madeleine</option>
+                                                    <option>Saint Georges / Rochechouart</option>
+                                                    <option>Saint Vincent de Paul</option>
+                                                    <option>Hôpital saint Louis</option>
+                                                    <option>Folie-Méricourt / Sainte Ambroise</option>
+                                                    <option>Roquette</option>
+                                                    <option>Quinze-vingts</option>
+                                                    <option>Picpus / Bel-air</option>
+                                                    <option>Bercy</option>
+                                                    <option>Quartier de la Gare</option>
+                                                    <option>Maison Blanche</option>
+                                                    <option>Salpêtrière / Croulebarbe</option>
+                                                    <option>Montparnasse</option>
+                                                    <option>Petit-Montrouge</option>
+                                                    <option>Plaisance</option>
+                                                    <option>Saint Lambert</option>
+                                                    <option>Grenade / Javel</option>
+                                                    <option>Auteil</option>
+                                                    <option>La Muette</option>
+                                                    <option>Ternes / Plaine Monceau</option>
+                                                    <option>Batignoles</option>
+                                                    <option>Clignancourt</option>
+                                                    <option>Montmartre</option>
+                                                    <option>Goutte d'Or / La Chapelle</option>
+                                                    <option>La Vilette</option>
+                                                    <option>Combat / Amérique</option>
+                                                    <option>Belleville / Père Lachaise</option>
+                                                    <option>Saint Fargeau</option>
+                                                    <option>Charonne / Maraichers</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                    <h5>Ajouter un autre village :</h5>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <select id='village-user' name="village-user" >
+                                                    <option>Louvre / CHâtelet-les-halles</option>
+                                                    <option>Opéra / Vendôme</option>
+                                                    <option>Grands-Boulevards</option>
+                                                    <option>Arts et métiers</option>
+                                                    <option>Saint Victor / Jardins des Plantes</option>
+                                                    <option>Sorbonne / Val de Grâce</option>
+                                                    <option>Odéon / Notre-Dames des champs</option>
+                                                    <option>Saint-Germain-des-prés / Monnaie</option>
+                                                    <option>Invalides / Saint Thomas D'Aquin</option>
+                                                    <option>Gros Caillou / École militaire</option>
+                                                    <option>Champs-Elysées</option>
+                                                    <option>Europe / Madeleine</option>
+                                                    <option>Saint Georges / Rochechouart</option>
+                                                    <option>Saint Vincent de Paul</option>
+                                                    <option>Hôpital saint Louis</option>
+                                                    <option>Folie-Méricourt / Sainte Ambroise</option>
+                                                    <option>Roquette</option>
+                                                    <option>Quinze-vingts</option>
+                                                    <option>Picpus / Bel-air</option>
+                                                    <option>Bercy</option>
+                                                    <option>Quartier de la Gare</option>
+                                                    <option>Maison Blanche</option>
+                                                    <option>Salpêtrière / Croulebarbe</option>
+                                                    <option>Montparnasse</option>
+                                                    <option>Petit-Montrouge</option>
+                                                    <option>Plaisance</option>
+                                                    <option>Saint Lambert</option>
+                                                    <option>Grenade / Javel</option>
+                                                    <option>Auteil</option>
+                                                    <option>La Muette</option>
+                                                    <option>Ternes / Plaine Monceau</option>
+                                                    <option>Batignoles</option>
+                                                    <option>Clignancourt</option>
+                                                    <option>Montmartre</option>
+                                                    <option>Goutte d'Or / La Chapelle</option>
+                                                    <option>La Vilette</option>
+                                                    <option>Combat / Amérique</option>
+                                                    <option>Belleville / Père Lachaise</option>
+                                                    <option>Saint Fargeau</option>
+                                                    <option>Charonne / Maraichers</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <h5>Changer de mot de passe :</h5>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" class="form-control input-lg"  value="change password" tabindex="5">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="confirm password"  tabindex="6">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="colorgraph">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6"></div>
+                                <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Éditer</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-8 well" id="rightPanel">
-            <div class="row">
-    <div class="col-md-12">
-    	<form role="form">
-			<h2>Edit your profile.<small>It's always easy</small></h2>
-			<hr class="colorgraph">
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="{{user.firstname}}" tabindex="1">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="{{user.lastname}}" tabindex="2">
-					</div>
-				</div>
-			</div>
-			<div class="form-group">
-				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="{{user.mail}}" tabindex="4">
-			</div>
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-						<input type="password" name="password" id="password" class="form-control input-lg"  value="{{user.password}}" tabindex="5">
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6 col-md-6">
-					<div class="form-group">
-						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="confirm password"  tabindex="6">
-					</div>
-				</div>
-			</div>
-			<hr class="colorgraph">
-			<div class="row">
-				<div class="col-xs-12 col-md-6"></div>
-				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Save</a></div>
-			</div>
-		</form>
-	</div>
+    </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				<h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
-			</div>
-			<div class="modal-body">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
-			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 </div>
-        </div>
-     </div>       
-</div>
+
 {% endblock %}

@@ -570,6 +570,33 @@ html body #main_container #login_container .col_preview .row .col-12 form .submi
 html body #main_container #login_container .col_preview .row .col-12 form input[type='submit'] {
   cursor: pointer;
 }
+html body #main_container #profile_container {
+  padding: 40px 0 40px 0;
+}
+html body #main_container #profile_container .container .row .col-md-12 .profile_infos .btn {
+  margin: 10px 0 0 0;
+  width: 130px;
+  background-color: #8e3e3d;
+  border: 1px solid #8e3e3d;
+  cursor: pointer;
+}
+html body #main_container #profile_container .container .row .col-md-12 .profile_infos h2 {
+  margin: 15px 0 10px 0;
+}
+html body #main_container #profile_container .container .row .col-md-12 .profile_infos h4 {
+  color: #8e3e3d;
+  margin: 0 0 50px 0;
+}
+html body #main_container #profile_container .container .row .col-md-12 div select {
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
 html body #main_container #article_container .col_preview {
   display: flex;
   flex-direction: column;
