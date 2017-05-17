@@ -125,4 +125,10 @@ class SecurityController extends BaseController
             $error = "Not POST";
         }
     }
+
+        public function artisanProfileAction()
+    {
+        $error = '';
+        echo $this->renderView('artisan_profile.html.twig', []);
+    }
 }
