@@ -25,15 +25,25 @@ class DefaultController extends BaseController
     
     public function blogAction()
     {
+        if (!empty($_SESSION['user_id'])){
+            echo $this->renderView('blog.html.twig',
+            ['name'=>$_SESSION['lastname'],'firstname'=>$_SESSION['lastname']]);
+        }else{
+            echo $this->renderView('blog.html.twig',
+            []);
+        }
         
-        echo $this->renderView('blog.html.twig',
-        []);
     }
-
-        public function aboutAction()
+    
+    public function aboutAction()
     {
         
-        echo $this->renderView('about.html.twig',
-        []);
+        if (!empty($_SESSION['user_id'])){
+            echo $this->renderView('about.html.twig',
+            ['name'=>$_SESSION['lastname']]);
+        }else{
+            echo $this->renderView('about.html.twig',
+            []);
+        }
     }
 }
