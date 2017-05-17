@@ -110,12 +110,12 @@ class UserManager
     public function userCheckLogin($data)
     {
         
-        if (empty($data['username']) OR empty($data['password']))
+        if (empty($data['mail']) OR empty($data['passw']))
             return false;
-        $user = $this->getUserByUsername($data['username']);
+        $user = $this->getUserByMail($data['mail']);
         if ($user === false)
             return false;
-        $hash = $this->userHash($data['password']);
+        $hash = $this->userHash($data['passw']);
         if ($hash !== $user['password'])
         {
             return false;
@@ -123,13 +123,14 @@ class UserManager
         return true;
     }
     
-    public function userLogin($username)
+    public function userLogin($mail)
     {
-        $data = $this->getUserByUsername($username);
+        $data = $this->getUserByMail($mail);
         if ($data === false)
             return false;
         $_SESSION['user_id'] = $data['id'];
-        $_SESSION['username'] = $data['username'];
+        $_SESSION['firstname'] = $data['firstname'];
+        $_SESSION['lastname'] = $data['lastname'];
         return true;
     }
     
