@@ -18,54 +18,98 @@ class UserManager
         $this->DBManager = DBManager::getInstance();
     }
     
+    /*function which returns the user data with id on parameters*/
     public function getUserById($id)
     {
         $id = (int)$id;
-        $data = $this->DBManager->findOne("SELECT * FROM users WHERE id = ".$id);
+        $data = $this->DBManager->findOne("SELECT * FROM user WHERE id = ".$id);
         return $data;
     }
     
-    public function getUserByUsername($username)
+    /*function which returns the user data with mail on parameters*/
+    public function getUserByMail($mail)
     {
-        $data = $this->DBManager->findOneSecure("SELECT * FROM users WHERE username = :username",
-        ['username' => $username]);
+        $data = $this->DBManager->findOneSecure("SELECT * FROM user WHERE mail = :mail",[
+        'mail'=>$mail,
+        ]);
         return $data;
     }
     
+    /*function which returns true if $email exists in database, return true, else false */
+    public function isMailExists($email)
+    {
+        $data = $this->DBManager->findAllSecure("SELECT * FROM user WHERE mail = :mail",
+        ['mail' => $email,]);
+        if(count($data)!=0){
+            return true;
+        }
+        return false;
+    }
+    
+    /*function which returns the user data with lastname and firstname data on parameters*/
+    public function getUserByLastnameFirstname($lastname,$firstname)
+    {
+        $data = $this->DBManager->findAllSecure("SELECT * FROM user WHERE lastname = :lastname and firstname = :firstname",
+        ['lastname' => $lastname,'firstname' => $firstname]);
+        return $data;
+    }
+    
+    /*function tests empty inputs, if user lastname/firstname already exists and if mail already exists  */
     public function userCheckRegister($data)
     {
-        if (empty($data['username']) OR empty($data['email']) OR empty($data['password']))
+        if (empty($data['user-type']) OR empty($data['lastname']) OR empty($data['firstname']) OR empty($data['passw']) OR
+        empty($data['mail']) OR empty($data['adress']) OR empty($data['postcode']) OR empty($data['village-user'])){
+            $_SESSION['error']="1";
             return false;
-        $data = $this->getUserByUsername($data['username']);
-        if ($data !== false)
+        }
+        
+        $dataUser=$this->getUserByLastnameFirstname($data['lastname'],$data['firstname']);
+        if (count($dataUser) !=0 ){
+            $_SESSION['error']="user already exists";
             return false;
-        // TODO : Check valid email
+        }
+        
+        
+        if($this->isMailExists($data['mail'])){
+            $_SESSION['error']="mail error";
+            return false;
+        }
+        
         return true;
     }
     
+    /*function which returns the crypted password */
     private function userHash($pass)
     {
         $hash = password_hash($pass, PASSWORD_BCRYPT, ['salt' => 'saltysaltysaltysalty!!']);
         return $hash;
     }
     
+    /*function which put the users data on database (on table user) */
     public function userRegister($data)
     {
-        $query="insert into `users`(`username`,`password`,`email`)values(:username,:password,:mail)";
+        $query="insert into `user`(`user_type`,`lastname`,`firstname`,`password`,`mail`,`adress`,`postcode`,`user_village`,`user_interet`,`user_pic`)values(:usertype,:lastname,:firstname,:password,:mail,:adress,:postcode,:village,:interet,:pic)";
         $d=([
-        'username'=> $data['username'],
-        'password'=> $this->userHash($data['password']),
-        'mail'=> $data['email'],
+        'usertype'=> $data['user-type'],
+        'lastname'=> $data['lastname'],
+        'firstname'=> $data['firstname'],
+        'password'=> $this->userHash($data['passw']),
+        'mail'=> $data['mail'],
+        'adress'=> $data['adress'],
+        'postcode'=> $data['postcode'],
+        'village'=> $data['village-user'],
+        'interet'=> "",
+        'pic'=> "/web",
         ]);
         $this->DBManager->do_query_db($query,$d);
-        mkdir("users/".$data['username']);
-        mkdir("users/".$data['username']."/profile_pic");
-        copy("users/default_pic.png","users/".$data['username']."/profile_pic/".$data['username'].".png");
+        mkdir("users/".$data['firstname'].$data['lastname']);
+        mkdir("users/".$data['firstname'].$data['lastname']."/profile_pic");
+        copy("users/default_pic.png","users/".$data['firstname'].$data['lastname']."/profile_pic/".$data['firstname'].$data['lastname'].".png");
     }
     
     public function userCheckLogin($data)
     {
-
+        
         if (empty($data['username']) OR empty($data['password']))
             return false;
         $user = $this->getUserByUsername($data['username']);
