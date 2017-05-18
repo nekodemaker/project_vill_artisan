@@ -94,16 +94,28 @@ class SecurityController extends BaseController
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
             $manager = UserManager::getInstance();
+            $user=$manager->userGetProfile($_SESSION['user_id']);
+            $villages=$manager->getAllVillages();
+            if(strpos($user['user_village'],',')){
+                $vill=explode(",",$user['user_village']);
+                $first=$vill[0];
+                $second=$vill[1];
+            }else{
+                $first=$user['user_village'];
+                $second="";
+            }
             if ($manager->userCheckProfilePic($_FILES))
             {
                 $manager->userChangeProfilePic($_FILES);
+                $this->redirect('profile');
+
             }
             else {
                 $error = "Invalid Format";
             }
         }
         
-        echo $this->renderView('profile_edit.html.twig', ['error' => $error,'name' => $_SESSION['username']]);
+        echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
     }
     
     public function showProfileAction()
@@ -136,4 +148,6 @@ class SecurityController extends BaseController
         }
         echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'errors'=>$errors,'user'=>$user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
     }
+    
+    
 }

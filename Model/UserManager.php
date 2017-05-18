@@ -230,16 +230,17 @@ class UserManager
     }
     
     public function userChangeProfilePic($data){
-        $profile_pic_path="./users/".$_SESSION['username']."/profile_pic/";
+        $profile_pic_path="users/".$_SESSION['firstname'].$_SESSION['lastname']."/profile_pic/";
         $picExtension=pathinfo($data["my-pic"]["name"],PATHINFO_EXTENSION);
+        $query="update `user` set `user_pic`= :pic where `id`= :userid";
+        $d=[
+        'pic'=> $profile_pic_path.$_SESSION['firstname'].$_SESSION['lastname'].".".$picExtension,
+        'userid'=> $_SESSION['user_id'],
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
         $array_user_pic=scandir($profile_pic_path);
         unlink($profile_pic_path.$array_user_pic[2]);
-        rename($data["my-pic"]["tmp_name"],$profile_pic_path.$_SESSION['username'].".".$picExtension);
-    }
-    
-    public function getUserProfilePic($username){
-        $profile_pic_array=scandir("./users/".$username."/profile_pic/");
-        return "./users/".$username."/profile_pic/".$profile_pic_array[2];
+        rename($data["my-pic"]["tmp_name"],$profile_pic_path.$_SESSION['firstname'].$_SESSION['lastname'].".".$picExtension);
     }
     
     public function userProfileCheck($username)
