@@ -54,7 +54,16 @@ class SecurityController extends BaseController
         if(!empty($_SESSION['user_id'])){
             $manager = UserManager::getInstance();
             $user=$manager->userGetProfile($_SESSION['user_id']);
-            echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user]);
+            $villages=$manager->getAllVillages();
+            if(strpos($user['user_village'],',')){
+                $vill=explode(",",$user['user_village']);
+                $first=$vill[0];
+                $second=$vill[1];
+            }else{
+                $first=$user['user_village'];
+                $second="";
+            }
+            echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
         }else{
             $this->redirect('home');
         }
@@ -115,7 +124,16 @@ class SecurityController extends BaseController
             $manager = UserManager::getInstance();
             $errors=$manager->editProfileUser($_POST);
             $user=$manager->userGetProfile($_SESSION['user_id']);
+            $villages=$manager->getAllVillages();
+            if(strpos($user['user_village'],',')){
+                $vill=explode(",",$user['user_village']);
+                $first=$vill[0];
+                $second=$vill[1];
+            }else{
+                $first=$user['user_village'];
+                $second="";
+            }
         }
-        echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'errors'=>$errors,'user'=>$user]);
+        echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'errors'=>$errors,'user'=>$user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
     }
 }

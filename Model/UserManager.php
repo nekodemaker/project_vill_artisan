@@ -146,22 +146,13 @@ class UserManager
         if(!empty($data['postal_code'])){
             $this->userChangePostcode($data['postal_code']);
         }
-    }
-    public function userCheckChangePassword($data)
-    {
-        if(empty($data['old-password']) or empty($data['new-password'])){
-            return false;
+        if($this->userCheckChangePassword($data)){
+            $this->userChangePostcode($data['postal_code']);
         }
-        
-        $oldPassword=$data['old-password'];
-        $user=$this->getUserById($_SESSION['user_id']);
-        if ($user['password'] == $this->userHash($oldPassword))
-        {
-            return true;
-        }else{
-            return false;
-        }
+        $this->userChangePassword($data);
     }
+    
+    
     public function userChangeMail($newmail){
         $query="update `user` set `mail`= :mail where `id`= :userid";
         $d=[
@@ -171,7 +162,7 @@ class UserManager
         $res=$this->DBManager->do_query_db($query,$d);
     }
     
-        public function userChangeAdress($newadress){
+    public function userChangeAdress($newadress){
         $query="update `user` set `adress`= :adress where `id`= :userid";
         $d=[
         'adress'=> $newadress,
@@ -179,7 +170,7 @@ class UserManager
         ];
         $res=$this->DBManager->do_query_db($query,$d);
     }
-        public function userChangePostcode($newpostcode){
+    public function userChangePostcode($newpostcode){
         $query="update `user` set `postcode`= :postcode where `id`= :userid";
         $d=[
         'postcode'=> $newpostcode,
@@ -187,11 +178,42 @@ class UserManager
         ];
         $res=$this->DBManager->do_query_db($query,$d);
     }
-
+    
+    public function userChangeVillage($data){
+        $vill="";
+        if($data['new-village-user']!='NON'){
+            $vill=utf8_decode($data['village-user']).','.utf8_decode($data['new-village-user']);
+        }else{
+            $vill=$data['village-user'];
+        }
+        $query="update `user` set `user_village`= :village where `id`= :userid";
+        $d=[
+        'village'=> $vill,
+        'userid'=> $_SESSION['user_id'],
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
+    }
+    
+    public function userCheckChangePassword($data)
+    {
+        if(empty($data['password']) or empty($data['password_confirmation'])){
+            return false;
+        }
+        
+        $oldPassword=$data['password'];
+        $user=$this->getUserById($_SESSION['user_id']);
+        if ($user['password'] == $this->userHash($oldPassword))
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     public function userChangePassword($data)
     {
-        $newPassword=$data['new-password'];
-        $query="update `users` set `password`= :pass where `id`= :userid";
+        $newPassword=$data['password'];
+        $query="update `user` set `password`= :pass where `id`= :userid";
         $d=[
         'pass'=> $this->userHash($newPassword),
         'userid'=> $_SESSION['user_id'],
@@ -233,5 +255,11 @@ class UserManager
     public function userGetProfile($id)
     {
         return $this->getUserById($id);
+    }
+    
+    public function getAllVillages()
+    {
+        $data = $this->DBManager->findAllSecure("SELECT * FROM villages",[]);
+        return $data;
     }
 }

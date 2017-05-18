@@ -74,46 +74,12 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <select id='village-user' name="village-user" >
-                                                    <option>Louvre / CHâtelet-les-halles</option>
-                                                    <option>Opéra / Vendôme</option>
-                                                    <option>Grands-Boulevards</option>
-                                                    <option>Arts et métiers</option>
-                                                    <option>Saint Victor / Jardins des Plantes</option>
-                                                    <option>Sorbonne / Val de Grâce</option>
-                                                    <option>Odéon / Notre-Dames des champs</option>
-                                                    <option>Saint-Germain-des-prés / Monnaie</option>
-                                                    <option>Invalides / Saint Thomas D'Aquin</option>
-                                                    <option>Gros Caillou / École militaire</option>
-                                                    <option>Champs-Elysées</option>
-                                                    <option>Europe / Madeleine</option>
-                                                    <option>Saint Georges / Rochechouart</option>
-                                                    <option>Saint Vincent de Paul</option>
-                                                    <option>Hôpital saint Louis</option>
-                                                    <option>Folie-Méricourt / Sainte Ambroise</option>
-                                                    <option>Roquette</option>
-                                                    <option>Quinze-vingts</option>
-                                                    <option>Picpus / Bel-air</option>
-                                                    <option>Bercy</option>
-                                                    <option>Quartier de la Gare</option>
-                                                    <option>Maison Blanche</option>
-                                                    <option>Salpêtrière / Croulebarbe</option>
-                                                    <option>Montparnasse</option>
-                                                    <option>Petit-Montrouge</option>
-                                                    <option>Plaisance</option>
-                                                    <option>Saint Lambert</option>
-                                                    <option>Grenade / Javel</option>
-                                                    <option>Auteil</option>
-                                                    <option>La Muette</option>
-                                                    <option>Ternes / Plaine Monceau</option>
-                                                    <option>Batignoles</option>
-                                                    <option>Clignancourt</option>
-                                                    <option>Montmartre</option>
-                                                    <option>Goutte d'Or / La Chapelle</option>
-                                                    <option>La Vilette</option>
-                                                    <option>Combat / Amérique</option>
-                                                    <option>Belleville / Père Lachaise</option>
-                                                    <option>Saint Fargeau</option>
-                                                    <option>Charonne / Maraichers</option>
+                                                        {% for village in villages %}
+                                                            {% if village_first == village.village_name %}
+                                                                <option selected="selected">{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+                                                            {% endif %}
+                                                            <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+                                                        {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
@@ -124,47 +90,14 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <select id='village-user' name="village-user" >
-                                                    <option>Louvre / CHâtelet-les-halles</option>
-                                                    <option>Opéra / Vendôme</option>
-                                                    <option>Grands-Boulevards</option>
-                                                    <option>Arts et métiers</option>
-                                                    <option>Saint Victor / Jardins des Plantes</option>
-                                                    <option>Sorbonne / Val de Grâce</option>
-                                                    <option>Odéon / Notre-Dames des champs</option>
-                                                    <option>Saint-Germain-des-prés / Monnaie</option>
-                                                    <option>Invalides / Saint Thomas D'Aquin</option>
-                                                    <option>Gros Caillou / École militaire</option>
-                                                    <option>Champs-Elysées</option>
-                                                    <option>Europe / Madeleine</option>
-                                                    <option>Saint Georges / Rochechouart</option>
-                                                    <option>Saint Vincent de Paul</option>
-                                                    <option>Hôpital saint Louis</option>
-                                                    <option>Folie-Méricourt / Sainte Ambroise</option>
-                                                    <option>Roquette</option>
-                                                    <option>Quinze-vingts</option>
-                                                    <option>Picpus / Bel-air</option>
-                                                    <option>Bercy</option>
-                                                    <option>Quartier de la Gare</option>
-                                                    <option>Maison Blanche</option>
-                                                    <option>Salpêtrière / Croulebarbe</option>
-                                                    <option>Montparnasse</option>
-                                                    <option>Petit-Montrouge</option>
-                                                    <option>Plaisance</option>
-                                                    <option>Saint Lambert</option>
-                                                    <option>Grenade / Javel</option>
-                                                    <option>Auteil</option>
-                                                    <option>La Muette</option>
-                                                    <option>Ternes / Plaine Monceau</option>
-                                                    <option>Batignoles</option>
-                                                    <option>Clignancourt</option>
-                                                    <option>Montmartre</option>
-                                                    <option>Goutte d'Or / La Chapelle</option>
-                                                    <option>La Vilette</option>
-                                                    <option>Combat / Amérique</option>
-                                                    <option>Belleville / Père Lachaise</option>
-                                                    <option>Saint Fargeau</option>
-                                                    <option>Charonne / Maraichers</option>
+                                                <select id='new-village-user' name="new-village-user" >
+                                                    <option>NON</option>
+                                                        {% for village in villages %}
+                                                            {% if village_second == village.village_name %}
+                                                                <option selected="selected">{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+                                                            {% endif %}
+                                                            <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+                                                        {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
@@ -176,12 +109,12 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" class="form-control input-lg"  value="change password" tabindex="5">
+                                        <input type="password" name="password" id="password" class="form-control input-lg"  placeholder="Changer votre mot de passe" tabindex="5">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="confirm password"  tabindex="6">
+                                        <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirmer le mot de passe"  tabindex="6">
                                     </div>
                                 </div>
                             </div>
