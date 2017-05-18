@@ -99,12 +99,12 @@ class UserManager
         'postcode'=> $data['postcode'],
         'village'=> $data['village-user'],
         'interet'=> "",
-        'pic'=> "/web",
+        'pic'=> "users/".$data['firstname'].$data['lastname']."/profile_pic/".$data['firstname'].$data['lastname'].".png",
         ]);
         $this->DBManager->do_query_db($query,$d);
         mkdir("users/".$data['firstname'].$data['lastname']);
         mkdir("users/".$data['firstname'].$data['lastname']."/profile_pic");
-        copy("users/default_pic.png","users/".$data['firstname'].$data['lastname']."/profile_pic/".$data['firstname'].$data['lastname'].".png");
+        copy("users/default_villageois.png","users/".$data['firstname'].$data['lastname']."/profile_pic/".$data['firstname'].$data['lastname'].".png");
     }
     
     public function userCheckLogin($data)
@@ -134,6 +134,19 @@ class UserManager
         return true;
     }
     
+    public function editProfileUser($data){
+        if(!empty($data['email'])){
+            if(!$this->isMailExists($data['email'])){
+                $this->userChangeMail($data['email']);
+            }
+        }
+        if(!empty($data['adress'])){
+            $this->userChangeAdress($data['adress']);
+        }
+        if(!empty($data['postal_code'])){
+            $this->userChangePostcode($data['postal_code']);
+        }
+    }
     public function userCheckChangePassword($data)
     {
         if(empty($data['old-password']) or empty($data['new-password'])){
@@ -149,7 +162,32 @@ class UserManager
             return false;
         }
     }
+    public function userChangeMail($newmail){
+        $query="update `user` set `mail`= :mail where `id`= :userid";
+        $d=[
+        'mail'=> $newmail,
+        'userid'=> $_SESSION['user_id'],
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
+    }
     
+        public function userChangeAdress($newadress){
+        $query="update `user` set `adress`= :adress where `id`= :userid";
+        $d=[
+        'adress'=> $newadress,
+        'userid'=> $_SESSION['user_id'],
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
+    }
+        public function userChangePostcode($newpostcode){
+        $query="update `user` set `postcode`= :postcode where `id`= :userid";
+        $d=[
+        'postcode'=> $newpostcode,
+        'userid'=> $_SESSION['user_id'],
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
+    }
+
     public function userChangePassword($data)
     {
         $newPassword=$data['new-password'];

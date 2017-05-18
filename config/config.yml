@@ -7,6 +7,8 @@ routes:
     register: 'Security:register'
     artisanProfile: 'Security:artisanProfile'
     profile: 'Security:profile'
+    editProfile: 'Security:editProfile'
+    showArticle: 'Article:showArticle'
 defaut_route: 'home'
 db_config:
     name: 'vill_artisan'
