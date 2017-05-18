@@ -5,6 +5,7 @@ $gold: #d3ae68;
 $grey: #343539;
 $black: #000;
 $white: #f8f8f8;
+$white2: #ececec;
 
 //Fonts
 @font-face {
@@ -105,6 +106,10 @@ $white: #f8f8f8;
 
 p{
     font-family: 'ProximaNova-Regular';
+}
+
+.btn{
+    cursor: pointer;
 }
 
 html{
@@ -638,6 +643,111 @@ html{
                                     background-color: #fff;
                                     background-image: none;
                                     border: 1px solid rgba(0,0,0,.15);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            hr{
+
+            }
+            .contact_container{
+                margin: 40px 0 40px 0;
+                .row{
+                    width:100%;
+                    margin: 0;
+
+                    .col-12{
+                        display: flex;
+                        flex-direction: column;
+                        height: 400px;
+                        padding: 5px;
+
+                        .col_content{
+                            display: flex;
+                            flex-direction: column;
+                            height: inherit;
+                            border-radius: 8px;
+                            border: 2px solid rgba(0,0,0,.15);
+
+                            .name_contact{
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding: 10px;
+                                width: 100%;
+                                height: 10%;
+                                background-color: $white2;
+                                border-radius: 8px 8px 0 0;
+
+                                p{
+                                    margin: 0;
+                                }
+
+                                a{
+                                    display: flex;
+                                    width: 12px;
+                                    height: 12px;
+
+                                    img{
+                                        width: inherit;
+                                        height: inherit;
+                                    }
+                                }
+                            }
+
+                            .chat_container{
+                                display: flex;
+                                flex-direction: column;
+                                height: 78%;
+                                padding: 5px;
+                                overflow: scroll;
+                                overflow-x: hidden;
+
+                                .your_message{
+                                    max-width: 70%;
+                                    align-self: flex-end;
+                                    padding: 2px 8px 3px 8px;
+                                    background-color: $gold;
+                                    color: $white;
+                                    border-radius: 8px 8px 0 8px;
+                                    margin-bottom: 2px;
+                                    word-break: break-all;
+                                    line-height: 1.1;
+                                }
+
+                                .his_message{
+                                    max-width: 70%;
+                                    align-self: flex-start;
+                                    padding: 2px 8px 3px 8px;
+                                    background-color: $white;
+                                    color: #000;
+                                    border-radius: 8px 8px 8px 0;
+                                    margin-bottom: 2px;
+                                    word-break: break-all;
+                                    line-height: 1.1;
+                                }
+                            }
+
+                            .text_editor_container{
+                                display: flex;
+                                height: 12%;
+                                border-top: 2px solid rgba(0,0,0,.15);;
+                                border-radius: 0 0 8px 8px;
+
+                                textarea{
+                                    width: 70%;
+                                    resize: none;
+                                    border-radius: 0 0 0 8px;
+                                    border: 0;
+                                }
+
+                                .btn{
+                                    width: 30%;
+                                    background-color: $grey;
+                                    color: $white;
+                                    border-radius: 0 0 8px 0;
                                 }
                             }
                         }

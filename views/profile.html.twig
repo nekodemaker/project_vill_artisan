@@ -30,18 +30,10 @@
                             <h5>Changer d'adresse email :</h5>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-6">
-                                    <!--<div class="form-group">
-                                        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="{{user.firstname}}" tabindex="1">
-                                    </div>-->
                                     <div class="form-group">
                                         <input type="email" name="email" id="email" class="form-control input-lg" placeholder="{{user.mail}}" tabindex="4">
                                     </div>
                                 </div>
-                                <!--<div class="col-xs-12 col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="{{user.lastname}}" tabindex="2">
-                                    </div>
-                                </div>-->
                             </div>
                             <hr>
                             <div class="row">
@@ -121,15 +113,74 @@
                             <hr class="colorgraph">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6"></div>
-                                <div class="col-xs-12 col-md-6"><input type="submit" class="btn btn-success btn-block btn-lg"></div>
+                                <div class="col-xs-12 col-md-6"><input type="submit" class="btn btn-block btn-lg" value="Éditer"></div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+        <hr>
+        <h3>Vos messageries :</h3>
+        <div class="contact_container">
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div class="col_content">
+                        <div class="name_contact">
+                            <p>Jean Dupont</p>
+                            <a href="#">
+                                <img src="web/assets/img/cross.png" alt="">
+                            </a>
+                        </div>
+                        <div class="chat_container chat">
+                            <div class="your_message">Salut!</div>
+                            <div class="his_message">Comment ça va</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="his_message">ça va</div>
+                            <div class="your_message">yolo</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">bien et toi?</div>
+                        </div>
+                        <div class="text_editor_container">
+                            <textarea placeholder="écrivez un message..."></textarea>
+                            <div class="btn">envoyer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="col_content">
+                        <div class="name_contact">
+                            <p>Jean Dupont</p>
+                            <a href="#">
+                                <img src="web/assets/img/cross.png" alt="">
+                            </a>
+                        </div>
+                        <div class="chat_container chat">
+                            <div class="your_message">Salut!</div>
+                            <div class="his_message">Comment ça va</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="his_message">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                            <div class="your_message">yolo</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">bien et toi?</div>
+                            <div class="your_message">bien et toi?</div>
+
+                        </div>
+                        <div class="text_editor_container">
+                            <textarea placeholder="écrivez un message..."></textarea>
+                            <div class="btn">envoyer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </div>
 
 {% endblock %}
