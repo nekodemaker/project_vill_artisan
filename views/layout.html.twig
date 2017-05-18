@@ -68,12 +68,16 @@
         <div id="footer_content">
             <div class="row">
                 <div class="col-12 col-md-4 offset-md-2 col-lg-3 offset-lg-3">
-                    <a href="?action=about">À propos</a>
-                    <a href="#">Concact</a>
+                    <a href="?action=home">Accueil</a>
+                    <a href="?action=blog">Actualités</a>
                 </div>
                 <div class="col-12 col-md-4 col-lg-3">
-                    <a href="#">Terms of use</a>
-                    <a href="#">Privacy policy</a>
+                    {% if name is defined and name is not empty %}
+                    <a href="?action=profile">Profil</a>
+                    {% else %}
+                    <a href="?action=register">Inscription</a>
+                    {% endif %}
+                    <a href="?action=about">À propos</a>
                 </div>
             </div>
             <a class="brand" href="?action=home">
