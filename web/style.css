@@ -365,6 +365,57 @@ html body #main_container #blog_container .col_preview .row .col-12 .carousel-ca
 html body #main_container #blog_container .col_preview .row .col-12 .carousel-caption p, html body #main_container #blog_container .col_preview .row .col-12 .carousel-caption h5, html body #main_container #blog_container .col_preview .row .col-12 .carousel-caption a {
   color: #343539;
 }
+html body #main_container #article_container .col_preview {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 70%;
+  width: 95%;
+  align-items: center;
+}
+html body #main_container #article_container .col_preview .row {
+  margin: 40px 0 40px 0;
+  width: 100%;
+}
+html body #main_container #article_container .col_preview .row .col-12 {
+  border: 10px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+html body #main_container #article_container .col_preview .row .col-12 .carousel-caption {
+  position: static;
+  text-align: left;
+  padding: 20px;
+}
+html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h4 {
+  text-align: left;
+  color: #8e3e3d;
+}
+html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h5 {
+  color: #343539;
+}
+html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0 10px 0;
+}
+html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content p {
+  color: #343539;
+}
+html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content .author {
+  align-self: flex-end;
+  text-transform: capitalize;
+  margin: 20px 0 0 0;
+}
 html body #main_container #register_container {
   height: auto;
 }
@@ -597,56 +648,63 @@ html body #main_container #profile_container .container .row .col-md-12 div sele
   background-image: none;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
-html body #main_container #article_container .col_preview {
+html body #main_container #profile_crafter_container {
+  padding-top: 40px;
+}
+html body #main_container #profile_crafter_container .row .col-10 img {
+  margin: auto;
+}
+html body #main_container #profile_crafter_container .row .col-10 .infos_crafter {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  width: 70%;
-  width: 95%;
   align-items: center;
 }
-html body #main_container #article_container .col_preview .row {
-  margin: 40px 0 40px 0;
-  width: 100%;
+html body #main_container #profile_crafter_container .row .col-10 .infos_crafter h3:first-child {
+  margin-top: 30px;
 }
-html body #main_container #article_container .col_preview .row .col-12 {
-  border: 10px solid #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 10px;
-  background-color: #f8f8f8;
+html body #main_container #profile_crafter_container .row .col-10 .infos_crafter h3, html body #main_container #profile_crafter_container .row .col-10 .infos_crafter h4, html body #main_container #profile_crafter_container .row .col-10 .infos_crafter h5 {
+  font-family: 'filsonProBold';
 }
-html body #main_container #article_container .col_preview .row .col-12 .carousel-caption {
-  position: static;
-  text-align: left;
-  padding: 20px;
-}
-html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h4 {
-  text-align: left;
+html body #main_container #profile_crafter_container .row .col-10 .infos_crafter h4 {
   color: #8e3e3d;
+  margin: 20px 0 20px 0;
 }
-html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h5 {
-  color: #343539;
+html body #main_container #profile_crafter_container .row .col-10 .infos_crafter h5 {
+  margin: 5px 0 5px 0;
 }
-html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content {
+html body #main_container #profile_crafter_container .row .col-10 .content {
   display: flex;
   flex-direction: column;
-  padding: 30px 0 10px 0;
+  align-items: center;
+  margin: 40px 0 60px 0;
 }
-html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content p {
-  color: #343539;
+html body #main_container #profile_crafter_container .row .col-10 .content h2 {
+  font-family: 'Brandon_text-Bold';
+  color: #d3ae68;
+  letter-spacing: 4px;
+  margin: 20px 0 20px 0;
 }
-html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content .author {
-  align-self: flex-end;
-  text-transform: capitalize;
-  margin: 20px 0 0 0;
+html body #main_container #profile_crafter_container .row .col-10 .content img {
+  margin: 40px 0 40px 0;
+}
+html body #main_container #profile_crafter_container .row .col-10 .content hr {
+  width: 50%;
+  margin: 50px 0 50px 0;
+  background-color: #343539;
+}
+html body #main_container #profile_crafter_container .row .col-10 .content .row {
+  width: 100%;
+}
+html body #main_container #profile_crafter_container .row .col-10 .content .row div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+html body #main_container #profile_crafter_container .row .col-10 .content .row div img {
+  margin: 0;
+  width: 90%;
+  height: 90%;
 }
 html body footer {
   width: 100%;

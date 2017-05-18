@@ -39,12 +39,15 @@
                     <li class="nav-item">
                         <a class="nav-item nav-link " href="?action=blog">BLog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="?action=about">À propos</a>
+                    </li>
                     {% if name is defined and name is not empty %}
                     <li class="nav-item">
-                        <a class="nav-item nav-link " href="?action=profile">Profile</a>
+                        <a class="nav-item nav-link " href="?action=profile">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-item nav-link" href="?action=logout">Logout</a>
+                        <a class="nav-item nav-link" href="?action=logout">Déconnection</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -54,9 +57,6 @@
                         <a class="nav-item nav-link" href="?action=login">Connection</a>
                     </li>
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="?action=about">À propos</a>
-                    </li>
                 </ul>
             </div>
         </nav>
