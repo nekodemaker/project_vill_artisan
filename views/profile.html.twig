@@ -10,10 +10,17 @@
                         <div class="profile_infos">
                             <!--<img src="{{user.pic}}" alt="no picture" class="img-circle img-thumbnail">-->
                             <img src="{{user.user_pic}}" alt="no picture" class="img-circle img-thumbnail"><br> <!-- faut garder cette images par défaut -->
-                            <label class="btn btn-primary">
-                                Changer&hellip;
-                                <input type="file" style="display: none;">
-                            </label>
+                            <form method="POST" action="?action=changeProfilePic" enctype="multipart/form-data">
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                                    <label class="btn btn-primary">
+                                    Charger
+                                    <input type="file" style="display: none;" name="my-pic" id="my-pic" /><br />
+                                    </label>
+                                     <label class="btn btn-primary">
+                                     Changer
+                                     <input type="submit" style="display: none;" name="submit" value="Envoyer" />
+                                     </label>
+                            </form>
                             <h2>{{user.lastname}} {{user.firstname}}</h2>
                             <h4>Villageois</h4> <!-- status -->
                         </div>
