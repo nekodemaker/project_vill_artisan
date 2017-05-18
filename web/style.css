@@ -630,10 +630,17 @@ html body #main_container #profile_container {
 }
 html body #main_container #profile_container .container .row .col-md-12 .profile_infos .btn {
   margin: 10px 0 0 0;
-  width: 130px;
+  cursor: pointer;
+  color: #f8f8f8;
+}
+html body #main_container #profile_container .container .row .col-md-12 .profile_infos .change_photo {
   background-color: #8e3e3d;
   border: 1px solid #8e3e3d;
-  cursor: pointer;
+}
+html body #main_container #profile_container .container .row .col-md-12 .profile_infos .confirm_change_photo {
+  background-color: #dddddd;
+  border: 1px solid #dddddd;
+  color: #000;
 }
 html body #main_container #profile_container .container .row .col-md-12 .profile_infos h2 {
   margin: 15px 0 10px 0;

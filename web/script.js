@@ -147,6 +147,11 @@ window.onload = function () {
     if (formEditArticle != undefined)
         submitOnEditArticle();
 
+    var element = document.getElementsByClassName("chat");
+    for(var i=0; i < element.length; i++){
+        element[i].scrollTop = element[i].scrollHeight;
+    }
+
 };
 
 $(document).on('click', '.arrow_slide_down_button', function(event){
