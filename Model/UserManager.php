@@ -147,9 +147,8 @@ class UserManager
             $this->userChangePostcode($data['postal_code']);
         }
         if($this->userCheckChangePassword($data)){
-            $this->userChangePostcode($data['postal_code']);
+            $this->userChangePassword($data);
         }
-        $this->userChangePassword($data);
     }
     
     
