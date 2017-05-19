@@ -33,7 +33,7 @@ class ArticleManager
     }
     
     public function addArticlePictureInUserDirectory($file,$file_extension,$id_picture){
-        rename($file["article-pic"]["tmp_name"],"./users/".$_SESSION['username']."/".$id_picture.".".$file_extension);
+        rename($file["article-pic"]["tmp_name"],"./users/".$_SESSION['firstname'].$_SESSION['lastname']."/".$id_picture.".".$file_extension);
     }
     
     public function createArticle($data,$file)
@@ -41,17 +41,18 @@ class ArticleManager
         if($this->addArticlePictureCheck($file)){
             $picExtension=pathinfo($file["article-pic"]["name"],PATHINFO_EXTENSION);
             $id_picture=uniqid();
-            $picture_path="./users/".$_SESSION['username']."/".$id_picture.".".$picExtension;
+            $picture_path="./users/".$_SESSION['firstname'].$_SESSION['lastname']."/".$id_picture.".".$picExtension;
             $this->addArticlePictureInUserDirectory($file,$picExtension,$id_picture);
         }else{
             $picture_path="nothing";
         }
-        $query="insert into `articles`(`title_article`,`author_article`,`date_article`,`text_article`,`picture_article`)values(:title,:author,NOW(),:text,:pic)";
+        $query="insert into `event`(id_author,author_event,`title_event`,`text_event`,`photo_event`,date_event)values(:id,:author,:title,:text,:photo,NOW())";
         $d=([
+        'id' => $_SESSION['user_id'],
+        'author'=> $_SESSION['firstname'].' '.$_SESSION['lastname'],
         'title'=> $data['title-article'],
-        'author'=> $_SESSION['username'],
         'text'=> $data['text-article'],
-        'pic'=> $picture_path,
+        'photo'=> $picture_path,
         ]);
         $this->DBManager->do_query_db($query,$d);
     }

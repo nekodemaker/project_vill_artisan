@@ -11,6 +11,7 @@ routes:
     editProfile: 'Security:editProfile'
     changeProfilePic: 'Security:changeProfilePic'
     sendMessageTo: 'Message:sendMessageTo'
+    createArticle: 'Article:createArticle'
     showArticle: 'Article:showArticle'
 defaut_route: 'home'
 db_config:

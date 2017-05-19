@@ -18,15 +18,19 @@ class ArticleController extends BaseController
                 if ($manager->createArticleCheck($_POST))
                 {
                     $manager->createArticle($_POST,$_FILES);
-                    $this->redirect('home');
+                    echo json_encode(['success' => "L'article est écrit" ]);
+                    exit(0);
                 }
                 else {
-                    $error = "One of things is empty";
+                    echo json_encode(['error' => "Au moins un des champs est manquant",'post'=>$_POST['text-article']]);
+                    exit(0);
                 }
+            }else{
+                echo json_encode(['error' => "Ce n'est pas la requete post" ]);
+                exit(0);
             }
-            echo $this->renderView('article_create.html.twig', ['error' => $error,'name' => $_SESSION['username']]);
         }else{
-            $this->redirect('home');
+            //$this->redirect('home');
         }
     }
     
@@ -35,7 +39,7 @@ class ArticleController extends BaseController
         
         $error = '';
         echo $this->renderView('article.html.twig', []);
-
+        
     }
     
     public function editArticleAction()
