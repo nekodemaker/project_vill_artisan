@@ -10,25 +10,21 @@ class MessageController extends BaseController
     public function sendMessageToAction()
     {
         $error = '';
-        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_SESSION['user_id']))
         {
             $manager = MessageManager::getInstance();
             if ($manager->checkSendMessageTo($_POST))
             {
+                
                 $manager->sendMessageTo($_POST);
-                $this->redirect('profile');
+                $messages=$manager->getAllMessagesUserId($_POST['id-receiver']);
+                echo json_encode(['messages' => $messages ]);
+                exit(0);
             }
             else {
-                $error = "Il vous manque au moins un champ";
+                echo json_encode(['error' => "empty" ]);
+                exit(0);
             }
         }
-        if (!empty($_SESSION['user_id']))
-        {
-            $name=$_SESSION['lastname'];
-        }else{
-            $name="";
-        }
-        echo $this->renderView('profile.html.twig', ['error' => $error,'name' => $name,'messages'=>$messages]);
-    }
-    
+    }    
 }

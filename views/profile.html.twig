@@ -131,60 +131,32 @@
         <h3>Vos messageries :</h3>
         <div class="contact_container">
             <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="col_content">
-                        <div class="name_contact">
-                            <p>Jean Dupont</p>
-                            <a href="#">
+                {% for mess in messages %}
+                    <div class="col-12 col-lg-4">
+                        <div class="col_content">
+                            <div class="name_contact">
+                                <p>{{mess.lastname}} {{mess.firstname}}</p>
+                                <a href="#">
                                 <img src="web/assets/img/cross.png" alt="">
-                            </a>
+                                </a>
+                            </div>
+                            <div class="chat_container chat">
+                            {% for m in mess.messages%}
+                                {% if m.id_sender == mess.id %}
+                                    <div class="his_message">{{m.text_message}}</div>
+                                {% else %}
+                                    <div class="your_message">{{m.text_message}}</div>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                            <div class="text_editor_container">
+                            <textarea name="text-message" placeholder="écrivez un message..."></textarea>
+                            <input type="hidden" name="id-receiver" value={{mess.id}}>
+                            <div class="btn form-submit" type='submit'>envoyer</div>
                         </div>
-                        <div class="chat_container chat">
-                            <div class="your_message">Salut!</div>
-                            <div class="his_message">Comment ça va</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="his_message">ça va</div>
-                            <div class="your_message">yolo</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">bien et toi?</div>
-                        </div>
-                        <div class="text_editor_container">
-                            <textarea placeholder="écrivez un message..."></textarea>
-                            <div class="btn">envoyer</div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="col_content">
-                        <div class="name_contact">
-                            <p>Jean Dupont</p>
-                            <a href="#">
-                                <img src="web/assets/img/cross.png" alt="">
-                            </a>
-                        </div>
-                        <div class="chat_container chat">
-                            <div class="your_message">Salut!</div>
-                            <div class="his_message">Comment ça va</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="his_message">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                            <div class="your_message">yolo</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">bien et toi?</div>
-                            <div class="your_message">bien et toi?</div>
-
-                        </div>
-                        <div class="text_editor_container">
-                            <textarea placeholder="écrivez un message..."></textarea>
-                            <div class="btn">envoyer</div>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

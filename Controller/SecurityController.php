@@ -3,6 +3,7 @@
 namespace Controller;
 
 use Model\UserManager;
+use Model\MessageManager;
 
 class SecurityController extends BaseController
 {
@@ -53,8 +54,10 @@ class SecurityController extends BaseController
         $error = '';
         if(!empty($_SESSION['user_id'])){
             $manager = UserManager::getInstance();
+            $managerMessage = MessageManager::getInstance();
             $user=$manager->userGetProfile($_SESSION['user_id']);
             $villages=$manager->getAllVillages();
+            $messages=$managerMessage->getAllMessagesForUser();
             if(strpos($user['user_village'],',')){
                 $vill=explode(",",$user['user_village']);
                 $first=$vill[0];
@@ -63,7 +66,7 @@ class SecurityController extends BaseController
                 $first=$user['user_village'];
                 $second="";
             }
-            echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
+            echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user,'village_first' => $first,'village_second' => $second,'villages' => $villages,'messages' => $messages]);
         }else{
             $this->redirect('home');
         }
