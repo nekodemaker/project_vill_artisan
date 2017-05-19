@@ -201,8 +201,12 @@ html{
                         }
 
                         p{
-                            margin: 20px 0 20px 0;
+                            margin: 0;
                             color: $white;
+                        }
+
+                        .paris_illustration{
+                            width: 143%;
                         }
 
                         a{
@@ -905,6 +909,25 @@ html{
     }
 }
 
+
+@media screen and (min-width: 769px) {
+    html{
+        body{
+            #main_container{
+                #home_container{
+                    #welcome_container {
+                        .content_container{
+                            .paris_illustration{
+                                width: 120%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 1200px) {
     .content_container{
         width: 55% !important;
@@ -918,10 +941,13 @@ html{
                 }
             }
             #main_container{
-
                 #home_container{
                     #welcome_container{
-                        height: 93vh;
+                        .content_container{
+                            .paris_illustration{
+                                width: 100%;
+                            }
+                        }
                     }
                 }
                 #article_container{
