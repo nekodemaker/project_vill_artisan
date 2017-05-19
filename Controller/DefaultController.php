@@ -23,6 +23,11 @@ class DefaultController extends BaseController
         ['articles' => $articles]);
     }
     
+    public function adminAction()
+    {
+        echo $this->renderView('admin.html.twig',[]);
+    }
+    
     public function blogAction()
     {
         if (!empty($_SESSION['user_id'])){

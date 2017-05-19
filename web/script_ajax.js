@@ -32,4 +32,22 @@ window.onload = function () {
             }
         });
     });
+
+        $("#create-article-form").submit(function () {
+        var data=$(this).serialize();
+        /*$.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "index.php?action=sendMessageTo", //Relative or absolute path to response.php file
+            data: data,
+            success: function (data) {
+                var res=htmlMessages(idReceiver,data.messages);
+                var chatcontainerElem=thiselem.parent().parent()[0].children[1];
+                chatcontainerElem.innerHTML=res;
+            },
+            error: function (data) {
+                console.log("ERROR");
+            }
+        });*/
+    });
 };
