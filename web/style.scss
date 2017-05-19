@@ -854,6 +854,34 @@ html{
                 }
             }
         }
+        .article_editor_container{
+            display: flex;
+            justify-content: center;
+
+            .article_editor_content{
+                width: 90%;
+
+                form{
+                    display: flex;
+                    flex-direction: column;
+                    margin: 20px 0 40px 0;
+
+                    input[type='text']{
+                        width: 70%;
+                    }
+
+                    input{
+                    }
+
+                    input[type='submit']{
+                        align-self: flex-end;
+                        color: $white;
+                        background-color: $gold;
+                    }
+                }
+
+            }
+        }
         footer{
             width: 100%;
             display: flex;
@@ -955,6 +983,11 @@ html{
                     .col_preview{
                         @include content_container;
                     }
+                }
+            }
+            .article_editor_container{
+                .article_editor_content{
+                    width: 50%;
                 }
             }
         }
