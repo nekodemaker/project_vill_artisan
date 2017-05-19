@@ -128,7 +128,13 @@ class SecurityController extends BaseController
     public function artisanProfileAction()
     {
         $error = '';
-        echo $this->renderView('artisan_profile.html.twig', []);
+        if (!empty($_SESSION['user_id'])){
+            $manager = UserManager::getInstance();
+            $user=$manager->userGetProfile($_SESSION['user_id']);
+            echo $this->renderView('artisan_profile.html.twig', ['name' => $_SESSION['lastname'],'user'=>$user]);
+        }else{
+            echo $this->renderView('artisan_profile.html.twig', []);
+        }
     }
     
     public function editProfileAction()
