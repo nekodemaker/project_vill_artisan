@@ -18,6 +18,24 @@ class UserManager
         $this->DBManager = DBManager::getInstance();
     }
     
+    /*ADMIN FUNCTIONS*/
+    public function getNumberOfVillager(){
+        $res=$this->DBManager->findAllSecure("SELECT * FROM user where user_type=:type",[
+        'type'=>"villager",
+        ]);
+        return count($res);
+    }
+    
+    public function getNumberOfCrafter(){
+        $res=$this->DBManager->findAllSecure("SELECT * FROM user where user_type=:type",[
+        'type'=>"crafter",
+        ]);
+        return count($res);
+    }
+    
+    /*END ADMIN FUNCTIONS*/
+
+    
     /*function which returns the user data with id on parameters*/
     public function getUserById($id)
     {
