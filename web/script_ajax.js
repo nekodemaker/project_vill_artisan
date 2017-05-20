@@ -48,10 +48,10 @@ window.onload = function () {
             url: "index.php?action=createArticle", //Relative or absolute path to response.php file
             data: formdata,
             success: function (data) {
-                if(data['success'] != undefined){
+                if (data['success'] != undefined) {
                     $(".message-block").html("<h6>Votre article est crée</h6>");
-                }else{
-                     $(".message-block").html(data['error']);
+                } else {
+                    $(".message-block").html(data['error']);
                 }
             },
             error: function (data) {
@@ -60,4 +60,26 @@ window.onload = function () {
         });
         return false;
     });
+
+    /* JS FOR ADMIN PART */
+
+    var userrows = $('table.table-users tr');
+    var villagerrow = userrows.filter('.villager-row');
+    var crafterrow = userrows.filter('.crafter-row');
+
+    $('#button-all-users').click(function () {
+        villagerrow.show();
+        crafterrow.show();
+    });
+
+    $('#button-only-crafter').click(function () {
+        crafterrow.show();
+        villagerrow.hide();
+    });
+
+    $('#button-only-villager').click(function () {
+        villagerrow.show();
+        crafterrow.hide();
+    });
+    /*END JS FOR ADMIN PART */
 };

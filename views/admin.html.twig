@@ -19,6 +19,45 @@
                 </div>
             </div>
         </div>
+
+        <h5>Liste des utilisateurs inscrits:</h5>
+        <input class="btn btn-primary" id="button-all-users" type="button" value="Tous">
+        <input class="btn btn-primary" id="button-only-crafter" type="button" value="Artisans">
+        <input class="btn btn-primary" id="button-only-villager" type="button" value="Villageois">
+        <table class="table table-sm table-users">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>id</th>
+                    <th>Type de l'utilisateur</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Mail</th>
+                    <th>Adresse</th>
+                    <th>Code postal</th>
+                    <th>village(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                {% if user.user_type == "villager" %}
+                 <tr class="villager-row">
+                {% else %}
+                <tr class="crafter-row">
+                {% endif %}
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.user_type}}</td>
+                    <td>{{user.lastname}}</td>
+                    <td>{{user.firstname}}</td>
+                    <td>{{user.mail}}</td>
+                    <td>{{user.adress}}</td>
+                    <td>{{user.postcode}}</td>
+                    <td>{{user.user_village}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
         <form action="">
             <!-- suppression d'un compte -->
             <!-- créer + éditer un compte artisan -->

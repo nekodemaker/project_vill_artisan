@@ -33,8 +33,13 @@ class UserManager
         return count($res);
     }
     
+    public function getAllUsers(){
+        $res=$this->DBManager->findAllSecure("SELECT * FROM user",[]);
+        return $res;
+    }
+    
     /*END ADMIN FUNCTIONS*/
-
+    
     
     /*function which returns the user data with id on parameters*/
     public function getUserById($id)

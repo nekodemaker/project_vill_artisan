@@ -25,10 +25,11 @@ class DefaultController extends BaseController
     
     public function adminAction()
     {
-         $manager = UserManager::getInstance();
+        $manager = UserManager::getInstance();
         $numbervillager = $manager->getNumberOfVillager();
         $numbercrafter = $manager->getNumberOfCrafter();
-        echo $this->renderView('admin.html.twig',['numbervillager'=>$numbervillager,'numbercrafter'=>$numbercrafter]);
+        $users=$manager->getAllUsers();
+        echo $this->renderView('admin.html.twig',['numbervillager'=>$numbervillager,'numbercrafter'=>$numbercrafter,'users'=>$users]);
     }
     
     public function blogAction()
