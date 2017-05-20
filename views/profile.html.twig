@@ -159,6 +159,37 @@
                 {% endfor %}
             </div>
         </div>
+    <hr>
+    {% if user is defined and user.user_type == "crafter" %}
+    <div class="article_editor_container">
+        <div class="article_editor_content">
+            <h4>Rédiger un article ou un évenement :</h4>
+            <div class="message-block"></div>
+            <form name="create-article-form" id="create-article-form" method="POST" enctype="multipart/form-data">
+                <h5>Votre titre :</h5>
+                <input type="text"  name="title-article">
+                <h5>Votre image:</h5>
+                <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                <input type="file" name="article-pic" id="article-pic" />
+                <input type="text" name="text-article" class="jqte-test">
+                <input type="submit" value="Valider" class="btn">
+            </form>
+    {% endif %}
+            <script>
+                $('.jqte-test').jqte();
+
+                // settings of status
+                var jqteStatus = true;
+                $(".status").click(function()
+                {
+                    jqteStatus = jqteStatus ? false : true;
+                    $('.jqte-test').jqte({"status" : jqteStatus})
+                });
+            </script>
+        </div>
+    </div>
+
+
     </div>
 </div>
 
