@@ -133,6 +133,7 @@ html{
 
                     button{
                         border: 0;
+                        margin-top: 10px;
 
                         img{
                             width: 28px;
@@ -144,6 +145,8 @@ html{
                         font-family: 'Brandon_text-Bold';
                         color: $red;
                         font-size: 22px;
+                        padding: 5px;
+                        border: 3px solid $red;
                     }
 
                     .login_button{
@@ -158,6 +161,13 @@ html{
                 }
                 .navbar-collapse{
                     .navbar-nav{
+                        width: 100%;
+                        display: flex;
+
+                        div{
+                            margin-left: auto;
+                            display: flex;
+                        }
 
                         li{
                             display: flex;
@@ -194,7 +204,7 @@ html{
 
                 #welcome_container{
                     width: inherit;
-                    height: 92vh;
+                    height: 90vh;
                     background-image: url("assets/img/Rectangle.png");
                     background-size: 100% 100%;
 
@@ -206,20 +216,30 @@ html{
                         align-items: center;
                         height: 95%;
 
-                        h4{
-                            margin-top: 40px;
-                            font-family: 'Brandon_text-Medium';
-                            text-align: center;
-                            color: $white;
-                        }
-
-                        hr{
-                            width: 30%;
-                            background-color: $white;
-                        }
                         .row{
+                            margin: 40px 0;
                             width: 100%;
+
                             .col-xl-3{
+                                h4{
+                                    margin-top: 40px;
+                                    font-family: 'Brandon_text-Medium';
+                                    color: $white;
+                                    animation-name: fadeInLeft;
+                                    animation: 0.5s ease-in;
+                                }
+
+                                hr{
+                                    margin: 20px 0;
+                                    width: 30%;
+                                    background-color: $white;
+                                }
+
+                                @keyframes fadeInLeft {
+                                    0% {opacity: 0;}
+                                    100% {opacity: 1;}
+                                }
+
                                 p{
                                     margin: 0;
                                     color: $white;
@@ -268,6 +288,9 @@ html{
                     margin: 30px 0 30px 0;
                 }
                 .infowindow_content{
+                    display: flex;
+                    flex-direction: column;
+
                     .img_infowindow{
                         width: 200px;
                         margin-bottom: 10px;
@@ -279,6 +302,16 @@ html{
 
                     b, p{
                         margin: 5px 0 5px 0;
+                    }
+
+                    .redirect_crafter_profil{
+                        width: 50%;
+                        margin: 10px 0;
+                        text-align: center;
+                        align-self: center;
+                        padding: 5px;
+                        color: $white;
+                        background-color: $red;
                     }
                 }
 
@@ -657,6 +690,7 @@ html{
                 padding: 40px 0 40px 0;
 
                 .container{
+                    width: 80%;
 
                     .row{
                         .col-md-12{
@@ -679,7 +713,7 @@ html{
                                 }
 
                                 h2{
-                                   margin: 15px 0 10px 0;
+                                    margin: 15px 0 10px 0;
                                 }
 
                                 h4{
@@ -1080,7 +1114,7 @@ html{
         body{
             header{
                 .container{
-                    padding-left: 21%;
+                    padding: 0 9%;
                 }
             }
             #main_container{

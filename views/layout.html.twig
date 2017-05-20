@@ -37,30 +37,32 @@
                             VILL' ARTISAN
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="?action=home">Accueil</a>
-                    </li>
-                    {% if name is defined and name is not empty %}
-                    <li class="nav-item">
-                        <a class="nav-item nav-link " href="?action=blog">Actualités</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link " href="?action=profile">Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="?action=logout">Déconnection</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-item nav-link " href="?action=register">Inscription</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="?action=login">Connection</a>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="?action=about">À propos</a>
-                    </li>
+                    <div>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="?action=home">Accueil</a>
+                        </li>
+                        {% if name is defined and name is not empty %}
+                            <li class="nav-item">
+                                <a class="nav-item nav-link " href="?action=blog">Actualités</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link " href="?action=profile">Profil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link" href="?action=logout">Déconnection</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-item nav-link " href="?action=register">Inscription</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-item nav-link" href="?action=login">Connection</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="?action=about">À propos</a>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </nav>

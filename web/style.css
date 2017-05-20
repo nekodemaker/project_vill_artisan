@@ -55,6 +55,7 @@ html body header .container .hidden-lg-up {
 }
 html body header .container .hidden-lg-up button {
   border: 0;
+  margin-top: 10px;
 }
 html body header .container .hidden-lg-up button img {
   width: 28px;
@@ -64,6 +65,8 @@ html body header .container .hidden-lg-up .brand {
   font-family: 'Brandon_text-Bold';
   color: #8e3e3d;
   font-size: 22px;
+  padding: 5px;
+  border: 3px solid #8e3e3d;
 }
 html body header .container .hidden-lg-up .login_button {
   width: 40px;
@@ -72,6 +75,14 @@ html body header .container .hidden-lg-up .login_button {
 html body header .container .hidden-lg-up .login_button img {
   width: inherit;
   height: inherit;
+}
+html body header .container .navbar-collapse .navbar-nav {
+  width: 100%;
+  display: flex;
+}
+html body header .container .navbar-collapse .navbar-nav div {
+  margin-left: auto;
+  display: flex;
 }
 html body header .container .navbar-collapse .navbar-nav li {
   display: flex;
@@ -101,7 +112,7 @@ html body #main_container #home_container {
 }
 html body #main_container #home_container #welcome_container {
   width: inherit;
-  height: 92vh;
+  height: 90vh;
   background-image: url("assets/img/Rectangle.png");
   background-size: 100% 100%;
 }
@@ -113,18 +124,29 @@ html body #main_container #home_container #welcome_container .welcome_content {
   align-items: center;
   height: 95%;
 }
-html body #main_container #home_container #welcome_container .welcome_content h4 {
+html body #main_container #home_container #welcome_container .welcome_content .row {
+  margin: 40px 0;
+  width: 100%;
+}
+html body #main_container #home_container #welcome_container .welcome_content .row .col-xl-3 h4 {
   margin-top: 40px;
   font-family: 'Brandon_text-Medium';
-  text-align: center;
   color: #f8f8f8;
+  animation-name: fadeInLeft;
+  animation: 0.5s ease-in;
 }
-html body #main_container #home_container #welcome_container .welcome_content hr {
+html body #main_container #home_container #welcome_container .welcome_content .row .col-xl-3 hr {
+  margin: 20px 0;
   width: 30%;
   background-color: #f8f8f8;
 }
-html body #main_container #home_container #welcome_container .welcome_content .row {
-  width: 100%;
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 html body #main_container #home_container #welcome_container .welcome_content .row .col-xl-3 p {
   margin: 0;
@@ -167,6 +189,10 @@ html body #main_container #project_container #map {
   height: 80vh;
   margin: 30px 0 30px 0;
 }
+html body #main_container #project_container .infowindow_content {
+  display: flex;
+  flex-direction: column;
+}
 html body #main_container #project_container .infowindow_content .img_infowindow {
   width: 200px;
   margin-bottom: 10px;
@@ -176,6 +202,15 @@ html body #main_container #project_container .infowindow_content b {
 }
 html body #main_container #project_container .infowindow_content b, html body #main_container #project_container .infowindow_content p {
   margin: 5px 0 5px 0;
+}
+html body #main_container #project_container .infowindow_content .redirect_crafter_profil {
+  width: 50%;
+  margin: 10px 0;
+  text-align: center;
+  align-self: center;
+  padding: 5px;
+  color: #f8f8f8;
+  background-color: #8e3e3d;
 }
 html body #main_container #project_container .col_preview {
   display: flex;
@@ -659,6 +694,9 @@ html body #main_container #login_container .col_preview .row .col-12 form input[
 html body #main_container #profile_container {
   padding: 40px 0 40px 0;
 }
+html body #main_container #profile_container .container {
+  width: 80%;
+}
 html body #main_container #profile_container .container .row .col-md-12 .profile_infos .btn {
   margin: 10px 0 0 0;
   cursor: pointer;
@@ -997,7 +1035,7 @@ html body footer #footer_content #copyright p {
   }
 
   html body header .container {
-    padding-left: 21%;
+    padding: 0 9%;
   }
   html body #main_container #home_container #welcome_container .content_container .paris_illustration {
     width: 100%;
