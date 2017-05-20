@@ -235,6 +235,4 @@ function initMap() {
     */
 }
 
-window.onload = function () {
 
-};

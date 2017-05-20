@@ -57,6 +57,99 @@
             </tbody>
         </table>
 
+        <h5>Inscription artisan:</h5>
+<form name="create-crafter-form" id="create-crafter-form" method="POST" enctype="multipart/form-data">
+<input type="hidden" id="user-type" name="user-type" value="crafter">
+  <div class="form-group">
+    <label for="lastname">Nom:</label>
+    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom de l'artisan">
+  </div>
+  <div class="form-group">
+    <label for="firstname">Prénom:</label>
+    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom de l'artisan">
+  </div>
+  <div class="form-group">
+    <label for="passw">Password</label>
+    <input type="password" class="form-control" id="passw" name="passw" placeholder="Mot de passe">
+  </div>
+  <div class="form-group">
+    <label for="mail">Mail:</label>
+    <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail de l'artisan">
+  </div>
+  <div class="form-group">
+    <label for="adress">Adresse:</label>
+    <input type="text" class="form-control" id="adress" name="adress" placeholder="Adresse de l'artisan">
+  </div>
+  <div class="form-group">
+    <label for="postcode">Code postal:</label>
+    <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Code postal">
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect1">Village (en tant que villageois)</label>
+    <select id='village-user' name="village-user" >
+        {% for village in villages %}
+                <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+            {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect1">Village (en tant qu' artisan)</label>
+    <select id='village-user' name="village-user" >
+        {% for village in villages %}
+                <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+            {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="job-crafter">Métier de l'artisan:</label>
+    <input type="text" class="form-control" id="job-crafter" name="job-crafter" placeholder="Métier de l'artisan">
+  </div>
+  <div class="form-group">
+    <label for="crafter-history">Histoire de l'artisan:</label>
+    <textarea class="form-control" id="crafter-history" name="crafter-history" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="crafter-shop">Boutique de l'artisan:</label>
+    <textarea class="form-control" id="crafter-shop" name="crafter-shop" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="profile-photo">Photo de profil de l'artisan:</label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <input type="file" class="form-control-file" id="profile-photo" name="profile-photo">
+  </div>
+
+  <div class="form-group">
+    <label for="work-photo-zero">Photo n°1 d'un des travaux de l'artisan:</label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <input type="file" class="form-control-file" id="work-photo-zero" name="work-photo-zero">
+  </div>
+  <div class="form-group">
+    <label for="work-photo-one">Photo n°2 d'un des travaux de l'artisan:</label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <input type="file" class="form-control-file" id="work-photo-one" name="work-photo-one">
+  </div>
+  <div class="form-group">
+    <label for="work-photo-two">Photo n°3 d'un des travaux de l'artisan:</label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <input type="file" class="form-control-file" id="work-photo-two" name="work-photo-two">
+  </div>
+  <div class="form-group">
+    <label for="work-photo-three">Photo n°4 d'un des travaux de l'artisan:</label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <input type="file" class="form-control-file" id="work-photo-three" name="work-photo-three">
+  </div>
+  <div class="form-group">
+    <label for="work-photo-four">Photo n°5 d'un des travaux de l'artisan:</label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <input type="file" class="form-control-file" id="work-photo-four" name="work-photo-four">
+  </div>
+    <div class="form-group">
+    <label for="work-photo-five">Photo n°6 d'un des travaux de l'artisan:</label>
+    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+    <input type="file" class="form-control-file" id="work-photo-five" name="work-photo-five">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
         <form action="">
             <!-- suppression d'un compte -->

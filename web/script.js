@@ -1,4 +1,4 @@
-window.onload = function () {
+/*window.onload = function () {
     var errorBlock = document.querySelector('#error-block');
     var successBlock = document.querySelector('#success-block');
     var xmlhttp = new XMLHttpRequest();
@@ -152,7 +152,7 @@ window.onload = function () {
         element[i].scrollTop = element[i].scrollHeight;
     }
 
-};
+};*/
 
 $(document).on('click', '.arrow_slide_down_button', function(event){
     event.preventDefault();

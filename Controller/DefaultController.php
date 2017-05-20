@@ -29,7 +29,9 @@ class DefaultController extends BaseController
         $numbervillager = $manager->getNumberOfVillager();
         $numbercrafter = $manager->getNumberOfCrafter();
         $users=$manager->getAllUsers();
-        echo $this->renderView('admin.html.twig',['numbervillager'=>$numbervillager,'numbercrafter'=>$numbercrafter,'users'=>$users]);
+        $villages=$manager->getAllVillages();
+        
+        echo $this->renderView('admin.html.twig',['numbervillager'=>$numbervillager,'numbercrafter'=>$numbercrafter,'users'=>$users,'villages'=>$villages]);
     }
     
     public function blogAction()
