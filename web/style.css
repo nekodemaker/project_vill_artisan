@@ -93,32 +93,41 @@ html body #main_container #home_container #welcome_container {
   background-image: url("assets/img/Rectangle.png");
   background-size: 100% 100%;
 }
-html body #main_container #home_container #welcome_container .content_container {
+html body #main_container #home_container #welcome_container .welcome_content {
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 70%;
+  width: 80%;
   align-items: center;
   height: 95%;
 }
-html body #main_container #home_container #welcome_container .content_container h4 {
+html body #main_container #home_container #welcome_container .welcome_content h4 {
   margin-top: 40px;
   font-family: 'Brandon_text-Medium';
   text-align: center;
   color: #f8f8f8;
 }
-html body #main_container #home_container #welcome_container .content_container hr {
+html body #main_container #home_container #welcome_container .welcome_content hr {
   width: 30%;
   background-color: #f8f8f8;
 }
-html body #main_container #home_container #welcome_container .content_container p {
+html body #main_container #home_container #welcome_container .welcome_content .row {
+  width: 100%;
+}
+html body #main_container #home_container #welcome_container .welcome_content .row .col-xl-3 p {
   margin: 0;
   color: #f8f8f8;
 }
-html body #main_container #home_container #welcome_container .content_container .paris_illustration {
-  width: 143%;
+html body #main_container #home_container #welcome_container .welcome_content .row .col-xl-9 {
+  display: flex;
+  justify-content: center;
 }
-html body #main_container #home_container #welcome_container .content_container a {
+html body #main_container #home_container #welcome_container .welcome_content .row .col-xl-9 .paris_illustration {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+}
+html body #main_container #home_container #welcome_container .welcome_content a {
   margin-top: auto;
 }
 html body #main_container #project_container {

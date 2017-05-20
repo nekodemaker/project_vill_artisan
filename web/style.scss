@@ -183,8 +183,11 @@ html{
                     background-image: url("assets/img/Rectangle.png");
                     background-size: 100% 100%;
 
-                    .content_container{
-                        @include content_container;
+                    .welcome_content{
+                        display: flex;
+                        flex-direction: column;
+                        margin: auto;
+                        width: 80%;
                         align-items: center;
                         height: 95%;
 
@@ -199,14 +202,24 @@ html{
                             width: 30%;
                             background-color: $white;
                         }
+                        .row{
+                            width: 100%;
+                            .col-xl-3{
+                                p{
+                                    margin: 0;
+                                    color: $white;
+                                }
+                            }
+                            .col-xl-9{
+                                display: flex;
+                                justify-content: center;
 
-                        p{
-                            margin: 0;
-                            color: $white;
-                        }
-
-                        .paris_illustration{
-                            width: 143%;
+                                .paris_illustration{
+                                    width: 90%;
+                                    height: 100%;
+                                    margin: auto;
+                                }
+                            }
                         }
 
                         a{
