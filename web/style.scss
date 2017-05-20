@@ -160,6 +160,21 @@ html{
                     .navbar-nav{
 
                         li{
+                            display: flex;
+                            align-items: center;
+
+                            .brand{
+                                font-family: 'Brandon_text-Bold';
+                                color: $red;
+                                font-size: 22px;
+                                padding: 5px;
+                                border: 3px solid $red;
+                            }
+                            .brand:hover{
+                                text-decoration: none;
+                            }
+
+
                             text-align: center;
                             font-family: 'Brandon_text-Bold';
                             font-size: 18px;

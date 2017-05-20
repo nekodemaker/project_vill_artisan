@@ -74,10 +74,22 @@ html body header .container .hidden-lg-up .login_button img {
   height: inherit;
 }
 html body header .container .navbar-collapse .navbar-nav li {
+  display: flex;
+  align-items: center;
   text-align: center;
   font-family: 'Brandon_text-Bold';
   font-size: 18px;
   margin: 0 15px 0 15px;
+}
+html body header .container .navbar-collapse .navbar-nav li .brand {
+  font-family: 'Brandon_text-Bold';
+  color: #8e3e3d;
+  font-size: 22px;
+  padding: 5px;
+  border: 3px solid #8e3e3d;
+}
+html body header .container .navbar-collapse .navbar-nav li .brand:hover {
+  text-decoration: none;
 }
 html body #main_container {
   display: flex;
