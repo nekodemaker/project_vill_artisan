@@ -853,6 +853,42 @@ html{
                     }
                 }
             }
+            #admin_container{
+                width: 100%;
+
+                .admin_content{
+                    width: 55%;
+                    margin: 20px auto;
+
+                    .figures_content{
+                        display: flex;
+
+                        .nb_content{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            margin: 20px;
+
+                            div{
+                                width: 60%;
+                                display: flex;
+                                justify-content: space-around;
+                                align-items: center;
+
+                                img{
+                                    width: 50px;
+                                    height: 50px;
+                                }
+                                span{
+                                    font-size: 30px;
+                                    font-weight: bold;
+                                    color: $red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         .article_editor_container{
             display: flex;
@@ -880,6 +916,57 @@ html{
                     }
                 }
 
+            }
+        }
+        #about_container{
+            .about_content{
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 20px auto;
+
+                h4{
+                    color: $gold;
+                    margin: 30px;
+                }
+                p{
+                    margin: 20px 0;
+                }
+                img{
+                    width: 170px;
+                    margin: 20px;
+                }
+                hr{
+                    width: 30%;
+                    background-color: $grey;
+                }
+                h5{
+                    color: $red;
+                    margin: 10px 0;
+                }
+                .team{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                    margin: 0 0 70px 0;
+
+                    div{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        img{
+                            width: 280px;
+                            height: 280px;
+                            margin: 20px 70px;
+                        }
+                        p{
+                            margin: 0;
+                        }
+                    }
+                }
             }
         }
         footer{
@@ -982,6 +1069,11 @@ html{
 
                     .col_preview{
                         @include content_container;
+                    }
+                }
+                #about_container{
+                    .about_content{
+                        width: 55%;
                     }
                 }
             }

@@ -187,7 +187,7 @@ function initMap() {
 
 
 
-    var drawingManager = new google.maps.drawing.DrawingManager({
+    /*var drawingManager = new google.maps.drawing.DrawingManager({
         drawingMode: google.maps.drawing.OverlayType.MARKER,
         drawingControl: true,
         drawingControlOptions: {
@@ -231,6 +231,8 @@ function initMap() {
         // INSERT INTO your_table (the_geom, name) VALUES (ST_GeomFromText(str_input, 4326), 'Test')
 
     });
+
+    */
 }
 
 window.onload = function () {
