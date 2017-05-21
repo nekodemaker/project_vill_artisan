@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 21 Mai 2017 à 17:55
+-- Généré le :  Dim 21 Mai 2017 à 22:01
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -23,35 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `articles`
---
-
-CREATE TABLE `articles` (
-  `id` int(11) NOT NULL,
-  `title_article` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
-  `author_article` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `date_article` datetime NOT NULL,
-  `text_article` varchar(1500) COLLATE utf8_unicode_ci NOT NULL,
-  `picture_article` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `comments`
---
-
-CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `author_comment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `date_comment` datetime NOT NULL,
-  `id_article` int(11) NOT NULL,
-  `text_comment` varchar(1500) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `crafter`
 --
 
@@ -65,6 +36,7 @@ CREATE TABLE `crafter` (
   `crafter_history` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `crafter_shop` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `crafter_profile_photo` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `crafter_shop_photo` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `crafter_photo_work` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `coord_latitude` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `coord_longitude` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
@@ -86,55 +58,6 @@ CREATE TABLE `event` (
   `date_event` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `event`
---
-
-INSERT INTO `event` (`id`, `id_author`, `author_event`, `title_event`, `text_event`, `photo_event`, `date_event`) VALUES
-(1, 25, 'Sodara NHEK', 'sodara', 'Moi', 'nothing', '2017-05-19'),
-(2, 25, 'Sodara NHEK', 'sodara', 'Moi', 'nothing', '2017-05-19'),
-(3, 25, 'Sodara NHEK', 'xcvxv', 'xvxvxcv', 'nothing', '2017-05-19'),
-(4, 25, 'Sodara NHEK', 'vbnvbnvb', 'nvbnvbn', 'nothing', '2017-05-19'),
-(5, 25, 'Sodara NHEK', 'vbnvbnvb', 'nvbnvbn', 'nothing', '2017-05-19'),
-(6, 25, 'Sodara NHEK', 'vbnvbnvb', 'nvbnvbn', 'nothing', '2017-05-19'),
-(7, 25, 'Sodara NHEK', 'dgdgd', 'dgdgdgg', 'nothing', '2017-05-19'),
-(8, 25, 'Sodara NHEK', 'dgdgd', 'dgdgdgg', './users/SodaraNHEK/591f1898aaf8a.jpeg', '2017-05-19'),
-(9, 25, 'Sodara NHEK', 'UYo', 'dsfsfsf', 'nothing', '2017-05-19'),
-(10, 25, 'Sodara NHEK', 'UYo', 'dsfsfsf', 'nothing', '2017-05-19'),
-(11, 25, 'Sodara NHEK', 'UYo', 'dsfsfsf', 'nothing', '2017-05-19'),
-(12, 25, 'Sodara NHEK', 'UYo', 'dsfsfsf', 'nothing', '2017-05-19'),
-(13, 25, 'Sodara NHEK', 'rertert', 'reterret', 'nothing', '2017-05-19'),
-(14, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c7222f41.jpeg', '2017-05-19'),
-(15, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c72edf3f.jpeg', '2017-05-19'),
-(16, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c732818e.jpeg', '2017-05-19'),
-(17, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c7359084.jpeg', '2017-05-19'),
-(18, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c738b971.jpeg', '2017-05-19'),
-(19, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c73bb394.jpeg', '2017-05-19'),
-(20, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c73e374a.jpeg', '2017-05-19'),
-(21, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c7b87a41.jpeg', '2017-05-19'),
-(22, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c7bc6540.jpeg', '2017-05-19'),
-(23, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c7c0716f.jpeg', '2017-05-19'),
-(24, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c7c33b47.jpeg', '2017-05-19'),
-(25, 25, 'Sodara NHEK', 'rertert', 'reterret', './users/SodaraNHEK/591f1c7c5bb20.jpeg', '2017-05-19'),
-(26, 25, 'Sodara NHEK', 'fdgdg', 'dfgdfgd', 'nothing', '2017-05-19'),
-(27, 25, 'Sodara NHEK', 'fdgdg', 'dfgdfgd', 'nothing', '2017-05-19'),
-(28, 25, 'Sodara NHEK', 'fdgdg', 'dfgdfgd', 'nothing', '2017-05-19'),
-(29, 25, 'Sodara NHEK', 'fdgdfg', 'dfgdfgd', 'nothing', '2017-05-19'),
-(30, 25, 'Sodara NHEK', 'fdgdfg', 'dfgdfgd', 'nothing', '2017-05-19'),
-(31, 25, 'Sodara NHEK', 'fdgfgdfg', 'dfgdgd', 'nothing', '2017-05-19'),
-(32, 25, 'Sodara NHEK', 'fdgfgdfg', 'dfgdgd', 'nothing', '2017-05-19'),
-(33, 25, 'Sodara NHEK', 'fdgfgdfg', 'dfgdgd', 'nothing', '2017-05-19'),
-(34, 25, 'Sodara NHEK', 'fdgfgdfg', 'dfgdgd', 'nothing', '2017-05-19'),
-(35, 25, 'Sodara NHEK', 'fdgfgdfg', 'dfgdgd', 'nothing', '2017-05-19'),
-(36, 25, 'Sodara NHEK', 'fdgfgdfg', 'dfgdgd', 'nothing', '2017-05-19'),
-(37, 25, 'Sodara NHEK', 'dgdfg', 'fdgdfg', 'nothing', '2017-05-19'),
-(38, 25, 'Sodara NHEK', 'ffh', 'gfhfghfg', 'nothing', '2017-05-19'),
-(39, 25, 'Sodara NHEK', 'vbnvbnvb', 'nvbnvbvbn', 'nothing', '2017-05-19'),
-(40, 25, 'Sodara NHEK', 'vbnvbnvb', 'nvbnvbvbn', 'nothing', '2017-05-19'),
-(41, 25, 'Sodara NHEK', 'ghfhgffg', 'hfghfghf', 'nothing', '2017-05-19'),
-(42, 25, 'Sodara NHEK', 'fdfdgd', 'gdffdgd', 'nothing', '2017-05-19'),
-(43, 25, 'Sodara NHEK', 'rtrete', 'retetre', 'nothing', '2017-05-19');
-
 -- --------------------------------------------------------
 
 --
@@ -148,33 +71,6 @@ CREATE TABLE `message` (
   `text_message` varchar(300) NOT NULL,
   `date_message` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `message`
---
-
-INSERT INTO `message` (`id`, `id_sender`, `id_receiver`, `text_message`, `date_message`) VALUES
-(61, 25, 26, 'YO', '2017-05-19'),
-(62, 25, 26, 'Ca va?', '2017-05-19'),
-(63, 26, 25, 'Oui', '2017-05-19'),
-(64, 26, 25, 'Et toi?', '2017-05-19'),
-(65, 26, 25, 'Ca va?', '2017-05-19'),
-(66, 25, 26, 'Yes', '2017-05-19'),
-(67, 25, 26, 'Alors?', '2017-05-19'),
-(68, 25, 26, 'Quoi de beau?\n', '2017-05-19'),
-(69, 26, 25, 'Rien', '2017-05-19'),
-(70, 25, 26, 'rien?\n', '2017-05-19'),
-(71, 25, 26, 'Hey', '2017-05-19'),
-(72, 25, 26, 'Hey', '2017-05-19'),
-(73, 25, 26, 'Hey', '2017-05-19'),
-(74, 25, 26, 'Hey', '2017-05-19'),
-(75, 25, 26, 'YO', '2017-05-19'),
-(76, 25, 26, 'haha', '2017-05-20'),
-(77, 25, 26, 'haha', '2017-05-20'),
-(78, 25, 26, 'haha', '2017-05-20'),
-(79, 25, 26, 'haha', '2017-05-20'),
-(80, 25, 26, 'haha', '2017-05-20'),
-(81, 25, 26, 'FGFDGDG', '2017-05-20');
 
 -- --------------------------------------------------------
 
@@ -195,13 +91,6 @@ CREATE TABLE `user` (
   `user_interet` varchar(200) NOT NULL,
   `user_pic` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `user`
---
-
-INSERT INTO `user` (`id`, `user_type`, `lastname`, `firstname`, `password`, `mail`, `adress`, `postcode`, `user_village`, `user_interet`, `user_pic`) VALUES
-(25, 'crafter', 'NHEK', 'Sodara', '$2y$10$c2FsdHlzYWx0eXNhbHR5cuJ9osWrdD098BB.G/zsVbRAKWDZYLzOi', 'sodara.nhek@supinternet.fr', '55 avenue de l\'enfer', 75011, 'Grands-Boulevards,Quinze-vingts', '', 'users/SodaraNHEK/profile_pic/SodaraNHEK.png');
 
 -- --------------------------------------------------------
 
@@ -265,18 +154,6 @@ INSERT INTO `villages` (`id`, `village_name`) VALUES
 --
 
 --
--- Index pour la table `articles`
---
-ALTER TABLE `articles`
-  ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Index pour la table `crafter`
 --
 ALTER TABLE `crafter`
@@ -311,20 +188,10 @@ ALTER TABLE `villages`
 --
 
 --
--- AUTO_INCREMENT pour la table `articles`
---
-ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT pour la table `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT pour la table `crafter`
 --
 ALTER TABLE `crafter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT pour la table `event`
 --
@@ -334,12 +201,12 @@ ALTER TABLE `event`
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 --
 -- AUTO_INCREMENT pour la table `villages`
 --
