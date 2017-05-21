@@ -55,16 +55,19 @@ class SecurityController extends BaseController
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
         {
             $manager = UserManager::getInstance();
-            if ($manager->userCheckRegisterCrafter($_POST))
+            if ($manager->userCheckRegisterCrafter($_POST,$_FILES))
             {
-                $manager->userRegisterCrafter($_POST);
-                $this->redirect('home');
+                //$manager->userRegisterCrafter($_POST);
+                //$this->redirect('home');
+                echo json_encode(['data' => "Check register good" ]);
+                exit(0);
             }
             else {
-                $error = "Invalid data";
+                 echo json_encode(['data' => "Check register not good" ]);
+                exit(0);
+                //$error = "Invalid data";
             }
-            echo json_encode(['YO' => "Ce n'est pas la requete post" ]);
-            exit(0);
+
         }
         echo $this->renderView('register.html.twig', ['error' => $error]);
     }

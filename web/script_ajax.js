@@ -75,7 +75,7 @@ window.onload = function () {
             url: "index.php?action=registerCrafter", //Relative or absolute path to response.php file
             data: formdata,
             success: function (data) {
-           console.log("");
+                console.log(data['data']);
             },
             error: function (data) {
                 console.log("ERROR AJAX");

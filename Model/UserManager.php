@@ -38,6 +38,60 @@ class UserManager
         return $res;
     }
     
+    
+    public function checkPhotoRegisterCrafter($file){
+        if(empty($file['profile-photo']['tmp_name'])){
+            echo json_encode(['data' => "Il manque le photo de profil" ]);
+            exit(0);
+            return false;
+        }else{
+            foreach($file["workphoto"]["tmp_name"] as $key => $tmpname){
+                if(empty($tmpname)){
+                    echo json_encode(['data' => "Il manque une des 6 photos" ]);
+                    exit(0);
+                    return false;
+                }else{
+                    $extensions = array( 'image/jpg' , 'image/jpeg' , 'image/gif' , 'image/png' );
+                    
+                    if ($file['workphoto']['size'][$key] > 1048576){
+                        echo json_encode(['data' => "Le fichier ".($key+1)." est trop gros" ]);
+                        exit(0);
+                    }
+                    if (!in_array($file['workphoto']['type'][$key],$extensions)){
+                        echo json_encode(['data' => "Le fichier ".($key+1)." doit être de type : jpg,jpeg,gif ou png" ]);
+                        exit(0);
+                    };
+                    
+                }
+            }
+            return true;
+        }
+    }
+    
+    public function userCheckRegisterCrafter($data,$file){
+        if($this->userCheckRegister($data)){
+            if(empty($data['job-crafter']) OR empty($data['crafter-history']) OR empty($data['crafter-shop'])){
+                echo json_encode(['data' => "Il manque au moins un de ces champs : métier,histoire, et boutique " ]);
+                exit(0);
+                return false;
+            }else{
+                if($this->checkPhotoRegisterCrafter($file)){
+                    return true;
+                }
+            }
+        }else{
+            return false;
+        }
+        
+    }
+    
+    public function userRegisterCrafter($data,$file){
+        //register the crafter as user
+        $this->userRegister($data);
+        //get the user and put other datas into the table crafter
+        
+    }
+    
     /*END ADMIN FUNCTIONS*/
     
     
@@ -284,15 +338,5 @@ class UserManager
     {
         $data = $this->DBManager->findAllSecure("SELECT * FROM villages",[]);
         return $data;
-    }
-    
-    public function userCheckRegisterCrafter($data){
-        
-        
-    }
-    
-    public function userRegisterCrafter($data){
-        
-        
     }
 }
