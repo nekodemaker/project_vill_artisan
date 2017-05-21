@@ -1,6 +1,9 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+    <head>
+        <script src="bootstrap-4.0.0-alpha.6-dist/bootstrap-filestyle.min.js"></script>
+    </head>
 <div id="admin_container">
     <div class="admin_content">
         <div class="figures_content">
@@ -15,147 +18,195 @@
                 <h6>Nombre d'artisans :</h6>
                 <div>
                     <img src="web/assets/img/artisan.png" alt="">
-                    <span>{{numbercrafter}}</span> <!-- nbr de villageois -->
+                    <span>{{numbercrafter}}</span> <!-- nbr d'artisan -->
                 </div>
             </div>
         </div>
 
-        <h5>Liste des utilisateurs inscrits:</h5>
-        <input class="btn btn-primary" id="button-all-users" type="button" value="Tous">
-        <input class="btn btn-primary" id="button-only-crafter" type="button" value="Artisans">
-        <input class="btn btn-primary" id="button-only-villager" type="button" value="Villageois">
-        <table class="table table-sm table-users">
-            <thead class="thead-inverse">
-                <tr>
-                    <th>id</th>
-                    <th>Type de l'utilisateur</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Mail</th>
-                    <th>Adresse</th>
-                    <th>Code postal</th>
-                    <th>village(s)</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for user in users %}
-                {% if user.user_type == "villager" %}
-                 <tr class="villager-row">
-                {% else %}
-                <tr class="crafter-row">
-                {% endif %}
-                    <th scope="row">{{user.id}}</th>
-                    <td>{{user.user_type}}</td>
-                    <td>{{user.lastname}}</td>
-                    <td>{{user.firstname}}</td>
-                    <td>{{user.mail}}</td>
-                    <td>{{user.adress}}</td>
-                    <td>{{user.postcode}}</td>
-                    <td>{{user.user_village}}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <div class="sub_preview_container">
+            <h4>Liste des utilisateurs inscrits:</h4>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#home" role="tab">
+                        <input id="button-all-users" type="button" value="Tous">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">
+                        <input id="button-only-crafter" type="button" value="Artisans">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#messages" role="tab">
+                        <input id="button-only-villager" type="button" value="Villageois">
+                    </a>
+                </li>
+            </ul>
+            <div class="table_container">
+                <table class="table table-sm table-users">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>id</th>
+                        <th>Type de l'utilisateur</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Mail</th>
+                        <th>Adresse</th>
+                        <th>Code postal</th>
+                        <th>village(s)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        {% if user.user_type == "villager" %}
+                            <tr class="villager-row">
+                        {% else %}
+                            <tr class="crafter-row">
+                        {% endif %}
+                        <th scope="row">{{user.id}}</th>
+                        <td>{{user.user_type}}</td>
+                        <td>{{user.lastname}}</td>
+                        <td>{{user.firstname}}</td>
+                        <td>{{user.mail}}</td>
+                        <td>{{user.adress}}</td>
+                        <td>{{user.postcode}}</td>
+                        <td>{{user.user_village}}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <h5>Inscription artisan:</h5>
-<form name="create-crafter-form" id="create-crafter-form" method="POST" enctype="multipart/form-data">
-<input type="hidden" id="user-type" name="user-type" value="crafter">
-  <div class="form-group">
-    <label for="lastname">Nom:</label>
-    <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom de l'artisan">
-  </div>
-  <div class="form-group">
-    <label for="firstname">Prénom:</label>
-    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom de l'artisan">
-  </div>
-  <div class="form-group">
-    <label for="passw">Password</label>
-    <input type="password" class="form-control" id="passw" name="passw" placeholder="Mot de passe">
-  </div>
-  <div class="form-group">
-    <label for="mail">Mail:</label>
-    <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail de l'artisan">
-  </div>
-  <div class="form-group">
-    <label for="adress">Adresse:</label>
-    <input type="text" class="form-control" id="adress" name="adress" placeholder="Adresse de l'artisan">
-  </div>
-  <div class="form-group">
-    <label for="postcode">Code postal:</label>
-    <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Code postal">
-  </div>
-  <div class="form-group">
-    <label for="village-user">Village (en tant que villageois)</label>
-    <select id='village-user' name="village-user" >
-        {% for village in villages %}
-                <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
-            {% endfor %}
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="village-crafter">Village (en tant qu' artisan)</label>
-    <select id='village-crafter' name="village-crafter" >
-        {% for village in villages %}
-                <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
-            {% endfor %}
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="job-crafter">Métier de l'artisan:</label>
-    <input type="text" class="form-control" id="job-crafter" name="job-crafter" placeholder="Métier de l'artisan">
-  </div>
-  <div class="form-group">
-    <label for="crafter-history">Histoire de l'artisan:</label>
-    <textarea class="form-control" id="crafter-history" name="crafter-history" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="crafter-shop">Boutique de l'artisan:</label>
-    <textarea class="form-control" id="crafter-shop" name="crafter-shop" rows="3"></textarea>
-  </div>
-  <div class="form-group">
-    <label for="profile-photo">Photo de profil de l'artisan:</label>
-    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-    <input type="file" class="form-control-file" id="profile-photo" name="profile-photo">
-  </div>
+        <div class="register_crafter_editor">
+            <h4>Inscription artisan:</h4>
+            <hr>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h5>informations du compte :</h5>
+                    <form name="create-crafter-form" id="create-crafter-form" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" id="user-type" name="user-type" value="crafter">
+                        <div class="form-group">
+                            <label for="lastname"><b>Nom:</b></label>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom de l'artisan">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname"><b>Prénom:</b></label>
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom de l'artisan">
+                        </div>
+                        <div class="form-group">
+                            <label for="passw"><b>Password</b></label>
+                            <input type="password" class="form-control" id="passw" name="passw" placeholder="Mot de passe">
+                        </div>
+                        <div class="form-group">
+                            <label for="mail"><b>Mail:</b></label>
+                            <input type="email" class="form-control" id="mail" name="mail" placeholder="Mail de l'artisan">
+                        </div>
+                        <div class="form-group">
+                            <label for="adress"><b>Adresse:</b></label>
+                            <input type="text" class="form-control" id="adress" name="adress" placeholder="Adresse de l'artisan">
+                        </div>
+                        <div class="form-group">
+                            <label for="postcode"><b>Code postal:</b></label>
+                            <input type="text" class="form-control" id="postcode" name="postcode" placeholder="Code postal">
+                        </div>
+                        <div class="form-group">
+                            <label for="village-user"><b>Village</b> (en tant que <b>villageois</b>)</label>
+                            <select id='village-user' name="village-user" >
+                                {% for village in villages %}
+                                    <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="village-crafter"><b>Village</b> (en tant qu' <b>artisan</b>)</label>
+                            <select id='village-crafter' name="village-crafter" >
+                                {% for village in villages %}
+                                    <option>{{village.village_name |  convert_encoding('UTF-8', 'ISO-8859-1') }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                        <h5>informations de la page profil :</h5>
+                        <div class="form-group">
+                            <label for="profile-photo">
+                                <b>Photo de profil</b> de l'artisan:
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" class="filestyle form-control-file" id="profile-photo" name="profile-photo" data-icon="false">
+                        </div>
+                        <div class="form-group">
+                            <label for="job-crafter"><b>Métier</b> de l'artisan:</label>
+                            <input type="text" class="form-control" id="job-crafter" name="job-crafter" placeholder="Métier de l'artisan">
+                        </div>
+                        <div class="form-group">
+                            <label for="crafter-history"><b>Histoire</b> de l'artisan:</label>
+                            <textarea class="form-control" id="crafter-history" name="crafter-history" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="crafter-shop"><b>Boutique</b> de l'artisan:</label>
+                            <textarea class="form-control" id="crafter-shop" name="crafter-shop" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="job-crafter"><b>Adresse de la boutique</b> de l'artisan:</label>
+                            <input type="text" class="form-control" id="job-crafter" name="job-crafter" placeholder="Adresse de la boutique">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-photo-zero">
+                                Photo n°1 d'un des travaux de l'artisan:
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" class="filestyle form-control-file" id="work-photo-zero" name="workphoto[]" data-icon="false">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-photo-one">
+                                Photo n°2 d'un des travaux de l'artisan:
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" class="filestyle form-control-file" id="work-photo-one" name="workphoto[]" data-icon="false">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-photo-two">
+                                Photo n°3 d'un des travaux de l'artisan:
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" class="filestyle form-control-file" id="work-photo-two" name="workphoto[]" data-icon="false">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-photo-three">
+                                Photo n°4 d'un des travaux de l'artisan:
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" class="filestyle form-control-file" id="work-photo-three" name="workphoto[]" data-icon="false">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-photo-four">
+                                Photo n°5 d'un des travaux de l'artisan:
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" class="filestyle form-control-file" id="work-photo-four" name="workphoto[]" data-icon="false">
+                        </div>
+                        <div class="form-group">
+                            <label for="work-photo-five">
+                                Photo n°6 d'un des travaux de l'artisan:
+                            </label>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                            <input type="file" class="filestyle form-control-file" id="work-photo-five" name="workphoto[]" data-icon="false">
+                        </div>
+                    <button type="submit" class="btn">Valider</button>
+                    </form>
+                </div>
+            </div>
 
-  <div class="form-group">
-    <label for="work-photo-zero">Photo n°1 d'un des travaux de l'artisan:</label>
-    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-    <input type="file" class="form-control-file" id="work-photo-zero" name="workphoto[]">
-  </div>
-  <div class="form-group">
-    <label for="work-photo-one">Photo n°2 d'un des travaux de l'artisan:</label>
-    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-    <input type="file" class="form-control-file" id="work-photo-one" name="workphoto[]">
-  </div>
-  <div class="form-group">
-    <label for="work-photo-two">Photo n°3 d'un des travaux de l'artisan:</label>
-    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-    <input type="file" class="form-control-file" id="work-photo-two" name="workphoto[]">
-  </div>
-  <div class="form-group">
-    <label for="work-photo-three">Photo n°4 d'un des travaux de l'artisan:</label>
-    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-    <input type="file" class="form-control-file" id="work-photo-three" name="workphoto[]">
-  </div>
-  <div class="form-group">
-    <label for="work-photo-four">Photo n°5 d'un des travaux de l'artisan:</label>
-    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-    <input type="file" class="form-control-file" id="work-photo-four" name="workphoto[]">
-  </div>
-    <div class="form-group">
-    <label for="work-photo-five">Photo n°6 d'un des travaux de l'artisan:</label>
-    <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-    <input type="file" class="form-control-file" id="work-photo-five" name="workphoto[]">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
 
-        <form action="">
-            <!-- suppression d'un compte -->
-            <!-- créer + éditer un compte artisan -->
-            <!-- édition + suppression d'article -->
-        </form>
+            <form action="">
+                <!-- suppression d'un compte -->
+                <!-- créer + éditer un compte artisan -->
+                <!-- édition + suppression d'article -->
+            </form>
+        </div>
+
     </div>
 </div>
 {% endblock %}

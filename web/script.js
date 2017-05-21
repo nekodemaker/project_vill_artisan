@@ -154,6 +154,16 @@
 
 };*/
 
+$( "#clickme" ).click(function() {
+    $( "#book" ).show( "slow", function() {
+        // Animation complete.
+    });
+});
+
+$(":file").filestyle({icon: false});
+
+
+
 $(document).on('click', '.arrow_slide_down_button', function(event){
     event.preventDefault();
 

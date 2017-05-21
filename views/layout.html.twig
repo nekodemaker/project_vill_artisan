@@ -31,9 +31,35 @@
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="bd-main-nav">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav hidden-md-up">
                     <li class="nav-item">
-                        <a class="hidden-md-down brand" href="?action=home">
+                        <a class="nav-item nav-link" href="?action=home">Accueil</a>
+                    </li>
+                    {% if name is defined and name is not empty %}
+                        <li class="nav-item">
+                            <a class="nav-item nav-link " href="?action=blog">Actualités</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link " href="?action=profile">Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="?action=logout">Déconnection</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-item nav-link " href="?action=register">Inscription</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="?action=login">Connection</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" href="?action=about">À propos</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav hidden-md-down">
+                    <li class="nav-item">
+                        <a class="brand" href="?action=home">
                             VILL' ARTISAN
                         </a>
                     </li>
