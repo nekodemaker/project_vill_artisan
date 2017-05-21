@@ -521,6 +521,7 @@ html{
                 }
             }
             #article_container{
+                height: 62vh;
 
                 .col_preview{
                     @include content_container;

@@ -343,47 +343,49 @@ html {
                 color: #8e3e3d; }
               html body #main_container #blog_container .col_preview .row .col-12 .carousel-caption p, html body #main_container #blog_container .col_preview .row .col-12 .carousel-caption h5, html body #main_container #blog_container .col_preview .row .col-12 .carousel-caption a {
                 color: #343539; }
-      html body #main_container #article_container .col_preview {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        width: 70%;
-        width: 95%;
-        align-items: center; }
-        html body #main_container #article_container .col_preview .row {
-          margin: 40px 0 40px 0;
-          width: 100%; }
-          html body #main_container #article_container .col_preview .row .col-12 {
-            border: 10px solid #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: 10px;
-            background-color: #f8f8f8; }
-            html body #main_container #article_container .col_preview .row .col-12 .carousel-caption {
-              position: static;
-              text-align: left;
-              padding: 20px; }
-              html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 20px; }
-                html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h4 {
-                  text-align: left;
-                  color: #8e3e3d; }
-                html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h5 {
-                  color: #343539; }
-              html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content {
-                display: flex;
-                flex-direction: column;
-                padding: 30px 0 10px 0; }
-                html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content p {
-                  color: #343539; }
-                html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content .author {
-                  align-self: flex-end;
-                  text-transform: capitalize;
-                  margin: 20px 0 0 0; }
+      html body #main_container #article_container {
+        height: 62vh; }
+        html body #main_container #article_container .col_preview {
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+          width: 70%;
+          width: 95%;
+          align-items: center; }
+          html body #main_container #article_container .col_preview .row {
+            margin: 40px 0 40px 0;
+            width: 100%; }
+            html body #main_container #article_container .col_preview .row .col-12 {
+              border: 10px solid #fff;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              padding: 10px;
+              background-color: #f8f8f8; }
+              html body #main_container #article_container .col_preview .row .col-12 .carousel-caption {
+                position: static;
+                text-align: left;
+                padding: 20px; }
+                html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header {
+                  width: 100%;
+                  display: flex;
+                  justify-content: space-between;
+                  margin-bottom: 20px; }
+                  html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h4 {
+                    text-align: left;
+                    color: #8e3e3d; }
+                  html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_header h5 {
+                    color: #343539; }
+                html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content {
+                  display: flex;
+                  flex-direction: column;
+                  padding: 30px 0 10px 0; }
+                  html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content p {
+                    color: #343539; }
+                  html body #main_container #article_container .col_preview .row .col-12 .carousel-caption .article_content .author {
+                    align-self: flex-end;
+                    text-transform: capitalize;
+                    margin: 20px 0 0 0; }
       html body #main_container #register_container {
         height: auto; }
         html body #main_container #register_container .col_preview {
