@@ -721,9 +721,7 @@ html {
               display: flex;
               flex-direction: column;
               align-items: center;
-              margin: 20px 0;
-              padding: 10px 20px;
-              border: 3px solid #8e3e3d; }
+              margin: 20px 0; }
               html body #main_container #admin_container .admin_content .figures_content .nb_content div {
                 width: 60%;
                 display: flex;
@@ -739,7 +737,7 @@ html {
             html body #main_container #admin_container .admin_content .figures_content .nb_content:first-child {
               margin-right: 20px; }
           html body #main_container #admin_container .admin_content .sub_preview_container {
-            margin: 60px 0; }
+            margin: 40px 0; }
             html body #main_container #admin_container .admin_content .sub_preview_container .nav {
               margin: 2px 0; }
               html body #main_container #admin_container .admin_content .sub_preview_container .nav .nav-item .nav-link {
@@ -774,6 +772,9 @@ html {
               border-radius: 0 5px 5px 0; }
               html body #main_container #admin_container .admin_content .register_crafter_editor .row .col-12 .form-group .bootstrap-filestyle span span {
                 border: 0; }
+            html body #main_container #admin_container .admin_content .register_crafter_editor .row button {
+              width: 40%;
+              margin: 40px auto; }
     html body .article_editor_container {
       display: flex;
       justify-content: center; }
@@ -848,11 +849,18 @@ html {
               color: #f8f8f8;
               text-align: center;
               padding: 5px 0 5px 0; }
+          html body footer #footer_content .row .col-2 a {
+            width: 45px;
+            height: 45px;
+            padding: 8px;
+            margin: 10px;
+            border: 1px solid #f8f8f8;
+            border-radius: 50%; }
         html body footer #footer_content .brand {
           font-family: 'Brandon_text-Bold';
           color: #f8f8f8;
           font-size: 22px;
-          margin: 30px 0 30px 0;
+          margin: 0 0 30px 0;
           padding: 10px;
           border: 2px solid #f8f8f8; }
         html body footer #footer_content #copyright {

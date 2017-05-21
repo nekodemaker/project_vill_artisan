@@ -930,8 +930,6 @@ html{
                             flex-direction: column;
                             align-items: center;
                             margin: 20px 0;
-                            padding: 10px 20px;
-                            border: 3px solid $red;
 
                             div{
                                 width: 60%;
@@ -955,7 +953,7 @@ html{
                         }
                     }
                     .sub_preview_container{
-                        margin: 60px 0;
+                        margin: 40px 0;
 
                         .nav{
                             margin: 2px 0;
@@ -1020,6 +1018,10 @@ html{
                                         }
                                     }
                                 }
+                            }
+                            button{
+                                width: 40%;
+                                margin: 40px auto;
                             }
                         }
                     }
@@ -1134,12 +1136,22 @@ html{
                             padding: 5px 0 5px 0;
                         }
                     }
+                    .col-2{
+                        a{
+                            width: 45px;
+                            height: 45px;
+                            padding: 8px;
+                            margin: 10px;
+                            border: 1px solid $white;
+                            border-radius: 50%;
+                        }
+                    }
                 }
                 .brand{
                     font-family: 'Brandon_text-Bold';
                     color: $white;
                     font-size: 22px;
-                    margin: 30px 0 30px 0;
+                    margin: 0 0 30px 0;
                     padding: 10px;
                     border: 2px solid $white;
                 }
