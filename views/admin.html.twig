@@ -151,6 +151,12 @@
                         <div class="form-group">
                             <label for="crafteradress"><b>Adresse de la boutique</b> de l'artisan:</label>
                             <input type="text" class="form-control" id="crafteradress" name="crafteradress" placeholder="Adresse de la boutique">
+                            <input type="hidden"id="adresslatitude" name="adresslatitude" >
+                            <input type="hidden"id="adresslongitude" name="adresslongitude" >
+                        </div>
+                        <div class="form-group">
+                            <label for="craftertime"><b>Horaires d'ouverture</b>:</label>
+                            <input type="text" class="form-control" id="craftertime" name="craftertime" placeholder="Horaires de la boutique">
                         </div>
                         <div class="form-group">
                             <label for="work-photo-zero">
@@ -209,4 +215,18 @@
 
     </div>
 </div>
+   <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCeiRXtmq_b1VExUhW4eInm5yFGw5a0tXg&libraries=places"></script>
+    <script>
+        var options = {
+        };
+        var input = document.getElementById('crafteradress');
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var latElem = document.getElementById('adresslatitude');
+            var lngElem = document.getElementById('adresslongitude');
+            var place = autocomplete.getPlace();
+            latElem.value=place.geometry.location.lat();
+            lngElem.value=place.geometry.location.lng();
+        });
+    </script>
 {% endblock %}

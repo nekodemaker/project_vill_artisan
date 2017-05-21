@@ -1,10 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<script>
+var markers=[
+{% for marker in markers %}
+{
+    "name":"",
+    "lat":{{marker.latitude}},
+    "lng":{{marker.longitude}},
+    "description": '<div class="infowindow_content"><img class="img_infowindow" src="'+"{{marker.profile}}"+'" alt=""><br><h5>'+"{{marker.firstname}} {{marker.lastname}}"+'</h5><h6><b>'+"{{marker.job}}"+'</b></h6><p>'+"{{marker.adress}}"+'<br>'+"{{marker.time}}"+'</p><a class="redirect_crafter_profil" href="?action=artisanProfile&id='+"{{marker.id}}"+'">voir son profil</a></div>'
+},
+{% endfor %}
+];
+
+</script>
 <div id="home_container">
     <div id="welcome_container">
         <div class="welcome_content">
-
             <div class="row">
                 <div class="col-sm-6 col-md-12 col-xl-3">
                     <h4>Bienvenue sur<br> Vill'artisan</h4>
@@ -82,7 +94,6 @@
             <h4>Blog</h4>
             <hr>
             <p>Bienvenue sur le blog du site, vous pourrez, ici, retrouvez notre actualité, celle des artisans qui nous ont rejoints et celle du monde de l’artisanat et du commerce local !</p>
-
             <div class="row d-none d-lg-flex">
                 <div class="col-4">
                     <img class="d-block img-fluid" src="web/assets/img/slide.png" alt="First slide">

@@ -69,7 +69,7 @@ class UserManager
     
     public function userCheckRegisterCrafter($data,$file){
         if($this->userCheckRegister($data)){
-            if(empty($data['job-crafter']) OR empty($data['crafter-history']) OR empty($data['crafter-shop']) OR empty($data['crafteradress'])){
+            if(empty($data['job-crafter']) OR empty($data['crafter-history']) OR empty($data['crafter-shop']) OR empty($data['crafteradress'])OR empty($data['craftertime'])){
                 echo json_encode(['data' => "Il manque au moins un de ces champs : métier,histoire, boutique et adresse" ]);
                 exit(0);
                 return false;
@@ -121,18 +121,19 @@ class UserManager
         mkdir($crafterPhotoPath);
         //get the user and put other datas into the table crafter
         $user=$this->getUserByMail($data['mail']);
-        $query="insert into `crafter`(`id_user`,`crafter_adress`,`crafter_village`,`crafter_job`,`crafter_history`,`crafter_shop`,`crafter_profile_photo`,`crafter_photo_work`,`coord_latitude`,`coord_longitude`)values(:userid,:crafteradress,:craftervillage,:crafterjob,:crafterhistory,:craftershop,:crafterprofilephoto,:crafterphotowork,:latitude,:longitude)";
+        $query="insert into `crafter`(`id_user`,`crafter_adress`,`crafter_time`,`crafter_village`,`crafter_job`,`crafter_history`,`crafter_shop`,`crafter_profile_photo`,`crafter_photo_work`,`coord_latitude`,`coord_longitude`)values(:userid,:crafteradress,:craftertime,:craftervillage,:crafterjob,:crafterhistory,:craftershop,:crafterprofilephoto,:crafterphotowork,:latitude,:longitude)";
         $d=([
         'userid'=> $user['id'],
         'crafteradress'=>$data['crafteradress'],
+        'craftertime'=>$data['craftertime'],
         'craftervillage'=> utf8_decode($data['village-crafter']),
         'crafterjob'=> $data['job-crafter'],
         'crafterhistory'=> $data['crafter-history'],
         'craftershop'=> $data['crafter-shop'],
         'crafterprofilephoto'=> "",
         'crafterphotowork'=> "",
-        'latitude'=> 0.0,
-        'longitude'=> 0.0,
+        'latitude'=> $data['adresslatitude'],
+        'longitude'=> $data['adresslongitude'],
         ]);
         $this->DBManager->do_query_db($query,$d);
         $this->uploadPhotoProfileCrafter($file,$crafterPhotoPath,$user['id']);
@@ -154,6 +155,8 @@ class UserManager
             "lastname"=>$crafter['lastname'],
             "firstname"=>$crafter['firstname'],
             "job"=>$allUsersCrafter[$i]['crafter_job'],
+            "adress"=>$allUsersCrafter[$i]['crafter_adress'],
+            "time"=>$allUsersCrafter[$i]['crafter_time'],
             "profile"=>$allUsersCrafter[$i]['crafter_profile_photo'],
             "latitude"=>$allUsersCrafter[$i]['coord_latitude'],
             "longitude"=>$allUsersCrafter[$i]['coord_longitude'],

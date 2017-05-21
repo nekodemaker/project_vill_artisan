@@ -11,16 +11,18 @@ class DefaultController extends BaseController
     {
         $managerArticle=ArticleManager::getInstance();
         $articles = $managerArticle->getAllArticles();
+        $manager = UserManager::getInstance();
+        $markers=$manager->getAllCraftersForMarkerMap();
         if (!empty($_SESSION['user_id']))
         {
             $manager = UserManager::getInstance();
             $user = $manager->getUserById($_SESSION['user_id']);
             echo $this->renderView('home.html.twig',
-            ['name' => $user['lastname'],'articles' => $articles]);
+            ['name' => $user['lastname'],'articles' => $articles,'markers'=>$markers]);
         }
         else
             echo $this->renderView('home.html.twig',
-        ['articles' => $articles]);
+        ['articles' => $articles,'markers'=>$markers]);
     }
     
     public function getMarkerAction()
