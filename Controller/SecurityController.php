@@ -143,11 +143,7 @@ class SecurityController extends BaseController
         
         echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
     }
-    
-    public function showProfileAction()
-    {
-    }
-    
+        
     public function artisanProfileAction()
     {
         $error = '';

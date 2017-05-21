@@ -22,7 +22,7 @@
                                     </label>
                             </form>
                             <h2>{{user.lastname}} {{user.firstname}}</h2>
-                            <h4>Villageois</h4> <!-- status -->
+                            <h4>{% if user.user_type == villager %} villageois {% else %} Artisan {% endif %}</h4> <!-- status -->
                         </div>
                     </div>
                 </div>
