@@ -1,5 +1,6 @@
 routes:
     home: 'Default:home'
+    getMarker: 'Default:getMarker'
     admin: 'Default:admin'
     about: 'Default:about'
     blog : 'Default:blog'

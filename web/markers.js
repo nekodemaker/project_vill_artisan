@@ -6,3 +6,14 @@ var markers = [
         "description": '<div class="infowindow_content"><img class="img_infowindow" src="web/assets/img/bijoutier.png" alt=""><br><h5>Elise Dupont</h5><h6><b>Joillier</b></h6><p>7 rue du Louvre, 75001 Paris<br>9h-12h30  13h30–19h</p><a class="redirect_crafter_profil" href="artisanProfile&id=21">voir son profil</a></div>'
     }
 ];
+var elem={};
+$.get( "index.php?action=getMarker", function( data ) {
+    var dataResult=JSON.parse(data);
+    console.log(dataResult);
+    for(var i=0;i<dataResult.data.length;i++){
+      elem={
+        "name" : dataResult.data[i].firstname+" "+dataResult.data[i]['lastname'],
+      };
+      console.log(elem);
+  }
+});

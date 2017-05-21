@@ -69,8 +69,8 @@ class UserManager
     
     public function userCheckRegisterCrafter($data,$file){
         if($this->userCheckRegister($data)){
-            if(empty($data['job-crafter']) OR empty($data['crafter-history']) OR empty($data['crafter-shop'])){
-                echo json_encode(['data' => "Il manque au moins un de ces champs : métier,histoire, et boutique " ]);
+            if(empty($data['job-crafter']) OR empty($data['crafter-history']) OR empty($data['crafter-shop']) OR empty($data['crafteradress'])){
+                echo json_encode(['data' => "Il manque au moins un de ces champs : métier,histoire, boutique et adresse" ]);
                 exit(0);
                 return false;
             }else{
@@ -121,9 +121,10 @@ class UserManager
         mkdir($crafterPhotoPath);
         //get the user and put other datas into the table crafter
         $user=$this->getUserByMail($data['mail']);
-        $query="insert into `crafter`(`id_user`,`crafter_village`,`crafter_job`,`crafter_history`,`crafter_shop`,`crafter_profile_photo`,`crafter_photo_work`,`coord_latitude`,`coord_longitude`)values(:userid,:craftervillage,:crafterjob,:crafterhistory,:craftershop,:crafterprofilephoto,:crafterphotowork,:latitude,:longitude)";
+        $query="insert into `crafter`(`id_user`,`crafter_adress`,`crafter_village`,`crafter_job`,`crafter_history`,`crafter_shop`,`crafter_profile_photo`,`crafter_photo_work`,`coord_latitude`,`coord_longitude`)values(:userid,:crafteradress,:craftervillage,:crafterjob,:crafterhistory,:craftershop,:crafterprofilephoto,:crafterphotowork,:latitude,:longitude)";
         $d=([
         'userid'=> $user['id'],
+        'crafteradress'=>$data['crafteradress'],
         'craftervillage'=> utf8_decode($data['village-crafter']),
         'crafterjob'=> $data['job-crafter'],
         'crafterhistory'=> $data['crafter-history'],
@@ -136,6 +137,30 @@ class UserManager
         $this->DBManager->do_query_db($query,$d);
         $this->uploadPhotoProfileCrafter($file,$crafterPhotoPath,$user['id']);
         $this->uploadPhotosWorkCrafter($file,$crafterPhotoPath,$user['id']);
+    }
+
+
+    public function getAllCrafters(){
+        $res=$this->DBManager->findAllSecure("SELECT * FROM crafter",[]);
+        return $res;
+    }
+    public function getAllCraftersForMarkerMap(){
+        $allUsersCrafter= $this->getAllCrafters();
+        $res=[];
+        for($i=0;$i<count($allUsersCrafter);$i++){
+            $crafter=$this->getUserById($allUsersCrafter[$i]['id_user']);
+            $elem=array(
+            "id"=>$allUsersCrafter[$i]['id_user'],
+            "lastname"=>$crafter['lastname'],
+            "firstname"=>$crafter['firstname'],
+            "job"=>$allUsersCrafter[$i]['crafter_job'],
+            "profile"=>$allUsersCrafter[$i]['crafter_profile_photo'],
+            "latitude"=>$allUsersCrafter[$i]['coord_latitude'],
+            "longitude"=>$allUsersCrafter[$i]['coord_longitude'],
+            );
+            array_push($res,$elem);
+        }
+        return $res;
     }
     /*END ADMIN FUNCTIONS*/
     
