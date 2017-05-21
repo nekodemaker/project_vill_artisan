@@ -734,6 +734,10 @@ html{
                                     border: 1px solid rgba(0,0,0,.15);
                                 }
                             }
+                            .delete_profile{
+                                background-color: $red;
+                                color: $white;
+                            }
                         }
                     }
                 }
@@ -1116,6 +1120,18 @@ html{
                         p{
                             margin: 0;
                         }
+                    }
+                }
+                .contact_us{
+                    width: 100%;
+                    margin-bottom: 60px;
+
+                    h4{
+                        text-align: center;
+                    }
+
+                    p{
+                        margin: 0;
                     }
                 }
             }

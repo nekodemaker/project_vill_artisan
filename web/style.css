@@ -588,6 +588,9 @@ html {
             background-color: #fff;
             background-image: none;
             border: 1px solid rgba(0, 0, 0, 0.15); }
+          html body #main_container #profile_container .container .row .col-md-12 .delete_profile {
+            background-color: #8e3e3d;
+            color: #f8f8f8; }
       html body #main_container .contact_container {
         margin: 40px 0 40px 0; }
         html body #main_container .contact_container .row {
@@ -836,6 +839,13 @@ html {
             margin: 20px 70px; }
           html body #about_container .about_content .team div p {
             margin: 0; }
+      html body #about_container .about_content .contact_us {
+        width: 100%;
+        margin-bottom: 60px; }
+        html body #about_container .about_content .contact_us h4 {
+          text-align: center; }
+        html body #about_container .about_content .contact_us p {
+          margin: 0; }
     html body footer {
       width: 100%;
       display: flex;
