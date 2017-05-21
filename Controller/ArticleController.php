@@ -36,9 +36,22 @@ class ArticleController extends BaseController
     
     public function showArticleAction()
     {
-        
         $error = '';
-        echo $this->renderView('article.html.twig', []);
+        $manager = ArticleManager::getInstance();
+        if (!empty($_SESSION['user_id'])){
+            $name=$_SESSION['lastname'];
+        }else{
+            $name="";
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'GET')
+        {
+            if(!empty($_GET['id'])){
+                $article=$manager->getArticle(($_GET['id']));
+                echo $this->renderView('article.html.twig', ['name' => $name,'article'=>$article]);
+            }else{
+                $this->redirect('home');
+            }
+        }
         
     }
     

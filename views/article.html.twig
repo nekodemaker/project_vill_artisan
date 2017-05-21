@@ -8,26 +8,19 @@
 
                 <div class="carousel-caption d-sm-block">
                     <div class="article_header">
-                        <h4>TITRE</h4>
-                        <h5><b>date</b></h5>
+                        <h4>{{article.title_event}}</h4>
+                        <h5><b>{{article.date_event}}</b></h5>
                     </div>
-                    <img class="d-block img-fluid" src="web/assets/img/slide.png" alt="First slide">
+                                {% if article.photo_event is defined and article.photo_event is not empty  %}
+            <img class="d-block img-fluid"  src={{article.photo_event}}  alt="First slide">
+            {% else %}
+                <img class="d-block img-fluid"  src="web/assets/img/slide.png" alt="First slide">
+            {% endif %}
                     <div class="article_content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                            architecto culpa cupiditate delectus dolor dolorum earum eos
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                            architecto culpa cupiditate delectus dolor dolorum earum eos
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                            architecto culpa cupiditate delectus dolor dolorum earum eos
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                            architecto culpa cupiditate delectus dolor dolorum earum eos
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                            architecto culpa cupiditate delectus dolor dolorum earum eos
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                            architecto culpa cupiditate delectus dolor dolorum earum eos
-
+                        <p>
+                            {{article.text_event}}
                         </p>
-                        <p class="author"><b>nom</b><b> prénom</b></p> <!-- Nom Prénom de l'auteur-->
+                        <p class="author">{{article.author_event}}</p> <!-- Nom Prénom de l'auteur-->
                     </div>
                 </div>
             </div>

@@ -74,7 +74,7 @@ class ArticleManager
     }
     
     public function getArticle($id_article){
-        $data = $this->DBManager->findOneSecure("SELECT * FROM articles WHERE id = :id",
+        $data = $this->DBManager->findOneSecure("SELECT * FROM event WHERE id = :id",
         ['id' => $id_article]);
         return $data;
     }
