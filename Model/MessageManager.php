@@ -46,6 +46,15 @@ class MessageManager
         $this->DBManager->do_query_db($q,$d);
     }
     
+        function startMessage($idsender,$idreceiver){
+        $q="insert into `message`(`id_sender`,`id_receiver`,`text_message`,`date_message`)values(:authorid,:iddest,:text,NOW())";
+        $d=[
+        'authorid'=>$_SESSION['user_id'],
+        'iddest'=>$idreceiver,
+        'text'=>$_SESSION['firstname']." veut engager la conversation",
+        ];
+        $this->DBManager->do_query_db($q,$d);
+    }
     /*function which returns all the messages related to the user(by id) */
     function getAllMessagesForUser(){
         $array_users=$this->getAllUserIdWithMe();

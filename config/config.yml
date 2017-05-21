@@ -13,6 +13,7 @@ routes:
     editProfile: 'Security:editProfile'
     changeProfilePic: 'Security:changeProfilePic'
     sendMessageTo: 'Message:sendMessageTo'
+    startChat: 'Message:startChatTo'
     createArticle: 'Article:createArticle'
     showArticle: 'Article:showArticle'
 defaut_route: 'home'

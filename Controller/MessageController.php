@@ -26,5 +26,18 @@ class MessageController extends BaseController
                 exit(0);
             }
         }
-    }    
+    }
+    
+    public function startChatToAction()
+    {
+        $error = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_SESSION['user_id']))
+        {
+            if(!empty($_GET['id'])){
+                $manager = MessageManager::getInstance();
+                $manager->startMessage($_SESSION['user_id'],$_GET['id']);
+                $this->redirect('profile');
+            }
+        }
+    }
 }
