@@ -95,6 +95,17 @@ class UserManager
         $res=$this->DBManager->do_query_db($query,$d);
     }
     
+        public function uploadPhotoShopCrafter($file,$photoPath,$userId){
+        $profilePhotoExtension=pathinfo($file["crafterphotoshop"]["name"],PATHINFO_EXTENSION);
+        rename($file["crafterphotoshop"]["tmp_name"],$photoPath."shop.".$profilePhotoExtension);
+        $query="update `crafter` set `crafter_shop_photo`= :path where `id_user`= :userid";
+        $d=[
+        'path'=> $photoPath."shop.".$profilePhotoExtension,
+        'userid'=>$userId,
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
+    }
+
     public function uploadPhotosWorkCrafter($file,$photoPath,$userId){
         $crafterphotoworkpath="";
         foreach($file["workphoto"]["tmp_name"] as $key => $tmpname){
@@ -121,7 +132,7 @@ class UserManager
         mkdir($crafterPhotoPath);
         //get the user and put other datas into the table crafter
         $user=$this->getUserByMail($data['mail']);
-        $query="insert into `crafter`(`id_user`,`crafter_adress`,`crafter_time`,`crafter_village`,`crafter_job`,`crafter_history`,`crafter_shop`,`crafter_profile_photo`,`crafter_photo_work`,`coord_latitude`,`coord_longitude`)values(:userid,:crafteradress,:craftertime,:craftervillage,:crafterjob,:crafterhistory,:craftershop,:crafterprofilephoto,:crafterphotowork,:latitude,:longitude)";
+        $query="insert into `crafter`(`id_user`,`crafter_adress`,`crafter_time`,`crafter_village`,`crafter_job`,`crafter_history`,`crafter_shop`,`crafter_profile_photo`,`crafter_shop_photo`,`crafter_photo_work`,`coord_latitude`,`coord_longitude`)values(:userid,:crafteradress,:craftertime,:craftervillage,:crafterjob,:crafterhistory,:craftershop,:crafterprofilephoto,:craftershopphoto,:crafterphotowork,:latitude,:longitude)";
         $d=([
         'userid'=> $user['id'],
         'crafteradress'=>$data['crafteradress'],
@@ -131,12 +142,14 @@ class UserManager
         'crafterhistory'=> $data['crafter-history'],
         'craftershop'=> $data['crafter-shop'],
         'crafterprofilephoto'=> "",
+        'craftershopphoto'=> "",
         'crafterphotowork'=> "",
         'latitude'=> $data['adresslatitude'],
         'longitude'=> $data['adresslongitude'],
         ]);
         $this->DBManager->do_query_db($query,$d);
         $this->uploadPhotoProfileCrafter($file,$crafterPhotoPath,$user['id']);
+        $this->uploadPhotoShopCrafter($file,$crafterPhotoPath,$user['id']);
         $this->uploadPhotosWorkCrafter($file,$crafterPhotoPath,$user['id']);
     }
 
