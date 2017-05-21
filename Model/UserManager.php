@@ -285,4 +285,14 @@ class UserManager
         $data = $this->DBManager->findAllSecure("SELECT * FROM villages",[]);
         return $data;
     }
+    
+    public function userCheckRegisterCrafter($data){
+        
+        
+    }
+    
+    public function userRegisterCrafter($data){
+        
+        
+    }
 }

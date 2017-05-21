@@ -61,6 +61,28 @@ window.onload = function () {
         return false;
     });
 
+ /* Ajax event for create article in crafter profile page*/
+    $("#create-crafter-form").submit(function () {
+        var data = $(this).serialize();
+        var form = document.forms.namedItem("create-crafter-form");
+        var formdata = new FormData(form);
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            url: "index.php?action=registerCrafter", //Relative or absolute path to response.php file
+            data: formdata,
+            success: function (data) {
+           console.log("");
+            },
+            error: function (data) {
+                console.log("ERROR AJAX");
+            }
+        });
+        return false;
+    });
     /* JS FOR ADMIN PART */
 
     var userrows = $('table.table-users tr');

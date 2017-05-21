@@ -49,6 +49,26 @@ class SecurityController extends BaseController
         echo $this->renderView('register.html.twig', ['error' => $error]);
     }
     
+        public function registerCrafterAction()
+    {
+        $error = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $manager = UserManager::getInstance();
+            if ($manager->userCheckRegisterCrafter($_POST))
+            {
+                $manager->userRegisterCrafter($_POST);
+                $this->redirect('home');
+            }
+            else {
+                $error = "Invalid data";
+            }
+            echo json_encode(['YO' => "Ce n'est pas la requete post" ]);
+            exit(0);
+        }
+        echo $this->renderView('register.html.twig', ['error' => $error]);
+    }
+
     public function profileAction()
     {
         $error = '';

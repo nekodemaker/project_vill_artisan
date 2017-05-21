@@ -6,6 +6,7 @@ routes:
     login: 'Security:login'
     logout: 'Security:logout'
     register: 'Security:register'
+    registerCrafter: 'Security:registerCrafter'
     artisanProfile: 'Security:artisanProfile'
     profile: 'Security:profile'
     editProfile: 'Security:editProfile'
