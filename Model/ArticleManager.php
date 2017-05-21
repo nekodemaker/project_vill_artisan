@@ -58,7 +58,7 @@ class ArticleManager
     }
     
     public function getAllArticles(){
-        $data = $this->DBManager->findAll("SELECT * FROM articles");
+        $data = $this->DBManager->findAll("SELECT * FROM event ORDER BY id");
         return $data;
     }
     

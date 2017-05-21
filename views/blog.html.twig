@@ -7,26 +7,17 @@
         <hr>
 
         <div class="row">
+            {% for art in articles %}
             <div class="col-12 col-lg-6 offset-lg-3">
-                <img class="d-block img-fluid" src="web/assets/img/slide.png" alt="First slide">
+                <img class="d-block img-fluid"  src="web/assets/img/slide.png" alt="First slide">
                 <div class="carousel-caption d-sm-block">
-                    <h4>TITRE</h4>
-                    <h5><b>date</b></h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                        architecto culpa cupiditate delectus dolor dolorum earum eos</p>
+                    <h4>{{art.title_event}}</h4>
+                    <h5><b>{{art.date_event}}</b></h5>
+                    <p>{{art.text_event}}</p>
                     <a href="#"><b>En savoir plus...</b></a>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 offset-lg-3">
-                <img class="d-block img-fluid" src="web/assets/img/slide.png" alt="First slide">
-                <div class="carousel-caption d-sm-block">
-                    <h4>TITRE</h4>
-                    <h5><b>date</b></h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
-                        architecto culpa cupiditate delectus dolor dolorum earum eos</p>
-                    <a href="#"><b>En savoir plus...</b></a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>

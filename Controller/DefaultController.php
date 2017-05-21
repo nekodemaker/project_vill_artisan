@@ -46,12 +46,14 @@ class DefaultController extends BaseController
     
     public function blogAction()
     {
+        $manager = ArticleManager::getInstance();
+        $articles=$manager->getAllArticles();
         if (!empty($_SESSION['user_id'])){
             echo $this->renderView('blog.html.twig',
-            ['name'=>$_SESSION['lastname'],'firstname'=>$_SESSION['lastname']]);
+            ['name'=>$_SESSION['lastname'],'firstname'=>$_SESSION['lastname'],'articles'=>$articles]);
         }else{
             echo $this->renderView('blog.html.twig',
-            []);
+            ['articles'=>$articles]);
         }
         
     }
