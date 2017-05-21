@@ -13,16 +13,16 @@
                 <h3>{{usercrafter.lastname}}</h3>
                 <h3>{{usercrafter.firstname}}</h3>
 
-                <h4>{{crafter.crafter_job}}</h4>
+                <h4>{{crafter.crafter_job }}</h4>
                 <h5>{{crafter.crafter_adress}}</h5>
                 <h5>{{crafter.crafter_village}}</h5>
+                <input type="submit" class="contact_crafter_button" value="Contactez moi">
             </div>
             <div class="content">
                 <h2>Son histoire</h2>
                 <p>
                     {{crafter.crafter_history}}
                 </p>
-                <img class="d-block img-fluid" src="web/assets/img/villageoise.png" alt="flat_icon">
                 <hr>
                 <img class="d-block img-fluid" src="web/assets/img/christelle-bourgeois-37353.png" alt="flat_icon">
                 <h2>Sa Boutique</h2>
@@ -55,6 +55,5 @@
             </div>
         </div>
     </div>
-    <hr>
 </div>
 {% endblock %}

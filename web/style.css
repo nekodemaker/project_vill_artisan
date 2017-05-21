@@ -683,6 +683,16 @@ html {
               margin: 20px 0 20px 0; }
             html body #main_container #profile_crafter_container .row .col-10 .infos_crafter h5 {
               margin: 5px 0 5px 0; }
+            html body #main_container #profile_crafter_container .row .col-10 .infos_crafter .contact_crafter_button {
+              margin: 20px 0;
+              padding: 10px 20px;
+              background-color: #343539;
+              border-radius: 5px;
+              border: 0;
+              cursor: pointer;
+              color: #d3ae68; }
+            html body #main_container #profile_crafter_container .row .col-10 .infos_crafter .contact_crafter_button:hover {
+              text-decoration: none; }
           html body #main_container #profile_crafter_container .row .col-10 .content {
             display: flex;
             flex-direction: column;

@@ -872,6 +872,19 @@ html{
                             h5{
                                 margin: 5px 0 5px 0;
                             }
+
+                            .contact_crafter_button{
+                                margin: 20px 0;
+                                padding: 10px 20px;
+                                background-color: $grey;
+                                border-radius: 5px;
+                                border: 0;
+                                cursor: pointer;
+                                color: $gold;
+                            }
+                            .contact_crafter_button:hover{
+                                text-decoration: none;
+                            }
                         }
 
                         .content{
