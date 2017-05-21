@@ -57,7 +57,7 @@ class SecurityController extends BaseController
             $manager = UserManager::getInstance();
             if ($manager->userCheckRegisterCrafter($_POST,$_FILES))
             {
-                //$manager->userRegisterCrafter($_POST);
+                $manager->userRegisterCrafter($_POST,$_FILES);
                 //$this->redirect('home');
                 echo json_encode(['data' => "Check register good" ]);
                 exit(0);

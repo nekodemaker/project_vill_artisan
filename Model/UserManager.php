@@ -38,7 +38,6 @@ class UserManager
         return $res;
     }
     
-    
     public function checkPhotoRegisterCrafter($file){
         if(empty($file['profile-photo']['tmp_name'])){
             echo json_encode(['data' => "Il manque le photo de profil" ]);
@@ -85,13 +84,59 @@ class UserManager
         
     }
     
+    public function uploadPhotoProfileCrafter($file,$photoPath,$userId){
+        $profilePhotoExtension=pathinfo($file["profile-photo"]["name"],PATHINFO_EXTENSION);
+        rename($file["profile-photo"]["tmp_name"],$photoPath."profile.".$profilePhotoExtension);
+        $query="update `crafter` set `crafter_profile_photo`= :path where `id_user`= :userid";
+        $d=[
+        'path'=> $photoPath."profile.".$profilePhotoExtension,
+        'userid'=>$userId,
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
+    }
+    
+    public function uploadPhotosWorkCrafter($file,$photoPath,$userId){
+        $crafterphotoworkpath="";
+        foreach($file["workphoto"]["tmp_name"] as $key => $tmpname){
+            $picExtension=pathinfo($file["workphoto"]["name"][$key],PATHINFO_EXTENSION);
+            rename($file["workphoto"]["tmp_name"][$key],$photoPath.$key.".".$picExtension);
+            if($key!=5){
+                $crafterphotoworkpath.=$photoPath.$key.".".$picExtension.",";
+            }else{
+                $crafterphotoworkpath.=$photoPath.$key.".".$picExtension;
+            }
+        }
+        $query="update `crafter` set `crafter_photo_work`= :path where `id_user`= :userid";
+        $d=[
+        'path'=> $crafterphotoworkpath,
+        'userid'=>$userId,
+        ];
+        $res=$this->DBManager->do_query_db($query,$d);
+    }
+    
     public function userRegisterCrafter($data,$file){
         //register the crafter as user
         $this->userRegister($data);
+        $crafterPhotoPath="users/".$data['firstname'].$data['lastname']."/crafter_photos/";
+        mkdir($crafterPhotoPath);
         //get the user and put other datas into the table crafter
-        
+        $user=$this->getUserByMail($data['mail']);
+        $query="insert into `crafter`(`id_user`,`crafter_village`,`crafter_job`,`crafter_history`,`crafter_shop`,`crafter_profile_photo`,`crafter_photo_work`,`coord_latitude`,`coord_longitude`)values(:userid,:craftervillage,:crafterjob,:crafterhistory,:craftershop,:crafterprofilephoto,:crafterphotowork,:latitude,:longitude)";
+        $d=([
+        'userid'=> $user['id'],
+        'craftervillage'=> utf8_decode($data['village-crafter']),
+        'crafterjob'=> $data['job-crafter'],
+        'crafterhistory'=> $data['crafter-history'],
+        'craftershop'=> $data['crafter-shop'],
+        'crafterprofilephoto'=> "",
+        'crafterphotowork'=> "",
+        'latitude'=> 0.0,
+        'longitude'=> 0.0,
+        ]);
+        $this->DBManager->do_query_db($query,$d);
+        $this->uploadPhotoProfileCrafter($file,$crafterPhotoPath,$user['id']);
+        $this->uploadPhotosWorkCrafter($file,$crafterPhotoPath,$user['id']);
     }
-    
     /*END ADMIN FUNCTIONS*/
     
     
