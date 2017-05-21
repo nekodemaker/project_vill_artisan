@@ -226,6 +226,7 @@ class UserManager
         if($this->userCheckChangePassword($data)){
             $this->userChangePassword($data);
         }
+        $this->userChangeVillage($data);
     }
     
     
