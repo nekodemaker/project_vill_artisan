@@ -8,64 +8,48 @@
 <div id="profile_crafter_container">
     <div class="row">
         <div class="col-10 offset-1 col-lg-6 offset-lg-3">
-            <img class="d-block img-fluid" src="web/assets/img/bijoutier.png" alt="crafter_img">
+            <img class="d-block img-fluid" src={{crafter.crafter_profile_photo}} alt="crafter_img">
             <div class="infos_crafter">
-                <h3>NOM</h3>
-                <h3>PRENOM</h3>
+                <h3>{{usercrafter.lastname}}</h3>
+                <h3>{{usercrafter.firstname}}</h3>
 
-                <h4>Métier</h4>
-                <h5>Adresse</h5>
-                <h5>Village</h5>
+                <h4>{{crafter.crafter_job}}</h4>
+                <h5>{{crafter.crafter_adress}}</h5>
+                <h5>{{crafter.crafter_village}}</h5>
             </div>
             <div class="content">
                 <h2>Son histoire</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur cum error
-                    et excepturi labore nam necessitatibus nemoneque nostrum officia placeat quam quo quos,
-                    ratione repellendus sint? Id, quibusdam!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur cum error
-                    et excepturi labore nam necessitatibus nemoneque nostrum officia placeat quam quo quos,
-                    ratione repellendus sint? Id, quibusdam!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur cum error
-                    et excepturi labore nam necessitatibus nemoneque nostrum officia placeat quam quo quos,
-                    ratione repellendus sint? Id, quibusdam!
+                    {{crafter.crafter_history}}
                 </p>
                 <img class="d-block img-fluid" src="web/assets/img/villageoise.png" alt="flat_icon">
                 <hr>
                 <img class="d-block img-fluid" src="web/assets/img/christelle-bourgeois-37353.png" alt="flat_icon">
                 <h2>Sa Boutique</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur cum error
-                    et excepturi labore nam necessitatibus nemoneque nostrum officia placeat quam quo quos,
-                    ratione repellendus sint? Id, quibusdam!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur cum error
-                    et excepturi labore nam necessitatibus nemoneque nostrum officia placeat quam quo quos,
-                    ratione repellendus sint? Id, quibusdam!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur cum error
-                    et excepturi labore nam necessitatibus nemoneque nostrum officia placeat quam quo quos,
-                    ratione repellendus sint? Id, quibusdam!
+                   {{crafter.crafter_shop}}
                 </p>
                 <img class="d-block img-fluid" src="web/assets/img/boutique.png" alt="flat_icon">
                 <hr>
                 <h2>Son travail</h2>
                 <div class="row">
                     <div class="col-6">
-                        <img src="web/assets/img/ashton-mullins-138190.png" alt="">
+                        <img src={{photosWork[0]}} alt="">
                     </div>
                     <div class="col-6">
-                        <img src="web/assets/img/collier.png" alt="">
+                        <img src={{photosWork[1]}} alt="">
                     </div>
                     <div class="col-6">
-                        <img src="web/assets/img/lady-black-dress-jewellery-dress-39648.png" alt="">
+                        <img src={{photosWork[2]}} alt="">
                     </div>
                     <div class="col-6">
-                        <img src="web/assets/img/nature-hand-natural-people-37826.png" alt="">
+                        <img src={{photosWork[3]}} alt="">
                     </div>
                     <div class="col-6">
-                        <img src="web/assets/img/pexels-photo-336933.png" alt="">
+                        <img src={{photosWork[4]}} alt="">
                     </div>
                     <div class="col-6">
-                        <img src="web/assets/img/wesley-tingey-178030.png" alt="">
+                        <img src={{photosWork[5]}} alt="">
                     </div>
                 </div>
             </div>

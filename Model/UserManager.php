@@ -176,6 +176,14 @@ class UserManager
         return $data;
     }
     
+    /*function which returns the crafter data with id on parameters*/
+    public function getCrafterById($id)
+    {
+        $id = (int)$id;
+        $data = $this->DBManager->findOne("SELECT * FROM crafter WHERE id_user = ".$id);
+        return $data;
+    }
+
     /*function which returns the user data with mail on parameters*/
     public function getUserByMail($mail)
     {
@@ -247,7 +255,7 @@ class UserManager
         'mail'=> $data['mail'],
         'adress'=> $data['adress'],
         'postcode'=> $data['postcode'],
-        'village'=> $data['village-user'],
+        'village'=> utf8_decode($data['village-user']),
         'interet'=> "",
         'pic'=> "users/".$data['firstname'].$data['lastname']."/profile_pic/".$data['firstname'].$data['lastname'].".png",
         ]);
