@@ -80,7 +80,6 @@ class ArticleManager
     }
     
     public function editArticle($data){
-        var_dump("here");
         $query="update `articles` set `title_article`=:title,`text_article`=:text where `id`= :id";
         $d=[
         'title'=> $data['title-article'],

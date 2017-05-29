@@ -124,7 +124,9 @@
                             <hr class="colorgraph">
                             <div class="row">
                                 <div class="col-xs-12 col-md-6"><input type="submit" class="btn btn-block btn-lg" value="Éditer"></div>
-                                <div class="col-xs-12 col-md-6"><input type="submit" class="btn btn-block btn-lg delete_profile" value="Supprimer votre compte"></div>
+                                <input type="hidden" name="user-id" value={{user.id}}>
+                                <input type="hidden" name="user-type" value={{user.user_type}}>
+                                <div class="col-xs-12 col-md-6"><input type="button" class="btn btn-block btn-lg delete-profile" value="Supprimer votre compte"></div>
                             </div>
                         </form>
                     </div>

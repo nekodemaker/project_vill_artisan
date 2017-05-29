@@ -49,6 +49,27 @@ class SecurityController extends BaseController
         echo $this->renderView('register.html.twig', ['error' => $error]);
     }
     
+        public function deleteUserAction()
+    {
+        $error = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $manager = UserManager::getInstance();
+            if ($manager->userCheckDeleteUser($_POST))
+            {
+                $manager->userDelete($_POST);
+                echo json_encode(['data' => "Delete user good" ]);
+                exit(0);
+            }
+            else {
+                echo json_encode(['data' => "Delete user not good" ]);
+                exit(0);
+                //$error = "Invalid data";
+            }
+        }
+        echo $this->renderView('profile.html.twig', ['error' => $error]);
+    }
+
         public function registerCrafterAction()
     {
         $error = '';
@@ -158,6 +179,8 @@ class SecurityController extends BaseController
             if(!empty($_GET['id'])){
             $usercrafter=$manager->getUserById($_GET['id']);
             $crafter=$manager->getCrafterById($_GET['id']);
+            $crafter['crafter_village']=utf8_encode($crafter['crafter_village']);
+            var_dump($crafter['crafter_village']);
             $photosWork=explode(",",$crafter['crafter_photo_work']);
             if(count($usercrafter) != 0){
                echo $this->renderView('artisan_profile.html.twig', ['name' => $name,'usercrafter'=>$usercrafter,'crafter'=>$crafter,'photosWork'=>$photosWork]);

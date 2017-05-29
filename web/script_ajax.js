@@ -83,6 +83,29 @@ window.onload = function () {
         });
         return false;
     });
+
+
+    /* Ajax event for delete a user */
+    $(".delete-profile").click(function () {
+        var iduser = $(this).parent().parent().children()[1].value;
+        var typeuser = $(this).parent().parent().children()[2].value;
+        //var thiselem = $(this);
+        var data = "user-id=" + iduser + "&user-type=" + typeuser;
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "index.php?action=deleteUser",
+            data: data,
+            success: function (data) {
+                console.log(data);
+                window.location = '?action=home';
+            },
+            error: function (data) {
+                console.log("ERROR");
+            }
+        });
+    });
+
     /* JS FOR ADMIN PART */
 
     var userrows = $('table.table-users tr');

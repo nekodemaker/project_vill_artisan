@@ -95,7 +95,7 @@ class UserManager
         $res=$this->DBManager->do_query_db($query,$d);
     }
     
-        public function uploadPhotoShopCrafter($file,$photoPath,$userId){
+    public function uploadPhotoShopCrafter($file,$photoPath,$userId){
         $profilePhotoExtension=pathinfo($file["crafterphotoshop"]["name"],PATHINFO_EXTENSION);
         rename($file["crafterphotoshop"]["tmp_name"],$photoPath."shop.".$profilePhotoExtension);
         $query="update `crafter` set `crafter_shop_photo`= :path where `id_user`= :userid";
@@ -105,7 +105,7 @@ class UserManager
         ];
         $res=$this->DBManager->do_query_db($query,$d);
     }
-
+    
     public function uploadPhotosWorkCrafter($file,$photoPath,$userId){
         $crafterphotoworkpath="";
         foreach($file["workphoto"]["tmp_name"] as $key => $tmpname){
@@ -152,8 +152,8 @@ class UserManager
         $this->uploadPhotoShopCrafter($file,$crafterPhotoPath,$user['id']);
         $this->uploadPhotosWorkCrafter($file,$crafterPhotoPath,$user['id']);
     }
-
-
+    
+    
     public function getAllCrafters(){
         $res=$this->DBManager->findAllSecure("SELECT * FROM crafter",[]);
         return $res;
@@ -196,7 +196,7 @@ class UserManager
         $data = $this->DBManager->findOne("SELECT * FROM crafter WHERE id_user = ".$id);
         return $data;
     }
-
+    
     /*function which returns the user data with mail on parameters*/
     public function getUserByMail($mail)
     {
@@ -277,6 +277,46 @@ class UserManager
         mkdir("users/".$data['firstname'].$data['lastname']."/profile_pic");
         copy("users/default_villageois.png","users/".$data['firstname'].$data['lastname']."/profile_pic/".$data['firstname'].$data['lastname'].".png");
     }
+    
+    public function userCheckDeleteUser($data){
+        if (empty($data['user-id']) OR empty($data['user-type'])){
+            return false;
+        }
+        return true;
+    }
+    
+    public function userDelete($data){
+        //Delete from user by id
+        $query="DELETE FROM user WHERE id=:id";
+        $d=([
+        'id'=> $data['user-id'],
+        ]);
+        $this->DBManager->do_query_db($query,$d);
+        
+        if($data['user-type']=="crafter"){
+            //if crafter, delete from crafter by id_user
+            $query="DELETE FROM crafter WHERE id_user=:id";
+            $d=([
+            'id'=> $data['user-id'],
+            ]);
+            $this->DBManager->do_query_db($query,$d);
+            //if crafter, delete from event by id_author
+            $query="DELETE FROM event WHERE id_author=:id";
+            $d=([
+            'id'=> $data['user-id'],
+            ]);
+            $this->DBManager->do_query_db($query,$d);
+            session_destroy();
+        }
+        
+        //delete from message by id_sender et id_receiver
+        $query="DELETE FROM message WHERE id_sender=:id or id_receiver=:id";
+        $d=([
+        'id'=> $data['user-id'],
+        ]);
+        $this->DBManager->do_query_db($query,$d);
+    }
+    
     
     public function userCheckLogin($data)
     {
