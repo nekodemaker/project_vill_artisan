@@ -35,6 +35,7 @@ class DefaultController extends BaseController
     
     public function adminAction()
     {
+        if(!empty($_SESSION['admin-id'])){
         $manager = UserManager::getInstance();
         $numbervillager = $manager->getNumberOfVillager();
         $numbercrafter = $manager->getNumberOfCrafter();
@@ -42,6 +43,9 @@ class DefaultController extends BaseController
         $villages=$manager->getAllVillages();
         
         echo $this->renderView('admin.html.twig',['numbervillager'=>$numbervillager,'numbercrafter'=>$numbercrafter,'users'=>$users,'villages'=>$villages]);
+        }else{
+            echo $this->renderView('adminLogin.html.twig',[]);
+        }
     }
     
     public function blogAction()

@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div id="login_container">
+        <div class="col_preview">
+            <h4>Connection Administrateur</h4>
+            <hr>
+
+            <div class="row">
+                <div class="col-12 col-lg-6 offset-lg-3">
+                    {% if error is not empty %}
+                        {{error}}
+                    {% endif %}
+                    <form method='post' action='index.php?action=adminLogin'>
+                        <label for id="mail">Votre email:</label>
+                        <input type="email" id="mail" name="mail">
+                        <label for id="passw">Votre mot de passe:</label>
+                        <input type="password" id="passw" name="passw"><br>
+                        <input class="submit_button" type="submit" value="Connection">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

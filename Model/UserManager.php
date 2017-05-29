@@ -317,6 +317,33 @@ class UserManager
         $this->DBManager->do_query_db($query,$d);
     }
     
+    public function userCheckLoginAdmin($data)
+    {
+        
+        if (empty($data['mail']) OR empty($data['passw']))
+            return false;
+        $user = $this->getUserByMail($data['mail']);
+        if ($user === false)
+            return false;
+        if($user['user_type'] != 'admin')
+            return false;
+        $hash = $this->userHash($data['passw']);
+        if ($hash !== $user['password'])
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public function userLoginAdmin($mail)
+    {
+        $data = $this->getUserByMail($mail);
+        if ($data === false)
+            return false;
+        $_SESSION['admin-id'] = $data['id'];
+        return true;
+    }
+
     
     public function userCheckLogin($data)
     {

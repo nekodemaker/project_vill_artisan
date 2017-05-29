@@ -4,6 +4,7 @@ routes:
     admin: 'Default:admin'
     about: 'Default:about'
     blog : 'Default:blog'
+    adminLogin: 'Security:adminLogin'
     login: 'Security:login'
     logout: 'Security:logout'
     register: 'Security:register'

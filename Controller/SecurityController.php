@@ -7,6 +7,25 @@ use Model\MessageManager;
 
 class SecurityController extends BaseController
 {
+
+        public function adminLoginAction()
+    {
+        $error = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            $manager = UserManager::getInstance();
+            if ($manager->userCheckLoginAdmin($_POST))
+            {
+                $manager->userLoginAdmin($_POST['mail']);
+                $this->redirect('admin');
+            }
+            else {
+                $error = "Invalid username or password";
+            }
+        }
+        echo $this->renderView('admin.html.twig', ['error' => $error]);
+    }
+
     public function loginAction()
     {
         $error = '';
