@@ -199,7 +199,6 @@ class SecurityController extends BaseController
             $usercrafter=$manager->getUserById($_GET['id']);
             $crafter=$manager->getCrafterById($_GET['id']);
             $crafter['crafter_village']=utf8_encode($crafter['crafter_village']);
-            var_dump($crafter['crafter_village']);
             $photosWork=explode(",",$crafter['crafter_photo_work']);
             if(count($usercrafter) != 0){
                echo $this->renderView('artisan_profile.html.twig', ['name' => $name,'usercrafter'=>$usercrafter,'crafter'=>$crafter,'photosWork'=>$photosWork]);
