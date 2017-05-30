@@ -136,6 +136,14 @@ window.onload = function () {
         }
     });
 
+    /* chatbox on crafter profile */
+    $('.contact_container_crafter_profile').hide();
+    $(".contact_crafter_button").click(function () {
+        console.log('YO');
+        $('.contact_container_crafter_profile').fadeIn();
+
+    });
+
     /* JS FOR ADMIN PART */
 
     var userrows = $('table.table-users tr');

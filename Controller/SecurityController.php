@@ -7,8 +7,8 @@ use Model\MessageManager;
 
 class SecurityController extends BaseController
 {
-
-        public function adminLoginAction()
+    
+    public function adminLoginAction()
     {
         $error = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -25,7 +25,7 @@ class SecurityController extends BaseController
             }
         }
     }
-
+    
     public function loginAction()
     {
         $error = '';
@@ -68,7 +68,7 @@ class SecurityController extends BaseController
         echo $this->renderView('register.html.twig', ['error' => $error]);
     }
     
-        public function deleteUserAction()
+    public function deleteUserAction()
     {
         $error = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -88,8 +88,8 @@ class SecurityController extends BaseController
         }
         echo $this->renderView('profile.html.twig', ['error' => $error]);
     }
-
-        public function registerCrafterAction()
+    
+    public function registerCrafterAction()
     {
         $error = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST')
@@ -103,15 +103,15 @@ class SecurityController extends BaseController
                 exit(0);
             }
             else {
-                 echo json_encode(['data' => "Check register not good" ]);
+                echo json_encode(['data' => "Check register not good" ]);
                 exit(0);
                 //$error = "Invalid data";
             }
-
+            
         }
         echo $this->renderView('register.html.twig', ['error' => $error]);
     }
-
+    
     public function profileAction()
     {
         $error = '';
@@ -174,7 +174,7 @@ class SecurityController extends BaseController
             {
                 $manager->userChangeProfilePic($_FILES);
                 $this->redirect('profile');
-
+                
             }
             else {
                 $error = "Invalid Format";
@@ -183,28 +183,34 @@ class SecurityController extends BaseController
         
         echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'user' => $user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
     }
-        
+    
     public function artisanProfileAction()
     {
         $error = '';
         $manager = UserManager::getInstance();
         if (!empty($_SESSION['user_id'])){
-           $name=$_SESSION['lastname'];
+            $name=$_SESSION['lastname'];
         }else{
             $name="";
         }
-         if ($_SERVER['REQUEST_METHOD'] === 'GET')
+        if ($_SERVER['REQUEST_METHOD'] === 'GET')
         {
             if(!empty($_GET['id'])){
-            $usercrafter=$manager->getUserById($_GET['id']);
-            $crafter=$manager->getCrafterById($_GET['id']);
-            $crafter['crafter_village']=utf8_encode($crafter['crafter_village']);
-            $photosWork=explode(",",$crafter['crafter_photo_work']);
-            if(count($usercrafter) != 0){
-               echo $this->renderView('artisan_profile.html.twig', ['name' => $name,'usercrafter'=>$usercrafter,'crafter'=>$crafter,'photosWork'=>$photosWork]);
-            }else{
-                echo $this->renderView('artisan_profile.html.twig', ['name' => $name]);
-            }
+                $usercrafter=$manager->getUserById($_GET['id']);
+                $crafter=$manager->getCrafterById($_GET['id']);
+                $crafter['crafter_village']=utf8_encode($crafter['crafter_village']);
+                $photosWork=explode(",",$crafter['crafter_photo_work']);
+                if (!empty($_SESSION['user_id'])){
+                    $messageManager = MessageManager::getInstance();
+                    $messages=$messageManager->getAllMessagesUserId($_GET['id']);
+                }else{
+                    $messages="";
+                }
+                if(count($usercrafter) != 0){
+                    echo $this->renderView('artisan_profile.html.twig', ['name' => $name,'usercrafter'=>$usercrafter,'crafter'=>$crafter,'photosWork'=>$photosWork,'messages'=>$messages]);
+                }else{
+                    echo $this->renderView('artisan_profile.html.twig', ['name' => $name]);
+                }
             }else{
                 $this->redirect('home');
             }
@@ -232,15 +238,15 @@ class SecurityController extends BaseController
         echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'errors'=>$errors,'user'=>$user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
     }
     
-      public function getSpecialitiesAction()
+    public function getSpecialitiesAction()
     {
         $error = '';
         if ($_SERVER['REQUEST_METHOD'] === 'GET')
         {
             $manager = UserManager::getInstance();
             $spec=$manager->userGetSpecialities();
-                echo json_encode(['data' => $spec ]);
-                exit(0);
+            echo json_encode(['data' => $spec ]);
+            exit(0);
         }
     }
     

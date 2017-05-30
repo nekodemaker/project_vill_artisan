@@ -16,8 +16,40 @@
                 <h4>{{crafter.crafter_job }}</h4>
                 <h5>{{crafter.crafter_adress}}</h5>
                 <h5>{{crafter.crafter_village}}</h5>
-                <a class="contact_crafter_button" href="?action=startChat&id={{usercrafter.id}}">Contactez moi</a>
+                <!--<a class="contact_crafter_button" href="?action=startChat&id={{usercrafter.id}}">Contactez moi</a>-->
+                <a class="contact_crafter_button">Contactez moi</a>
             </div>
+
+            <div class="contact_container_crafter_profile chatboxabsolute">
+            <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="col_content">
+                            <div class="name_contact">
+                                <p>{{usercrafter.lastname}} {{usercrafter.firstname}}</p>
+                                <a href="#">
+                                <img src="web/assets/img/cross.png" alt="">
+                                </a>
+                            </div>
+                            <div class="chat_container chat">
+                            {% for m in messages%}
+                                {% if m.id_sender == usercrafter.id %}
+                                    <div class="his_message">{{m.text_message}}</div>
+                                {% else %}
+                                    <div class="your_message">{{m.text_message}}</div>
+                                {% endif %}
+                            {% endfor %}
+                            </div>
+                            <div class="text_editor_container">
+                            <textarea name="text-message" placeholder="écrivez un message..."></textarea>
+                            <input type="hidden" name="id-receiver" value={{usercrafter.id}}>
+                            <div class="btn form-submit" type='submit'>envoyer</div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
             <div class="content">
                 <h2>Son histoire</h2>
                 <p>
