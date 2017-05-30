@@ -1,5 +1,5 @@
 var map;
-var paris = {lat: 48.85816464940564, lng: 2.34283447265625};
+var paris = { lat: 48.85816464940564, lng: 2.34283447265625 };
 
 function CenterControl(controlDiv, map) {
 
@@ -29,7 +29,7 @@ function CenterControl(controlDiv, map) {
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners: simply set the map to Paris.
-    controlUI.addEventListener('click', function() {
+    controlUI.addEventListener('click', function () {
         map.setCenter(paris);
         map.setZoom(13);
     });
@@ -70,7 +70,7 @@ function initMap() {
         center: paris,
         zoom: 13,
         scrollwheel: false,
-        styles: /*#here copy your style*/ [
+        styles: /*#here copy your style*/[
             {
                 "featureType": "all",
                 "elementType": "labels.text.fill",
@@ -126,19 +126,19 @@ function initMap() {
     }
 
 
-    map.addListener('zoom_changed', function() {
+    map.addListener('zoom_changed', function () {
         var current_zoom = map.getZoom();
-        if(current_zoom >= 15){
+        if (current_zoom >= 15) {
             marker.setOpacity(1);
         }
-        else{
+        else {
             marker.setOpacity(0.5);
         }
     });
 
     //Load Json file to draw polygons.
     map.data.loadGeoJson('web/coord.json');
-    map.data.setStyle(function(feature) {
+    map.data.setStyle(function (feature) {
         return /** @type {google.maps.Data.StyleOptions} */({
             fillColor: 'transparent',
             strokeColor: feature.getProperty('strokeColor'),
@@ -148,53 +148,70 @@ function initMap() {
     });
 
     //Few event for UX.
-    map.data.addListener('mouseover', function(event) {
+    map.data.addListener('mouseover', function (event) {
         map.data.revertStyle();
-        map.data.overrideStyle(event.feature, {strokeWeight: 5});
+        map.data.overrideStyle(event.feature, { strokeWeight: 5 });
 
         document.getElementById('villageNameText').textContent =
             event.feature.getProperty('name');
     });
 
-    map.data.addListener('click', function(event) {
+    map.data.addListener('click', function (event) {
         var centerCoords = event.feature.getProperty('center');
         var latCoords = parseFloat(centerCoords.lat);
         var lngCoords = parseFloat(centerCoords.lng);
-        map.setCenter({lat: latCoords, lng: lngCoords});
+        map.setCenter({ lat: latCoords, lng: lngCoords });
         map.setZoom(15);
         map.data.revertStyle();
-        map.data.overrideStyle(event.feature, {strokeWeight: 7, strokeColor: '#422c1f'});
+        map.data.overrideStyle(event.feature, { strokeWeight: 7, strokeColor: '#422c1f' });
     });
 
-/* CLOSESTS MARKERS */
-/*function rad(x) {return x*Math.PI/180;}
-map.data.addListener('click', function(event) {
-    var lat = event.latLng.lat();
-    var lng = event.latLng.lng();
-    var R = 1; // radius of earth in km
-    var distances = [];
-    var closest = -1;
-    for( i=0;i<markers.length; i++ ) {
-        console.log(markers[i]);
-        var mlat = markers[i].lat;
-        var mlng = markers[i].lng;
-        var dLat  = rad(mlat - lat);
-        var dLong = rad(mlng - lng);
-        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(rad(lat)) * Math.cos(rad(lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        var d = R * c;
-        distances[i] = d;
-        if ( closest == -1 || d < distances[closest] ) {
-            closest = i;
+    var options = {
+    };
+    var input = document.getElementById('mapadress');
+    autocomplete = new google.maps.places.Autocomplete(input, options);
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
+        var latElem = document.getElementById('adresslatitude');
+        var lngElem = document.getElementById('adresslongitude');
+        var place = autocomplete.getPlace();
+        latElem.value = place.geometry.location.lat();
+        lngElem.value = place.geometry.location.lng();
+        console.log(latElem.value);
+        console.log(lngElem.value);
+                var latCoords = parseFloat(latElem.value);
+        var lngCoords = parseFloat(lngElem.value);
+        map.setCenter({ lat: latCoords, lng: lngCoords });
+        map.setZoom(15);
+    });
+    /* CLOSESTS MARKERS */
+    /*function rad(x) {return x*Math.PI/180;}
+    map.data.addListener('click', function(event) {
+        var lat = event.latLng.lat();
+        var lng = event.latLng.lng();
+        var R = 1; // radius of earth in km
+        var distances = [];
+        var closest = -1;
+        for( i=0;i<markers.length; i++ ) {
+            console.log(markers[i]);
+            var mlat = markers[i].lat;
+            var mlng = markers[i].lng;
+            var dLat  = rad(mlat - lat);
+            var dLong = rad(mlng - lng);
+            var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(rad(lat)) * Math.cos(rad(lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            var d = R * c;
+            distances[i] = d;
+            if ( closest == -1 || d < distances[closest] ) {
+                closest = i;
+            }
         }
-    }
+    
+        alert(markers[closest].description);
+    });*/
+    /*END CLOSESTS MARKERS */
 
-    alert(markers[closest].description);
-});*/
-/*END CLOSESTS MARKERS */
-
-    map.data.addListener('mouseout', function(event) {
+    map.data.addListener('mouseout', function (event) {
         map.data.revertStyle();
     });
 
@@ -260,6 +277,7 @@ map.data.addListener('click', function(event) {
     });
 
     */
+
 }
 
 

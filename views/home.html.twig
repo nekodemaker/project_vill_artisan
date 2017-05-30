@@ -45,7 +45,9 @@ var markers=[
                     <option value="adress">Adresse</option>
                 </select>
                 <div id="select_inside">
-                    
+                    <input type="text"  id="mapadress" name="mapadress" placeholder="Saisissez une adresse">
+                    <input type="hidden"id="adresslatitude" name="adresslatitude" >
+                    <input type="hidden"id="adresslongitude" name="adresslongitude" >
                 </div>
             </div>
             <!--<span>Vous recherchez une spécialité bien précise ? Notre carte le trouvera !</span>
@@ -247,8 +249,13 @@ var markers=[
 </div>
 
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCeiRXtmq_b1VExUhW4eInm5yFGw5a0tXg&libraries=drawing&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCeiRXtmq_b1VExUhW4eInm5yFGw5a0tXg&libraries=drawing&callback=initMap&libraries=places">
 </script>
 <script src="web/markers.js" type="text/javascript"></script>
-<script src="web/map_script.js" type="text/javascript"></script>
+<script src="web/map_script.js" type="text/javascript">
+
+</script>
+<script>
+
+</script>
 {% endblock %}

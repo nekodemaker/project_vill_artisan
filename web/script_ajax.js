@@ -109,7 +109,12 @@ window.onload = function () {
     /* Ajax event for change search on map */
     $(".search").change(function () {
         if ($(this).val() == "adress") {
-            
+            res='<div id="adress-map">';
+            res+='<input type="text"  id="mapadress" name="mapadress" placeholder="Saisissez une adresse">';
+            res+='<input type="hidden"id="adresslatitude" name="adresslatitude" >';
+            res+='<input type="hidden"id="adresslongitude" name="adresslongitude" >';
+            res+='</div>';
+            $("#select_inside").html(res);
         }
         if ($(this).val() == "category") {
 
