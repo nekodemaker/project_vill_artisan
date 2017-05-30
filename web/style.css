@@ -858,8 +858,25 @@ html {
         display: flex;
         flex-direction: column;
         align-items: center; }
-        html body footer #footer_content .row {
+        html body footer #footer_content .row .col-lg-2 .row .col-4 a {
+          min-width: 45px;
+          width: 45px;
+          height: 45px;
+          padding: 8px;
+          margin: 10px;
+          border: 1px solid #f8f8f8;
+          border-radius: 50%; }
+        html body footer #footer_content .row .col-lg-2 #copyright {
           width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          html body footer #footer_content .row .col-lg-2 #copyright p {
+            color: #f8f8f8;
+            font-size: 12px;
+            font-family: 'montserrat';
+            margin: 0; }
+        html body footer #footer_content .row {
           margin: 20px 0 20px 0; }
           html body footer #footer_content .row div {
             display: flex;
@@ -867,33 +884,16 @@ html {
             align-items: center;
             padding: 0; }
             html body footer #footer_content .row div a {
-              width: 50%;
+              width: 200px;
               color: #f8f8f8;
               text-align: center;
-              padding: 5px 0 5px 0; }
-          html body footer #footer_content .row .col-2 a {
-            width: 45px;
-            height: 45px;
-            padding: 8px;
-            margin: 10px;
-            border: 1px solid #f8f8f8;
-            border-radius: 50%; }
+              padding: 5px; }
         html body footer #footer_content .brand {
           font-family: 'Brandon_text-Bold';
           color: #f8f8f8;
           font-size: 22px;
-          margin: 0 0 30px 0;
           padding: 10px;
           border: 2px solid #f8f8f8; }
-        html body footer #footer_content #copyright {
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          margin-bottom: 15px; }
-          html body footer #footer_content #copyright p {
-            color: #f8f8f8;
-            font-size: 12px;
-            font-family: 'montserrat'; }
 
 @media screen and (min-width: 769px) {
   html body #main_container #home_container #welcome_container .content_container .paris_illustration {

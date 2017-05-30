@@ -99,34 +99,45 @@
     <footer>
         <div id="footer_content">
             <div class="row">
-                <div class="col-12 col-md-4 offset-md-2 col-lg-3 offset-lg-3">
-                    <a href="?action=home">Accueil</a>
-                    <a href="?action=about">À propos</a>
+                <div class="col-12 col-lg-4">
+                    <div class="row">
+                        <div class="col-12 col-md-4 col-lg-6">
+                            <a href="?action=home">Accueil</a>
+                            <a href="?action=about">À propos</a>
+                        </div>
+                        <div class="col-12 col-md-4 col-lg-5 offset-lg-1">
+                            {% if name is defined and name is not empty %}
+                                <a href="?action=profile">Profil</a>
+                                <a href="?action=blog">Actualités</a>
+                            {% else %}
+                                <a href="?action=register">Inscription</a>
+                                <a href="?action=login">Connection</a>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-md-4 col-lg-3">
-                    {% if name is defined and name is not empty %}
-                    <a href="?action=profile">Profil</a>
-                    <a href="?action=blog">Actualités</a>
-                    {% else %}
-                    <a href="?action=register">Inscription</a>
-                    <a href="?action=login">Connection</a>
-                    {% endif %}
-                </div>
-
-                <div class="col-2 offset-5">
-                    <a href="#">
-                        <img src="web/assets/img/fa-facebook.png" alt="">
+                <div class="col-12 col-lg-4">
+                    <a class="brand" href="?action=home">
+                        VILL' ARTISAN
                     </a>
-                    <a href="#">
-                        <img src="web/assets/img/fa-youtube-play.png" alt="">
-                    </a>
                 </div>
-            </div>
-            <a class="brand" href="?action=home">
-                VILL' ARTISAN
-            </a>
-            <div id="copyright">
-                <p>©2017 All rights reserved</p>
+                <div class="col-12 col-lg-2">
+                    <div class="row">
+                        <div class="col-4 col-lg-4">
+                            <a href="#">
+                                <img src="web/assets/img/fa-facebook.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="web/assets/img/fa-youtube-play.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <div id="copyright">
+                        <p>©2017 All rights reserved</p>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
