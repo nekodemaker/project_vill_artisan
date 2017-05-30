@@ -128,6 +128,9 @@ html body #main_container #home_container #welcome_container .welcome_content .r
   margin: 40px 0;
   width: 100%;
 }
+html body #main_container #home_container #welcome_container .welcome_content .row .col-12 h3 {
+  color: #f8f8f8;
+}
 html body #main_container #home_container #welcome_container .welcome_content .row .col-xl-3 h4 {
   margin-top: 40px;
   font-family: 'Brandon_text-Medium';
@@ -439,7 +442,7 @@ html body #main_container #blog_container .col_preview .row .col-12 .carousel-ca
   color: #343539;
 }
 html body #main_container #article_container {
-  height: 62vh;
+  height: 78vh;
 }
 html body #main_container #article_container .col_preview {
   display: flex;
@@ -599,7 +602,7 @@ html body #main_container #register_container .col_preview .row .col-12 form inp
   cursor: pointer;
 }
 html body #main_container #login_container {
-  height: 65.2vh;
+  height: 78vh;
 }
 html body #main_container #login_container .col_preview {
   display: flex;
@@ -1058,6 +1061,7 @@ html body #about_container .about_content .team div p {
 html body #about_container .about_content .contact_us {
   width: 100%;
   margin-bottom: 60px;
+  text-align: center;
 }
 html body #about_container .about_content .contact_us h4 {
   text-align: center;

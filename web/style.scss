@@ -220,6 +220,12 @@ html{
                             margin: 40px 0;
                             width: 100%;
 
+                            .col-12{
+                                h3{
+                                    color: $white;
+                                }
+                            }
+
                             .col-xl-3{
                                 h4{
                                     margin-top: 40px;
@@ -527,7 +533,7 @@ html{
                 }
             }
             #article_container{
-                height: 62vh;
+                height: 78vh;
 
                 .col_preview{
                     @include content_container;
@@ -645,7 +651,7 @@ html{
                 }
             }
             #login_container{
-                height: 65.2vh;
+                height: 78vh;
 
                 .col_preview{
                     @include content_container;
@@ -1132,6 +1138,7 @@ html{
                 .contact_us{
                     width: 100%;
                     margin-bottom: 60px;
+                    text-align: center;
 
                     h4{
                         text-align: center;
