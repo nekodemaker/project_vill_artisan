@@ -105,19 +105,13 @@ window.onload = function () {
             }
         });
     });
-
+    $("#select_speciality").hide();
+    $("#select_inside").show();
     /* Ajax event for change search on map */
     $(".search").change(function () {
         if ($(this).val() == "adress") {
-            res='<div id="adress-map">';
-            res+='<input type="text"  id="mapadress" name="mapadress" placeholder="Saisissez une adresse">';
-            res+='<input type="hidden"id="adresslatitude" name="adresslatitude" >';
-            res+='<input type="hidden"id="adresslongitude" name="adresslongitude" >';
-            res+='</div>';
-            $("#select_inside").html(res);
-        }
-        if ($(this).val() == "category") {
-
+            $("#select_speciality").hide();
+            $("#select_inside").show();
         }
         if ($(this).val() == "speciality") {
             $.ajax({
@@ -125,13 +119,15 @@ window.onload = function () {
                 dataType: "json",
                 url: "index.php?action=getSpecialities",
                 success: function (data) {
-                    res="<select>";
-                    for(var i=0;i<data['data'].length;i++){
-                        res+="<option>"+data['data'][i]['crafter_job']+"</option>";
+                    res = "<select>";
+                    for (var i = 0; i < data['data'].length; i++) {
+                        res += "<option>" + data['data'][i]['crafter_job'] + "</option>";
                         console.log(res);
                     }
-                    res+="</select><button type='button' class='btn btn-default'>Choisir la spécialité</button>";
-                    $("#select_inside").html(res);
+                    res += "</select><button type='button' class='btn btn-default'>Choisir la spécialité</button>";
+                    $("#select_speciality").html(res);
+                    $("#select_speciality").show();
+                    $("#select_inside").hide();
                 },
                 error: function (data) {
                     console.log("ERROR");

@@ -166,6 +166,7 @@ function initMap() {
         map.data.overrideStyle(event.feature, { strokeWeight: 7, strokeColor: '#422c1f' });
     });
 
+    /* MAP ADRESS IN HOME */
     var options = {
     };
     var input = document.getElementById('mapadress');
@@ -178,11 +179,20 @@ function initMap() {
         lngElem.value = place.geometry.location.lng();
         console.log(latElem.value);
         console.log(lngElem.value);
-                var latCoords = parseFloat(latElem.value);
+        var latCoords = parseFloat(latElem.value);
         var lngCoords = parseFloat(lngElem.value);
         map.setCenter({ lat: latCoords, lng: lngCoords });
         map.setZoom(15);
+        var markerUser = new google.maps.Marker({
+            position: place.geometry.location,
+            map: map,
+            icon: 'web/assets/img/markerGold.png',
+            opacity: 0.5,
+            title: data.name
+        });
     });
+    /*END  MAP ADRESS IN HOME */
+    
     /* CLOSESTS MARKERS */
     /*function rad(x) {return x*Math.PI/180;}
     map.data.addListener('click', function(event) {
