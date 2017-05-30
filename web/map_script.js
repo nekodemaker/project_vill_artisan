@@ -1,6 +1,6 @@
 var map;
 var paris = { lat: 48.85816464940564, lng: 2.34283447265625 };
-
+var markersFilter=[];
 function CenterControl(controlDiv, map) {
 
     // Set CSS for the control border.
@@ -114,7 +114,7 @@ function initMap() {
             opacity: 0.5,
             title: data.name
         });
-
+        markersFilter.push(marker);
         //Attach click event to the marker.
         (function (marker, data) {
             google.maps.event.addListener(marker, "click", function (e) {
@@ -170,6 +170,31 @@ function initMap() {
     var options = {
     };
     var input = document.getElementById('mapadress');
+
+           $('#select_speciality').change(function () {
+        console.log(markers);
+        var res=[];
+        // FILTER HERE
+        var selectSpe = $('#select_speciality select option:selected').text();
+        if (selectSpe == "Tous") {
+            for (var i = 0; i < markers.length; i++) {
+                markersFilter[i].setVisible(true);
+
+            }
+        } else {
+            for (var i = 0; i < markers.length; i++) {
+                if (markers[i].job != selectSpe) {
+                    markersFilter[i].setVisible(false);
+                } else {
+                    markersFilter[i].setVisible(true);
+                }
+            }
+
+        }
+        google.maps.event.trigger(map, 'resize');
+    });
+
+
     autocomplete = new google.maps.places.Autocomplete(input, options);
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
         var latElem = document.getElementById('adresslatitude');
@@ -177,8 +202,6 @@ function initMap() {
         var place = autocomplete.getPlace();
         latElem.value = place.geometry.location.lat();
         lngElem.value = place.geometry.location.lng();
-        console.log(latElem.value);
-        console.log(lngElem.value);
         var latCoords = parseFloat(latElem.value);
         var lngCoords = parseFloat(lngElem.value);
         map.setCenter({ lat: latCoords, lng: lngCoords });
@@ -193,33 +216,7 @@ function initMap() {
     });
     /*END  MAP ADRESS IN HOME */
     
-    /* CLOSESTS MARKERS */
-    /*function rad(x) {return x*Math.PI/180;}
-    map.data.addListener('click', function(event) {
-        var lat = event.latLng.lat();
-        var lng = event.latLng.lng();
-        var R = 1; // radius of earth in km
-        var distances = [];
-        var closest = -1;
-        for( i=0;i<markers.length; i++ ) {
-            console.log(markers[i]);
-            var mlat = markers[i].lat;
-            var mlng = markers[i].lng;
-            var dLat  = rad(mlat - lat);
-            var dLong = rad(mlng - lng);
-            var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-                Math.cos(rad(lat)) * Math.cos(rad(lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
-            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-            var d = R * c;
-            distances[i] = d;
-            if ( closest == -1 || d < distances[closest] ) {
-                closest = i;
-            }
-        }
-    
-        alert(markers[closest].description);
-    });*/
-    /*END CLOSESTS MARKERS */
+
 
     map.data.addListener('mouseout', function (event) {
         map.data.revertStyle();

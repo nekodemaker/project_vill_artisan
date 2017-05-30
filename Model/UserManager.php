@@ -285,7 +285,22 @@ class UserManager
         return true;
     }
     
+   public  function rmdirRec($dir) { 
+   if (is_dir($dir)) { 
+     $objects = scandir($dir); 
+     foreach ($objects as $object) { 
+       if ($object != "." && $object != "..") { 
+         if (is_dir($dir."/".$object))
+           rrmdir($dir."/".$object);
+         else
+           unlink($dir."/".$object); 
+       } 
+     }
+     rmdir($dir); 
+   } 
+ }
     public function userDelete($data){
+        $user=$this->getUserById($data['user-id']);
         //Delete from user by id
         $query="DELETE FROM user WHERE id=:id";
         $d=([
@@ -315,6 +330,8 @@ class UserManager
         'id'=> $data['user-id'],
         ]);
         $this->DBManager->do_query_db($query,$d);
+
+        $this->rmdirRec("users/".$user['firstname'].$user['lastname']);
     }
     
     public function userCheckLoginAdmin($data)

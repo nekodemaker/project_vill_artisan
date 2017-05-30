@@ -109,6 +109,7 @@ window.onload = function () {
     $("#select_inside").show();
     /* Ajax event for change search on map */
     $(".search").change(function () {
+        console.log(markers);
         if ($(this).val() == "adress") {
             $("#select_speciality").hide();
             $("#select_inside").show();
@@ -119,7 +120,8 @@ window.onload = function () {
                 dataType: "json",
                 url: "index.php?action=getSpecialities",
                 success: function (data) {
-                    res = "<select>";
+                    res = "<select id='selectspe'>";
+                    res += "<option>Tous</option>";
                     for (var i = 0; i < data['data'].length; i++) {
                         res += "<option>" + data['data'][i]['crafter_job'] + "</option>";
                         console.log(res);
@@ -139,7 +141,6 @@ window.onload = function () {
     /* chatbox on crafter profile */
     $('.contact_container_crafter_profile').hide();
     $(".contact_crafter_button").click(function () {
-        console.log('YO');
         $('.contact_container_crafter_profile').fadeIn();
 
     });

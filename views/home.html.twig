@@ -8,6 +8,7 @@ var markers=[
     "name":"",
     "lat":{{marker.latitude}},
     "lng":{{marker.longitude}},
+    "job":"{{marker.job}}",
     "description": '<div class="infowindow_content"><img class="img_infowindow" src="'+"{{marker.profile}}"+'" alt=""><br><h5>'+"{{marker.firstname}} {{marker.lastname}}"+'</h5><h6><b>'+"{{marker.job}}"+'</b></h6><p>'+"{{marker.adress}}"+'<br>'+"{{marker.time}}"+'</p><a class="redirect_crafter_profil" href="?action=artisanProfile&id='+"{{marker.id}}"+'">voir son profil</a></div>'
 },
 {% endfor %}
