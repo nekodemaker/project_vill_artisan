@@ -136,7 +136,6 @@ function initMap() {
         }
     });
 
-
     //Load Json file to draw polygons.
     map.data.loadGeoJson('web/coord.json');
     map.data.setStyle(function(feature) {
@@ -166,6 +165,34 @@ function initMap() {
         map.data.revertStyle();
         map.data.overrideStyle(event.feature, {strokeWeight: 7, strokeColor: '#422c1f'});
     });
+
+/* CLOSESTS MARKERS */
+/*function rad(x) {return x*Math.PI/180;}
+map.data.addListener('click', function(event) {
+    var lat = event.latLng.lat();
+    var lng = event.latLng.lng();
+    var R = 1; // radius of earth in km
+    var distances = [];
+    var closest = -1;
+    for( i=0;i<markers.length; i++ ) {
+        console.log(markers[i]);
+        var mlat = markers[i].lat;
+        var mlng = markers[i].lng;
+        var dLat  = rad(mlat - lat);
+        var dLong = rad(mlng - lng);
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(rad(lat)) * Math.cos(rad(lat)) * Math.sin(dLong/2) * Math.sin(dLong/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c;
+        distances[i] = d;
+        if ( closest == -1 || d < distances[closest] ) {
+            closest = i;
+        }
+    }
+
+    alert(markers[closest].description);
+});*/
+/*END CLOSESTS MARKERS */
 
     map.data.addListener('mouseout', function(event) {
         map.data.revertStyle();

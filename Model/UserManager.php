@@ -501,4 +501,10 @@ class UserManager
         $data = $this->DBManager->findAllSecure("SELECT * FROM villages",[]);
         return $data;
     }
+
+     public function userGetSpecialities()
+    {
+        $data = $this->DBManager->findAllSecure("SELECT distinct(crafter_job) FROM crafter",[]);
+        return $data;
+    }   
 }

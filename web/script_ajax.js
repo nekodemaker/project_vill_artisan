@@ -61,7 +61,7 @@ window.onload = function () {
         return false;
     });
 
- /* Ajax event for create article in crafter profile page*/
+    /* Ajax event for create article in crafter profile page*/
     $("#create-crafter-form").submit(function () {
         var data = $(this).serialize();
         var form = document.forms.namedItem("create-crafter-form");
@@ -104,6 +104,35 @@ window.onload = function () {
                 console.log("ERROR");
             }
         });
+    });
+
+    /* Ajax event for change search on map */
+    $(".search").change(function () {
+        if ($(this).val() == "adress") {
+            
+        }
+        if ($(this).val() == "category") {
+
+        }
+        if ($(this).val() == "speciality") {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "index.php?action=getSpecialities",
+                success: function (data) {
+                    res="<select>";
+                    for(var i=0;i<data['data'].length;i++){
+                        res+="<option>"+data['data'][i]['crafter_job']+"</option>";
+                        console.log(res);
+                    }
+                    res+="</select><button type='button' class='btn btn-default'>Choisir la spécialité</button>";
+                    $("#select_inside").html(res);
+                },
+                error: function (data) {
+                    console.log("ERROR");
+                }
+            });
+        }
     });
 
     /* JS FOR ADMIN PART */

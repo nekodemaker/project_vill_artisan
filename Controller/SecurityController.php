@@ -21,9 +21,9 @@ class SecurityController extends BaseController
             }
             else {
                 $error = "Invalid username or password";
+                echo $this->renderView('admin.html.twig', ['error' => $error]);
             }
         }
-        echo $this->renderView('admin.html.twig', ['error' => $error]);
     }
 
     public function loginAction()
@@ -232,5 +232,16 @@ class SecurityController extends BaseController
         echo $this->renderView('profile.html.twig', ['name' => $_SESSION['lastname'],'errors'=>$errors,'user'=>$user,'village_first' => $first,'village_second' => $second,'villages' => $villages]);
     }
     
+      public function getSpecialitiesAction()
+    {
+        $error = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'GET')
+        {
+            $manager = UserManager::getInstance();
+            $spec=$manager->userGetSpecialities();
+                echo json_encode(['data' => $spec ]);
+                exit(0);
+        }
+    }
     
 }

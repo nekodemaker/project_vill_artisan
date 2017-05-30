@@ -14,6 +14,7 @@ routes:
     profile: 'Security:profile'
     editProfile: 'Security:editProfile'
     changeProfilePic: 'Security:changeProfilePic'
+    getSpecialities: 'Security:getSpecialities'
     sendMessageTo: 'Message:sendMessageTo'
     startChat: 'Message:startChatTo'
     createArticle: 'Article:createArticle'
