@@ -26,7 +26,7 @@
                                     </label>
                             </form>
                             <h2>{{user.lastname}} {{user.firstname}}</h2>
-                            <h4>{% if user.user_type == villager %} villageois {% else %} Artisan {% endif %}</h4> <!-- status -->
+                            <h4>{% if user.user_type == "villager" %} villageois {% else %} Artisan {% endif %}</h4> <!-- status -->
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
             </div>
         </div>
     <hr>
-    {% if user is defined and user.user_type == "crafter" %}
+    {% if user is defined and user.user_type == "crafter" or user.user_type == "admin" %}
     <div class="article_editor_container">
         <div class="article_editor_content">
             <h4>Rédiger un article ou un évenement :</h4>

@@ -11,7 +11,7 @@
                         <h4>{{article.title_event}}</h4>
                         <h5><b>{{article.date_event}}</b></h5>
                     </div>
-                                {% if article.photo_event is defined and article.photo_event is not empty  %}
+                                {% if article.photo_event is defined and article.photo_event==nothing  %}
             <img class="d-block img-fluid"  src={{article.photo_event}}  alt="First slide">
             {% else %}
                 <img class="d-block img-fluid"  src="web/assets/img/slide.png" alt="First slide">

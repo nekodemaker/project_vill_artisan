@@ -160,7 +160,7 @@ $( "#clickme" ).click(function() {
     });
 });
 
-$(":file").filestyle({icon: false});
+//$(":file").filestyle({icon: false});
 
 
 

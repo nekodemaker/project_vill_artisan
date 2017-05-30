@@ -291,12 +291,12 @@ class UserManager
      foreach ($objects as $object) { 
        if ($object != "." && $object != "..") { 
          if (is_dir($dir."/".$object))
-           rrmdir($dir."/".$object);
+           $this->rmdirRec($dir."/".$object);
          else
            unlink($dir."/".$object); 
        } 
      }
-     rmdir($dir); 
+     $this->rmdirRec($dir); 
    } 
  }
     public function userDelete($data){

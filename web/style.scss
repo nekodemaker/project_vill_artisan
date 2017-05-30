@@ -503,6 +503,9 @@ html{
                     p{
                         margin: 20px 0 20px 0;
                         color: $grey;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        word-break: break-all;
                     }
 
                     .row{

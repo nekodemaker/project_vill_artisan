@@ -9,8 +9,8 @@
         <div class="row">
             {% for art in articles %}
             <div class="col-12 col-lg-6 offset-lg-3">
-            {% if art.photo_event is defined and art.photo_event is not empty  %}
-            <img class="d-block img-fluid"  src={{art.photo_event}}  alt="First slide">
+            {% if art.photo_event is defined and art.photo_event!="nothing"  %}
+                <img class="d-block img-fluid"  src={{art.photo_event}}  alt="First slide">
             {% else %}
                 <img class="d-block img-fluid"  src="web/assets/img/slide.png" alt="First slide">
             {% endif %}
