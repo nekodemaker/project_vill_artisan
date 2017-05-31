@@ -418,9 +418,6 @@ html body #main_container #blog_container .col_preview hr {
 html body #main_container #blog_container .col_preview p {
   margin: 20px 0 20px 0;
   color: #343539;
-  white-space: nowrap;
-  overflow: hidden;
-  word-break: break-all;
 }
 html body #main_container #blog_container .col_preview .row {
   margin: 0 0 40px 0;

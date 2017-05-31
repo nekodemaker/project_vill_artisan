@@ -120,13 +120,13 @@ window.onload = function () {
                 dataType: "json",
                 url: "index.php?action=getSpecialities",
                 success: function (data) {
-                    res = "<select id='selectspe'>";
+                    res = "<select class='custom-select' id='selectspe'>";
                     res += "<option>Tous</option>";
                     for (var i = 0; i < data['data'].length; i++) {
                         res += "<option>" + data['data'][i]['crafter_job'] + "</option>";
                         console.log(res);
                     }
-                    res += "</select><button type='button' class='btn btn-default'>Choisir la spécialité</button>";
+                    res += "</select>";
                     $("#select_speciality").html(res);
                     $("#select_speciality").show();
                     $("#select_inside").hide();
